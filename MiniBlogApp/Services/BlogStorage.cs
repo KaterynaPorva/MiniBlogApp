@@ -21,6 +21,23 @@ namespace MiniBlogApp.Services
             return post;
         }
 
+        public static void UpdatePost(int id, string title, string content)
+        {
+            var post = GetPostById(id);
+            if (post != null)
+            {
+                post.Title = title;
+                post.Content = content;
+            }
+        }
+
+        public static void DeletePost(int id)
+        {
+            var post = GetPostById(id);
+            if (post != null)
+                Posts.Remove(post);
+        }
+
         public static IEnumerable<Post> GetAllPosts() => Posts.OrderByDescending(p => p.CreatedAt);
 
         public static IEnumerable<Post> GetPostsByUser(string username) =>

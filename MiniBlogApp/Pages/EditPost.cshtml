@@ -1,0 +1,22 @@
+﻿@page
+@model MiniBlogApp.Pages.EditPostModel
+@{
+    ViewData["Title"] = "Редагувати пост";
+}
+
+<h2>Редагувати пост</h2>
+
+<form method="post">
+    <div>
+        <label>Заголовок:</label><br />
+        <input asp-for="Title" style="width:100%;" />
+    </div>
+    <div style="margin-top:10px;">
+        <label>Контент:</label><br />
+        <textarea asp-for="Content" rows="10" style="width:100%;"></textarea>
+    </div>
+    <div style="margin-top:10px;">
+        <button type="submit">Зберегти зміни</button>
+        <a href="/MyPosts" style="margin-left:10px;">⬅ Повернутись</a>
+    </div>
+</form>

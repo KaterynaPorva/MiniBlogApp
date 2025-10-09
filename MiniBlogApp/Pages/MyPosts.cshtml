@@ -19,7 +19,13 @@ else
         <div style="border:1px solid #ccc; margin:10px; padding:10px;">
             <h3>@post.Title</h3>
             <p>@post.Content</p>
-            <small>Створено: @post.CreatedAt</small>
+            <small>Створено: @post.CreatedAt.ToString("dd.MM.yyyy HH:mm")</small><br />
+
+            <a href="/EditPost?id=@post.Id">✏️ Редагувати</a> |
+            <form method="post" asp-page-handler="Delete" style="display:inline;">
+                <input type="hidden" name="id" value="@post.Id" />
+                <button type="submit" style="background:none; border:none; color:red; cursor:pointer; padding:0;">🗑️ Видалити</button>
+            </form>
         </div>
     }
 }

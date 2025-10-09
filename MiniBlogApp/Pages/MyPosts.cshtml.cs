@@ -19,5 +19,20 @@ namespace MiniBlogApp.Pages
             MyPosts = BlogStorage.GetPostsByUser(Username).ToList();
             return Page();
         }
+        public IActionResult OnPostDelete(int id)
+        {
+            var username = HttpContext.Session.GetString("Username");
+            if (string.IsNullOrEmpty(username))
+                return RedirectToPage("/Login");
+
+            var post = BlogStorage.GetPostById(id);
+            if (post != null && post.Author == username)
+            {
+                BlogStorage.DeletePost(id);
+            }
+
+            return RedirectToPage();
+        }
+
     }
 }
