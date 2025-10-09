@@ -1,0 +1,46 @@
+﻿@page 
+@model MiniBlogApp.Pages.ViewPostModel
+@{
+    ViewData["Title"] = Model.Post?.Title ?? "Пост не знайдено";
+}
+
+<p><a asp-page="/Index">⬅ Повернутися до всіх постів</a></p>
+
+@if (Model.Post == null)
+{
+    <h2>Пост не знайдено 😢</h2>
+}
+else
+{
+    <h1>@Model.Post.Title</h1>
+    <p><i>Автор: @Model.Post.Author</i></p>
+    <p>@Model.Post.Content</p>
+
+    <div style="margin-top:15px;">
+        <form method="post" asp-page-handler="Like">
+            <input type="hidden" name="id" value="@Model.Post.Id" />
+            <button type="submit">❤️ Лайк (@Model.Post.Likes.Count)</button>
+        </form>
+    </div>
+
+    <h3>Коментарі (@Model.Post.Comments.Count)</h3>
+    <ul>
+        @foreach (var c in Model.Post.Comments)
+        {
+            <li><b>@c.Author:</b> @c.Text</li>
+        }
+    </ul>
+
+    @if (!string.IsNullOrEmpty(Model.Username))
+    {
+        <form method="post" asp-page-handler="Comment">
+            <textarea name="commentText" rows="3" cols="50" placeholder="Напишіть коментар..."></textarea><br />
+            <input type="hidden" name="id" value="@Model.Post.Id" />
+            <button type="submit">Додати коментар</button>
+        </form>
+    }
+    else
+    {
+        <p>Щоб залишити коментар, <a href="/Login">увійдіть</a>.</p>
+    }
+}

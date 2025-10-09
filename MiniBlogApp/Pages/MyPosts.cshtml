@@ -1,0 +1,25 @@
+﻿@page
+@model MiniBlogApp.Pages.MyPostsModel
+@{
+    ViewData["Title"] = "Мої пости";
+}
+
+<h2>Мої пости</h2>
+
+<p><a href="/Index">⬅ На головну</a> | <a href="/CreatePost">Створити новий пост</a></p>
+
+@if (!Model.MyPosts.Any())
+{
+    <p>У вас ще немає постів.</p>
+}
+else
+{
+    @foreach (var post in Model.MyPosts)
+    {
+        <div style="border:1px solid #ccc; margin:10px; padding:10px;">
+            <h3>@post.Title</h3>
+            <p>@post.Content</p>
+            <small>Створено: @post.CreatedAt</small>
+        </div>
+    }
+}

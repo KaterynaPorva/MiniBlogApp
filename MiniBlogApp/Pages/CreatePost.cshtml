@@ -1,0 +1,30 @@
+﻿@page
+@model MiniBlogApp.Pages.CreatePostModel
+@{
+    ViewData["Title"] = "Створення поста";
+}
+
+<h2>Створити новий пост</h2>
+
+<p><a href="/Index">⬅ На головну</a> | <a href="/MyPosts">Мої пости</a></p>
+
+<form method="post">
+    <div style="margin-bottom:10px;">
+        <label>Заголовок:</label><br />
+        <input type="text" asp-for="Title" style="width:300px;" />
+        <span asp-validation-for="Title" style="color:red;"></span>
+    </div>
+
+    <div style="margin-bottom:10px;">
+        <label>Текст:</label><br />
+        <textarea asp-for="Content" rows="6" cols="50"></textarea>
+        <span asp-validation-for="Content" style="color:red;"></span>
+    </div>
+
+    <button type="submit">Опублікувати</button>
+</form>
+
+@if (!ModelState.IsValid)
+{
+    <p style="color:red;">@ModelState.Values.SelectMany(v => v.Errors).FirstOrDefault()?.ErrorMessage</p>
+}
