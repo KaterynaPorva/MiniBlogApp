@@ -8,6 +8,14 @@
 
 <a href="/Index">⬅ На головну</a>
 
+<form method="post" asp-page-handler="ClearLogs" style="margin-top:10px;">
+    <button type="submit">🗑 Очистити журнал</button>
+</form>
+
+@if (TempData["Message"] != null)
+{
+    <p style="color:green">@TempData["Message"]</p>
+}
 
 @if (!Model.Logs.Any())
 {

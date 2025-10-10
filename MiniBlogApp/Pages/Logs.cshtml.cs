@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using MiniBlogApp.Services;
 
@@ -10,6 +11,13 @@ namespace MiniBlogApp.Pages
         public void OnGet()
         {
             Logs = LoggerService.GetLogs().ToList();
+        }
+
+        public IActionResult OnPostClearLogs()
+        {
+            LoggerService.ClearAll();
+            TempData["Message"] = "Журнал активності очищено.";
+            return RedirectToPage();
         }
     }
 }

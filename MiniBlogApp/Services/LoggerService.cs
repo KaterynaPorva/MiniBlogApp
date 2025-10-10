@@ -2,7 +2,7 @@
 {
     public abstract class ActionLogger
     {
-        public string Username { get; set; }
+        public string Username { get; set; } = string.Empty;
         public DateTime Timestamp { get; set; }
 
         protected ActionLogger(string username)
@@ -65,11 +65,17 @@
     public static class LoggerService
     {
         public static List<ActionLogger> Logs { get; } = new();
+
         public static void AddLog(ActionLogger log)
         {
             Logs.Add(log);
         }
 
         public static IEnumerable<ActionLogger> GetLogs() => Logs.OrderByDescending(l => l.Timestamp);
+
+        public static void ClearAll()
+        {
+            Logs.Clear();
+        }
     }
 }
