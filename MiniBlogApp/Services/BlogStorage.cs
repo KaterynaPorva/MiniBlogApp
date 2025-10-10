@@ -18,6 +18,9 @@ namespace MiniBlogApp.Services
                 CreatedAt = DateTime.Now
             };
             Posts.Add(post);
+
+            LoggerService.AddLog(new PostLogger(author, title));
+
             return post;
         }
 
@@ -29,6 +32,8 @@ namespace MiniBlogApp.Services
                 post.Title = title;
                 post.Content = content;
             }
+
+
         }
 
         public static void DeletePost(int id)
@@ -52,6 +57,8 @@ namespace MiniBlogApp.Services
 
             if (!post.Likes.Any(l => l.Username == username))
                 post.Likes.Add(new Like { Username = username });
+
+            LoggerService.AddLog(new LikeLogger(username, post.Title));
         }
 
         public static void AddComment(int postId, string author, string text)
@@ -60,6 +67,8 @@ namespace MiniBlogApp.Services
             if (post == null) return;
 
             post.Comments.Add(new Comment { Author = author, Text = text });
+
+            LoggerService.AddLog(new CommentLogger(author, text));
         }
     }
 }

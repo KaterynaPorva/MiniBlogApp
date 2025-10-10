@@ -1,0 +1,25 @@
+﻿@page
+@model MiniBlogApp.Pages.PostAnalyticsModel
+@{
+    ViewData["Title"] = "Аналітика постів";
+}
+
+<h2>Аналіз постів</h2>
+
+<p><a href="/Index">⬅ На головну</a></p>
+
+<h3>Аналіз постів</h3>
+<ul>
+    @foreach (var a in Model.AnalyzedPosts)
+    {
+        <li>@a</li>
+    }
+</ul>
+
+<h3>Сумарний аналіз постів</h3>
+<ul>
+    @foreach (var s in Model.Summary)
+    {
+        <li>@s</li>
+    }
+</ul>

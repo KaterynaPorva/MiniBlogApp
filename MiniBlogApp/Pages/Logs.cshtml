@@ -1,0 +1,24 @@
+﻿@page
+@model MiniBlogApp.Pages.LogsModel
+@{
+    ViewData["Title"] = "Лог дій";
+}
+
+<h2>Лог дій користувачів</h2>
+
+<a href="/Index">⬅ На головну</a>
+
+
+@if (!Model.Logs.Any())
+{
+    <p>Немає жодної дії.</p>
+}
+else
+{
+    <ul>
+        @foreach (var log in Model.Logs)
+        {
+            <li>@log.GetMessage()</li>
+        }
+    </ul>
+}
