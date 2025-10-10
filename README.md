@@ -19,4 +19,21 @@
 - **Зберігання даних:** In-Memory
 - **Сесії:** ASP.NET Session (для авторизації користувача)
 
+## Інтерфейс користувача
+
+На даному етапі інтерфейс користувача простий і мінімалістичний. Основні елементи:  
+
+- **Сторінка входу (Login):** форма для введення імені користувача та пароля, з можливістю авторизації.
+<img width="1895" height="1002" alt="image" src="https://github.com/user-attachments/assets/6c2f27f9-e49e-4e71-b241-47fe363ff7a6" />
+- **Головна сторінка:** показує список постів, можливість переходу до створення нового поста.
+<img width="3807" height="1770" alt="image" src="https://github.com/user-attachments/assets/96e7de87-168a-4a29-8496-23c633db79dd" />
+- **Сторінка створення/редагування поста:** форма для введення заголовка та тексту поста.
+<img width="3787" height="1765" alt="image" src="https://github.com/user-attachments/assets/ef1fac96-c508-43bf-84b1-0d76b592d75e" />
+- **Сторінка перегляду постів:** можливість додавати коментарі та ставити лайки.
+<img width="3798" height="1763" alt="image" src="https://github.com/user-attachments/assets/b4024c2f-8ad0-46dc-9e58-b585f8dda920" />
+- **Сторінка аналітики постів:** відображає підсумкову статистику та аналіз постів.
+<img width="3783" height="1765" alt="image" src="https://github.com/user-attachments/assets/058f615f-74f0-41df-b233-629ed28cec71" />  
+- **Сторінка журналу дій:** показує дії користувачів у хронологічному порядку.
+<img width="3791" height="1759" alt="image" src="https://github.com/user-attachments/assets/76e587f4-f979-4b2b-a4c3-c3f22695917d" />
+ 
 
