@@ -42,27 +42,46 @@ namespace MiniBlogApp.Tests.UtilsTests
         [Fact]
         public void Summarize_ShouldReturnCorrectTotals()
         {
-            // Arrange
             var posts = GetSamplePosts();
-
-            // Act
             var result = PostStatsUtils.Summarize(posts);
-
-            // Assert
             Assert.Equal("Всього постів: 3, всього лайків: 3, всього коментарів: 3", result);
         }
 
         [Fact]
         public void Summarize_ByAuthor_ShouldReturnCorrectTotals()
         {
-            // Arrange
             var posts = GetSamplePosts();
-
-            // Act
             var result = PostStatsUtils.Summarize(posts, "author1");
-
-            // Assert
             Assert.Equal("Пости користувача author1: 2, лайки: 1, коментарі: 2", result);
+        }
+
+
+        [Fact]
+        public void Summarize_ShouldHandleEmptyList()
+        {
+            var posts = new List<Post>();
+            var result = PostStatsUtils.Summarize(posts);
+            Assert.Equal("Всього постів: 0, всього лайків: 0, всього коментарів: 0", result);
+        }
+
+        [Fact]
+        public void Summarize_ByAuthor_ShouldHandleNoPostsForAuthor()
+        {
+            var posts = GetSamplePosts();
+            var result = PostStatsUtils.Summarize(posts, "unknown");
+            Assert.Equal("Пости користувача unknown: 0, лайки: 0, коментарі: 0", result);
+        }
+
+        [Fact]
+        public void Summarize_ShouldHandlePostsWithNoLikesOrComments()
+        {
+            var posts = new List<Post>
+            {
+                new Post { Id = 10, Author = "authorX", Title = "Empty", Likes = new List<Like>(), Comments = new List<Comment>() }
+            };
+            var result = PostStatsUtils.Summarize(posts);
+            Assert.Contains("всього лайків: 0", result);
+            Assert.Contains("всього коментарів: 0", result);
         }
     }
 }
