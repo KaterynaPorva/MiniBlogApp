@@ -1,5 +1,4 @@
-﻿using MiniBlogApp.Models;
-using MiniBlogApp.Services;
+﻿using MiniBlogApp.Services;
 using Xunit;
 
 namespace MiniBlogApp.Tests.ServiceTests
