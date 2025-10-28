@@ -1,5 +1,4 @@
 ﻿using System.Linq;
-using MiniBlogApp.Models;
 using MiniBlogApp.Services;
 using Xunit;
 
