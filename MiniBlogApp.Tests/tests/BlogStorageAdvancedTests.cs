@@ -1,9 +1,12 @@
 ﻿using MiniBlogApp.Services;
 using Xunit;
 using System.Linq;
+using System.Collections.Generic;
+using MiniBlogApp.Models;
 
 namespace MiniBlogApp.Tests.ServiceTests
 {
+    [Collection("BlogStorageTests")]
     public class BlogStorageAdvancedTests
     {
         public BlogStorageAdvancedTests()

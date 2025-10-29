@@ -1,14 +1,17 @@
 ﻿using System.Linq;
 using MiniBlogApp.Services;
 using Xunit;
+using MiniBlogApp.Models;
 
 namespace MiniBlogApp.Tests.ServiceTests
 {
+    [Collection("BlogStorageTests")]
     public class BlogStorageAddLikeTests
     {
         public BlogStorageAddLikeTests()
         {
             BlogStorage.Posts.Clear();
+            LoggerService.ClearAll(); 
         }
 
         [Fact]

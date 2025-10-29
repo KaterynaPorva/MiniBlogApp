@@ -15,8 +15,6 @@ namespace MiniBlogApp.Tests.ServiceTests
         [Fact]
         public void AddLog_ShouldStoreDifferentTypes()
         {
-            LoggerService.ClearAll();
-
             LoggerService.AddLog(new PostLogger("u", "Post"));
             LoggerService.AddLog(new LikeLogger("u", "Post"));
             LoggerService.AddLog(new CommentLogger("u", "C"));

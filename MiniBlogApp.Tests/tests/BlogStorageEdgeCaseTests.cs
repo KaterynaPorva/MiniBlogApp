@@ -6,6 +6,7 @@ using System.Collections.Generic;
 
 namespace MiniBlogApp.Tests.ServiceTests
 {
+    [Collection("BlogStorageTests")]
     public class BlogStorageEdgeCaseTests
     {
         public BlogStorageEdgeCaseTests()
