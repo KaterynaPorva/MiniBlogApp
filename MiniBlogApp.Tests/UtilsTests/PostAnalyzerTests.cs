@@ -7,20 +7,39 @@ namespace MiniBlogApp.Tests.UtilsTests
 {
     public class PostAnalyzerTests
     {
+        private const int PostIdWithNull = 3;
+        private const int PostIdPopular = 4;
+        private const string NullContent = "Content here";
+        private const string PopularAuthor = "popularUser";
+        private const string PopularTitle = "Viral Post";
+        private const string PopularContent = "Lots of engagement";
+        private static readonly List<Like> PopularLikes = new()
+        {
+            new Like { Username = "u1" },
+            new Like { Username = "u2" },
+            new Like { Username = "u3" },
+            new Like { Username = "u4" }
+        };
+        private static readonly List<Comment> PopularComments = new()
+        {
+            new Comment { Author = "c1", Text = "Great!" },
+            new Comment { Author = "c2", Text = "Amazing!" }
+        };
+
         [Fact]
         public void Analyze_ShouldHandlePostWithNullAuthorOrTitle()
         {
             var post = new Post
             {
-                Id = 3,
+                Id = PostIdWithNull,
                 Author = null,
                 Title = null,
-                Content = "Content here",
+                Content = NullContent,
                 Likes = new List<Like>(),
                 Comments = new List<Comment>()
             };
-
             var analyzer = new PostAnalyzer<Post>();
+
             var result = analyzer.Analyze(post);
 
             Assert.Contains("створений користувачем", result);
@@ -33,29 +52,19 @@ namespace MiniBlogApp.Tests.UtilsTests
         {
             var post = new Post
             {
-                Id = 4,
-                Author = "popularUser",
-                Title = "Viral Post",
-                Content = "Lots of engagement",
-                Likes = new List<Like>
-                {
-                    new Like { Username = "u1" },
-                    new Like { Username = "u2" },
-                    new Like { Username = "u3" },
-                    new Like { Username = "u4" }
-                },
-                Comments = new List<Comment>
-                {
-                    new Comment { Author = "c1", Text = "Great!" },
-                    new Comment { Author = "c2", Text = "Amazing!" }
-                }
+                Id = PostIdPopular,
+                Author = PopularAuthor,
+                Title = PopularTitle,
+                Content = PopularContent,
+                Likes = new List<Like>(PopularLikes),
+                Comments = new List<Comment>(PopularComments)
             };
-
             var analyzer = new PostAnalyzer<Post>();
+
             var result = analyzer.Analyze(post);
 
-            Assert.Contains("4 лайків", result);
-            Assert.Contains("2 коментарів", result);
+            Assert.Contains($"{PopularLikes.Count} лайків", result);
+            Assert.Contains($"{PopularComments.Count} коментарів", result);
         }
     }
 }
