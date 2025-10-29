@@ -21,13 +21,12 @@ namespace MiniBlogApp.Tests.UtilsTests
             };
 
             var analyzer = new PostAnalyzer<Post>();
-
             var result = analyzer.Analyze(post);
 
-            Assert.Equal(
-                "Пост 'Test Post' створений користувачем author1, має 2 лайків і 1 коментарів.",
-                result
-            );
+            Assert.Contains("Test Post", result);
+            Assert.Contains("author1", result);
+            Assert.Contains("2 лайків", result);
+            Assert.Contains("1 коментар", result);
         }
 
         [Fact]

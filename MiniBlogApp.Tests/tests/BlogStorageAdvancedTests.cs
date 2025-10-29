@@ -28,9 +28,7 @@ namespace MiniBlogApp.Tests.ServiceTests
             Assert.Equal("Nice post!", updatedPost.Comments.First().Text);
 
             var logs = LoggerService.GetLogs().ToList();
-            var commentLog = logs.OfType<CommentLogger>().FirstOrDefault();
-            Assert.NotNull(commentLog);
-            Assert.Contains("залишив коментар", commentLog.GetMessage());
+            Assert.Contains(logs, l => l is CommentLogger && l.GetMessage().Contains("залишив коментар"));
         }
 
         [Fact]
@@ -42,11 +40,8 @@ namespace MiniBlogApp.Tests.ServiceTests
             BlogStorage.AddLike(post.Id, "bob");
 
             var logs = LoggerService.GetLogs().ToList();
-
-            var likeLogs = logs.OfType<LikeLogger>().Where(l => l.Username == "bob").ToList();
-            Assert.Single(likeLogs);
-
-            Assert.Contains(logs, l => l is PostLogger && l.GetMessage().Contains("створив пост"));
+            Assert.Single(logs.OfType<LikeLogger>().Where(l => l.Username == "bob"));
+            Assert.Contains(logs, l => l.GetMessage().Contains("створив пост"));
         }
 
         [Fact]

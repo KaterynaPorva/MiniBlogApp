@@ -28,7 +28,7 @@ namespace MiniBlogApp.Tests.ServiceTests
         }
 
         [Fact]
-        public void AddLike_ShouldBeCaseInsensitive_Usernames()
+        public void AddLike_ShouldBeCaseSensitive_Usernames()
         {
             var post = BlogStorage.AddPost("user1", "Title", "Content");
 
