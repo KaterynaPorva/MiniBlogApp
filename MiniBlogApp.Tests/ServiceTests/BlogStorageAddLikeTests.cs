@@ -11,7 +11,7 @@ namespace MiniBlogApp.Tests.ServiceTests
         public BlogStorageAddLikeTests()
         {
             BlogStorage.Posts.Clear();
-            LoggerService.ClearAll(); 
+            LoggerService.ClearAll();
         }
 
         [Fact]
@@ -34,6 +34,7 @@ namespace MiniBlogApp.Tests.ServiceTests
             BlogStorage.AddLike(post.Id, "user1");
 
             Assert.Single(post.Likes);
+            Assert.Equal("user1", post.Likes.First().Username);
         }
 
         [Fact]

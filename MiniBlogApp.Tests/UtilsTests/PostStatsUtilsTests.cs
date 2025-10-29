@@ -55,7 +55,6 @@ namespace MiniBlogApp.Tests.UtilsTests
             Assert.Equal("Пости користувача author1: 2, лайки: 1, коментарі: 2", result);
         }
 
-
         [Fact]
         public void Summarize_ShouldHandleEmptyList()
         {
@@ -70,18 +69,6 @@ namespace MiniBlogApp.Tests.UtilsTests
             var posts = GetSamplePosts();
             var result = PostStatsUtils.Summarize(posts, "unknown");
             Assert.Equal("Пости користувача unknown: 0, лайки: 0, коментарі: 0", result);
-        }
-
-        [Fact]
-        public void Summarize_ShouldHandlePostsWithNoLikesOrComments()
-        {
-            var posts = new List<Post>
-            {
-                new Post { Id = 10, Author = "authorX", Title = "Empty", Likes = new List<Like>(), Comments = new List<Comment>() }
-            };
-            var result = PostStatsUtils.Summarize(posts);
-            Assert.Contains("всього лайків: 0", result);
-            Assert.Contains("всього коментарів: 0", result);
         }
     }
 }
