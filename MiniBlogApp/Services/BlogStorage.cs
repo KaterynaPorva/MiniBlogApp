@@ -23,17 +23,16 @@ namespace MiniBlogApp.Services
 
             return post;
         }
-
-        public static void UpdatePost(int id, string title, string content)
+        public static Post? UpdatePost(int id, string title, string content)
         {
             var post = GetPostById(id);
             if (post != null)
             {
                 post.Title = title;
                 post.Content = content;
+                return post; 
             }
-
-
+            return null;
         }
 
         public static void DeletePost(int id)
@@ -56,9 +55,10 @@ namespace MiniBlogApp.Services
             if (post == null) return;
 
             if (!post.Likes.Any(l => l.Username == username))
+            {
                 post.Likes.Add(new Like { Username = username });
-
-            LoggerService.AddLog(new LikeLogger(username, post.Title));
+                LoggerService.AddLog(new LikeLogger(username, post.Title));
+            }
         }
 
         public static void AddComment(int postId, string author, string text)
@@ -67,7 +67,6 @@ namespace MiniBlogApp.Services
             if (post == null) return;
 
             post.Comments.Add(new Comment { Author = author, Text = text });
-
             LoggerService.AddLog(new CommentLogger(author, text));
         }
     }

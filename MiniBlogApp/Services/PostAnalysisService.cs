@@ -6,7 +6,12 @@ namespace MiniBlogApp.Services
     {
         public string Analyze(T post)
         {
-            return $"Пост '{post.Title}' створений користувачем {post.Author}, має {post.Likes.Count} лайків і {post.Comments.Count} коментарів.";
+            var title = post.Title ?? "без назви";
+            var author = post.Author ?? "невідомий";
+            var likesCount = post.Likes?.Count ?? 0;
+            var commentsCount = post.Comments?.Count ?? 0;
+
+            return $"Пост '{title}' створений користувачем {author}, має {likesCount} лайків і {commentsCount} коментарів.";
         }
     }
 
@@ -14,13 +19,17 @@ namespace MiniBlogApp.Services
     {
         public static string Summarize(IEnumerable<Post> posts)
         {
-            return $"Всього постів: {posts.Count()}, всього лайків: {posts.Sum(p => p.Likes.Count)}, всього коментарів: {posts.Sum(p => p.Comments.Count)}";
+            if (posts == null) return "Всього постів: 0, всього лайків: 0, всього коментарів: 0";
+
+            return $"Всього постів: {posts.Count()}, всього лайків: {posts.Sum(p => p.Likes?.Count ?? 0)}, всього коментарів: {posts.Sum(p => p.Comments?.Count ?? 0)}";
         }
 
         public static string Summarize(IEnumerable<Post> posts, string author)
         {
+            if (posts == null) return $"Пости користувача {author}: 0, лайки: 0, коментарі: 0";
+
             var authorPosts = posts.Where(p => p.Author == author);
-            return $"Пости користувача {author}: {authorPosts.Count()}, лайки: {authorPosts.Sum(p => p.Likes.Count)}, коментарі: {authorPosts.Sum(p => p.Comments.Count)}";
+            return $"Пости користувача {author}: {authorPosts.Count()}, лайки: {authorPosts.Sum(p => p.Likes?.Count ?? 0)}, коментарі: {authorPosts.Sum(p => p.Comments?.Count ?? 0)}";
         }
     }
 }
