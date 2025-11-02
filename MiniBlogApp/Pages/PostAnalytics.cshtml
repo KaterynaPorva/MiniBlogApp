@@ -1,25 +1,80 @@
 ﻿@page
 @model MiniBlogApp.Pages.PostAnalyticsModel
 @{
+    Layout = "_Layout";
     ViewData["Title"] = "Аналітика постів";
 }
 
-<h2>Аналіз постів</h2>
-
-<p><a href="/Index">⬅ На головну</a></p>
-
-<h3>Аналіз постів</h3>
-<ul>
-    @foreach (var a in Model.AnalyzedPosts)
-    {
-        <li>@a</li>
+<style>
+    body {
+        background-color: #5C4033; 
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        width: 100%;
     }
-</ul>
 
-<h3>Сумарний аналіз постів</h3>
-<ul>
-    @foreach (var s in Model.Summary)
-    {
-        <li>@s</li>
+    .posts-container {
+        max-width: 800px;
+        margin: 100px auto;
+        padding: 30px;
+        background-color: #ffffff;
+        border-radius: 20px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        color: #333;
     }
-</ul>
+
+    h2, h3 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .links {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+        .links a {
+            color: #5C4033;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+
+            .links a:hover {
+                text-decoration: underline;
+            }
+
+    ul {
+        list-style-type: disc;
+        padding-left: 20px;
+    }
+
+    li {
+        margin-bottom: 5px;
+    }
+</style>
+
+<div class="posts-container">
+    <h2>Аналіз постів</h2>
+
+    <div class="links">
+        <a href="/Index">⬅ На головну</a>
+    </div>
+
+    <h3>Аналіз постів</h3>
+    <ul>
+        @foreach (var a in Model.AnalyzedPosts)
+        {
+            <li>@a</li>
+        }
+    </ul>
+
+    <h3>Сумарний аналіз постів</h3>
+    <ul>
+        @foreach (var s in Model.Summary)
+        {
+            <li>@s</li>
+        }
+    </ul>
+</div>
