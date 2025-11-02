@@ -1,28 +1,94 @@
 ﻿@page
 @model MiniBlogApp.Pages.LoginModel
 @{
+    Layout = "_Layout";
     ViewData["Title"] = "Авторизація";
 }
 
-<h2>Увійти в систему</h2>
-
-<form method="post" asp-page="/Login">
-    <div>
-        <label>Логін:</label><br />
-        <input asp-for="Input.Username" />
-    </div>
-
-    <div style="margin-top:10px;">
-        <label>Пароль:</label><br />
-        <input asp-for="Input.Password" type="password" />
-    </div>
-
-    <div style="margin-top:15px;">
-        <button type="submit">Увійти</button>
-    </div>
-
-    @if (!string.IsNullOrEmpty(Model.ErrorMessage))
-    {
-        <p style="color:red;">@Model.ErrorMessage</p>
+<style>
+    body {
+        background-color: #5C4033; 
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        width: 100%;
     }
-</form>
+
+    .login-container {
+        max-width: 400px;
+        margin: 100px auto;
+        background-color: #ffffff;
+        padding: 30px;
+        border-radius: 20px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 30px;
+        color: #333;
+    }
+
+    label {
+        display: block;
+        margin-bottom: 5px;
+        font-weight: bold;
+    }
+
+    .form-control {
+        border-radius: 25px;
+        padding: 10px 20px;
+        border: 1px solid #ccc;
+        width: 100%;
+        box-sizing: border-box;
+        margin-bottom: 20px;
+        font-size: 16px;
+    }
+
+    .btn-login {
+        background-color: #f5f5dc; 
+        color: #333;
+        border: none;
+        padding: 10px 20px;
+        border-radius: 25px;
+        width: 100%;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        font-size: 16px;
+    }
+
+        .btn-login:hover {
+            background-color: #e0dcb5; 
+        }
+
+    .error-message {
+        color: red;
+        text-align: center;
+        margin-top: 10px;
+    }
+</style>
+
+<div class="login-container">
+    <h2>Увійти в систему</h2>
+
+    <form method="post" asp-page="/Login">
+        <div>
+            <label>Логін:</label>
+            <input asp-for="Input.Username" class="form-control" />
+        </div>
+
+        <div>
+            <label>Пароль:</label>
+            <input asp-for="Input.Password" type="password" class="form-control" />
+        </div>
+
+        <button type="submit" class="btn-login">Увійти</button>
+
+        @if (!string.IsNullOrEmpty(Model.ErrorMessage))
+        {
+            <p class="error-message">@Model.ErrorMessage</p>
+        }
+    </form>
+</div>
+
