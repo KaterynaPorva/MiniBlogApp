@@ -1,46 +1,129 @@
-﻿@page 
+﻿@page
 @model MiniBlogApp.Pages.ViewPostModel
 @{
+    Layout = "_Layout";
     ViewData["Title"] = Model.Post?.Title ?? "Пост не знайдено";
 }
 
-<p><a asp-page="/Index">⬅ Повернутися до всіх постів</a></p>
+<style>
+    body {
+        background-color: #5C4033;
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        width: 100%;
+    }
 
-@if (Model.Post == null)
-{
-    <h2>Пост не знайдено 😢</h2>
-}
-else
-{
-    <h1>@Model.Post.Title</h1>
-    <p><i>Автор: @Model.Post.Author</i></p>
-    <p>@Model.Post.Content</p>
+    .posts-container {
+        max-width: 800px;
+        margin: 100px auto;
+        padding: 30px;
+        background-color: #ffffff;
+        border-radius: 20px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        color: #333;
+    }
 
-    <div style="margin-top:15px;">
-        <form method="post" asp-page-handler="Like">
-            <input type="hidden" name="id" value="@Model.Post.Id" />
-            <button type="submit">❤️ Лайк (@Model.Post.Likes.Count)</button>
-        </form>
+    h1, h2, h3 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .links {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+        .links a {
+            color: #5C4033;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+
+            .links a:hover {
+                text-decoration: underline;
+            }
+
+    .btn-action {
+        background-color: #f5f5dc;
+        color: #333;
+        border: none;
+        padding: 8px 16px;
+        border-radius: 25px;
+        font-weight: bold;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        margin-top: 10px;
+    }
+
+        .btn-action:hover {
+            background-color: #e0dcb5;
+        }
+
+    textarea {
+        width: 100%;
+        padding: 10px;
+        border-radius: 15px;
+        border: 1px solid #ccc;
+        font-size: 16px;
+        margin-bottom: 10px;
+        box-sizing: border-box;
+    }
+
+    ul {
+        padding-left: 20px;
+    }
+
+    li {
+        margin-bottom: 8px;
+    }
+
+    p.author {
+        font-style: italic;
+        margin-bottom: 20px;
+    }
+</style>
+
+<div class="posts-container">
+    <div class="links">
+        <a asp-page="/Index">⬅ Повернутися до всіх постів</a>
     </div>
 
-    <h3>Коментарі (@Model.Post.Comments.Count)</h3>
-    <ul>
-        @foreach (var c in Model.Post.Comments)
-        {
-            <li><b>@c.Author:</b> @c.Text</li>
-        }
-    </ul>
-
-    @if (!string.IsNullOrEmpty(Model.Username))
+    @if (Model.Post == null)
     {
-        <form method="post" asp-page-handler="Comment">
-            <textarea name="commentText" rows="3" cols="50" placeholder="Напишіть коментар..."></textarea><br />
-            <input type="hidden" name="id" value="@Model.Post.Id" />
-            <button type="submit">Додати коментар</button>
-        </form>
+        <h2>Пост не знайдено 😢</h2>
     }
     else
     {
-        <p>Щоб залишити коментар, <a href="/Login">увійдіть</a>.</p>
+        <h1>@Model.Post.Title</h1>
+        <p class="author">Автор: @Model.Post.Author</p>
+        <p>@Model.Post.Content</p>
+
+        <form method="post" asp-page-handler="Like">
+            <input type="hidden" name="id" value="@Model.Post.Id" />
+            <button type="submit" class="btn-action">❤️ Лайк (@Model.Post.Likes.Count)</button>
+        </form>
+
+        <h3>Коментарі (@Model.Post.Comments.Count)</h3>
+        <ul>
+            @foreach (var c in Model.Post.Comments)
+            {
+                <li><b>@c.Author:</b> @c.Text</li>
+            }
+        </ul>
+
+        @if (!string.IsNullOrEmpty(Model.Username))
+        {
+            <form method="post" asp-page-handler="Comment">
+                <textarea name="commentText" rows="3" placeholder="Напишіть коментар..."></textarea>
+                <input type="hidden" name="id" value="@Model.Post.Id" />
+                <button type="submit" class="btn-action">Додати коментар</button>
+            </form>
+        }
+        else
+        {
+            <p style="text-align:center;">Щоб залишити коментар, <a href="/Login">увійдіть</a>.</p>
+        }
     }
-}
+</div>
