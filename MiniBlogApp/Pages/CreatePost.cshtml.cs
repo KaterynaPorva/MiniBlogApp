@@ -10,7 +10,7 @@ namespace MiniBlogApp.Pages
         public string Title { get; set; } = string.Empty;
 
         [BindProperty]
-        public string Content { get; set; } = string.Empty;
+        public string PostContent { get; set; } = string.Empty;
 
         public string? Username { get; set; }
 
@@ -29,13 +29,13 @@ namespace MiniBlogApp.Pages
             if (string.IsNullOrEmpty(Username))
                 return RedirectToPage("/Login");
 
-            if (string.IsNullOrWhiteSpace(Title) || string.IsNullOrWhiteSpace(Content))
+            if (string.IsNullOrWhiteSpace(Title) || string.IsNullOrWhiteSpace(PostContent))
             {
                 ModelState.AddModelError("", "Заповніть усі поля");
                 return Page();
             }
 
-            BlogStorage.AddPost(Username, Title, Content);
+            BlogStorage.AddPost(Username, Title, PostContent);
             return RedirectToPage("/MyPosts");
         }
     }
