@@ -23,35 +23,46 @@
 
 Для забезпечення стабільності роботи веб-додатку створено юніт-тести для основних компонентів.
 
-**Сервісні тести (Services):**  
-- **UserServiceTests.cs** — перевірка аутентифікації користувачів та отримання списку всіх користувачів.  
-- **BlogStorageAddPostTests.cs** — перевірка додавання нових постів.  
-- **BlogStorageAddLikeTests.cs** — перевірка додавання лайків до постів, уникання дублікатів та поведінки при відсутності посту.
+**LoggerTests**
+- **LoggerServiceAdvancedTests.cs** — перевірка логування дій користувачів (створення постів, лайків, коментарів).
 
-**Утиліти (Utils):**  
-- **PostAnalyzerTests.cs** — перевірка аналізу постів (кількість лайків і коментарів).  
+**Сервісні тести (ServiceTests)**
+- **BlogStorageAddPostTests.cs** — перевірка додавання нових постів.
+- **BlogStorageAddLikeTests.cs** — перевірка додавання лайків, уникання дублікатів та поведінки при відсутності посту.
+- **BlogStorageAdvancedTests.cs** — комплексне тестування додавання коментарів, лайків, постів та логування подій.
+- **BlogStorageEdgeCaseTests.cs** — перевірка граничних випадків (дуже довгий контент, порожні коментарі, чутливість до регістру у іменах користувачів).
+- **UserServiceTests.cs** — перевірка базової аутентифікації та отримання списку користувачів.
+- **UserServiceAdvancedTests.cs** — додаткові перевірки на чутливість до регістру та обробку порожнього пароля.
+
+**Утиліти (UtilsTests)**
+- **PostAnalyzerTests.cs** — перевірка аналізу постів (кількість лайків та коментарів, обробка постів без автора або заголовку).
 - **PostStatsUtilsTests.cs** — перевірка підрахунку сумарної статистики по всіх постах та по конкретному користувачу.
+
+**Колекції тестів**
+- **BlogStorageTestsCollection.cs** — вимкнення паралельного виконання тестів для BlogStorage.
+
 
 ## Інтерфейс користувача
 
 На даному етапі інтерфейс користувача простий і мінімалістичний. Основні елементи:  
 
 - **Сторінка входу (Login):** форма для введення імені користувача та пароля, з можливістю авторизації.
-<img width="1895" height="1002" alt="image" src="https://github.com/user-attachments/assets/6c2f27f9-e49e-4e71-b241-47fe363ff7a6" />
+<img width="3802" height="1779" alt="image" src="https://github.com/user-attachments/assets/8e8fc864-ddd5-4462-89ae-c8383797e8ca" />
 
 - **Головна сторінка:** показує список постів, можливість переходу до створення нового поста.
-<img width="3807" height="1770" alt="image" src="https://github.com/user-attachments/assets/96e7de87-168a-4a29-8496-23c633db79dd" />
+<img width="3752" height="1751" alt="image" src="https://github.com/user-attachments/assets/fcc7be90-247b-4b1f-aeca-550dd80a0933" />
 
 - **Сторінка створення/редагування поста:** форма для введення заголовка та тексту поста.
-<img width="3787" height="1765" alt="image" src="https://github.com/user-attachments/assets/ef1fac96-c508-43bf-84b1-0d76b592d75e" />
+<img width="3776" height="1750" alt="image" src="https://github.com/user-attachments/assets/c3613e47-4b69-4f8f-912d-6a800d6f81c9" />
 
 - **Сторінка перегляду постів:** можливість додавати коментарі та ставити лайки.
-<img width="3798" height="1763" alt="image" src="https://github.com/user-attachments/assets/b4024c2f-8ad0-46dc-9e58-b585f8dda920" />
+<img width="3773" height="1775" alt="image" src="https://github.com/user-attachments/assets/84763112-6815-4e3b-a7cb-8808e9a6e1bd" />
 
 - **Сторінка аналітики постів:** відображає підсумкову статистику та аналіз постів.
-<img width="3783" height="1765" alt="image" src="https://github.com/user-attachments/assets/058f615f-74f0-41df-b233-629ed28cec71" />
+<img width="3798" height="1779" alt="image" src="https://github.com/user-attachments/assets/d5256f54-e6b0-49df-aec0-edbbe1c8b4a6" />
 
 - **Сторінка журналу дій:** показує дії користувачів у хронологічному порядку.
-<img width="3791" height="1759" alt="image" src="https://github.com/user-attachments/assets/76e587f4-f979-4b2b-a4c3-c3f22695917d" />
+<img width="3766" height="1747" alt="image" src="https://github.com/user-attachments/assets/6ff98cce-a54f-4818-bda9-39b775a754a6" />
+
  
 
