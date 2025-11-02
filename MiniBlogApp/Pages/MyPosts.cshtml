@@ -1,31 +1,129 @@
 ﻿@page
 @model MiniBlogApp.Pages.MyPostsModel
 @{
+    Layout = "_Layout";
     ViewData["Title"] = "Мої пости";
 }
 
-<h2>Мої пости</h2>
 
-<p><a href="/Index">⬅ На головну</a> | <a href="/CreatePost">Створити новий пост</a></p>
-
-@if (!Model.MyPosts.Any())
-{
-    <p>У вас ще немає постів.</p>
-}
-else
-{
-    @foreach (var post in Model.MyPosts)
-    {
-        <div style="border:1px solid #ccc; margin:10px; padding:10px;">
-            <h3>@post.Title</h3>
-            <p>@post.Content</p>
-            <small>Створено: @post.CreatedAt.ToString("dd.MM.yyyy HH:mm")</small><br />
-
-            <a href="/EditPost?id=@post.Id">✏️ Редагувати</a> |
-            <form method="post" asp-page-handler="Delete" style="display:inline;">
-                <input type="hidden" name="id" value="@post.Id" />
-                <button type="submit" style="background:none; border:none; color:red; cursor:pointer; padding:0;">🗑️ Видалити</button>
-            </form>
-        </div>
+<style>
+    body {
+        background-color: #5C4033; 
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        width: 100%;
     }
-}
+
+    .posts-container {
+        max-width: 800px;
+        margin: 100px auto;
+        padding: 30px;
+        background-color: #ffffff;
+        border-radius: 20px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        color: #333;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 30px;
+    }
+
+    .links {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+        .links a {
+            color: #5C4033;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+
+            .links a:hover {
+                text-decoration: underline;
+            }
+
+    .post-card {
+        background-color: #f5f5dc; 
+        border-radius: 20px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+        .post-card h3 {
+            margin-top: 0;
+        }
+
+        .post-card small {
+            color: #666;
+        }
+
+    .post-actions {
+        margin-top: 10px;
+    }
+
+        .post-actions a,
+        .post-actions button {
+            margin-right: 10px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        .post-actions a {
+            color: #333;
+            text-decoration: none;
+        }
+
+            .post-actions a:hover {
+                text-decoration: underline;
+            }
+
+        .post-actions button {
+            background: none;
+            border: none;
+            color: red;
+            padding: 0;
+        }
+
+    p.no-posts {
+        text-align: center;
+        font-weight: bold;
+    }
+</style>
+
+<div class="posts-container">
+    <h2>Мої пости</h2>
+
+    <div class="links">
+        <a href="/Index">⬅ На головну</a>
+        <a href="/CreatePost">Створити новий пост</a>
+    </div>
+
+    @if (!Model.MyPosts.Any())
+    {
+        <p class="no-posts">У вас ще немає постів.</p>
+    }
+    else
+    {
+        @foreach (var post in Model.MyPosts)
+        {
+            <div class="post-card">
+                <h3>@post.Title</h3>
+                <p>@post.Content</p>
+                <small>Створено: @post.CreatedAt.ToString("dd.MM.yyyy HH:mm")</small>
+
+                <div class="post-actions">
+                    <a href="/EditPost?id=@post.Id">✏️ Редагувати</a>
+                    <form method="post" asp-page-handler="Delete" style="display:inline;">
+                        <input type="hidden" name="id" value="@post.Id" />
+                        <button type="submit">🗑️ Видалити</button>
+                    </form>
+                </div>
+            </div>
+        }
+    }
+</div>
