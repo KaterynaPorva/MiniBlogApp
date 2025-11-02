@@ -14,7 +14,7 @@ namespace MiniBlogApp.Pages
         public string Title { get; set; } = string.Empty;
 
         [BindProperty]
-        public string Content { get; set; } = string.Empty;
+        public string PostContent { get; set; } = string.Empty;
 
         public string? Username { get; set; }
 
@@ -29,7 +29,7 @@ namespace MiniBlogApp.Pages
                 return RedirectToPage("/MyPosts");
 
             Title = post.Title;
-            Content = post.Content;
+            PostContent = post.Content;
 
             return Page();
         }
@@ -44,7 +44,7 @@ namespace MiniBlogApp.Pages
             if (post == null || post.Author != Username)
                 return RedirectToPage("/MyPosts");
 
-            BlogStorage.UpdatePost(Id, Title, Content);
+            BlogStorage.UpdatePost(Id, Title, PostContent);
 
             return RedirectToPage("/MyPosts");
         }
