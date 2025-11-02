@@ -1,41 +1,131 @@
 ﻿@page
 @model MiniBlogApp.Pages.IndexModel
 @{
+    Layout = "_Layout";
     ViewData["Title"] = "Головна";
 }
 
-<h2>Усі пости</h2>
-
-@if (string.IsNullOrEmpty(Model.Username))
-{
-    <p><a href="/Login">Увійти</a></p>
-}
-else
-{
-    <p>Привіт, @Model.Username! | <a href="/MyPosts">Мої пости</a> | <a href="/CreatePost">Створити пост</a> | <a href="/Logs">Логи дій</a> | <a href="/PostAnalytics">Аналітика постів</a></p>
-    <form method="post" asp-page-handler="Logout" style="display:inline;">
-        <button type="submit" style="background:none; border:none; color:blue; cursor:pointer; padding:0;">Вийти</button>
-    </form>
-}
-
-@if (!Model.AllPosts.Any())
-{
-    <p>Постів поки немає.</p>
-}
-else
-{
-    @foreach (var post in Model.AllPosts)
-    {
-        <div style="border:1px solid #ccc; margin:10px; padding:10px;">
-            <h3>@post.Title</h3>
-            <p>@post.Content</p>
-            <small>
-                Автор: @post.Author |
-                Створено: @post.CreatedAt.ToString("dd.MM.yyyy HH:mm")
-            </small><br />
-            <b>Лайків:</b> @post.Likes.Count <br />
-            <b>Коментарів:</b> @post.Comments.Count <br />
-            <a href="/ViewPost?id=@post.Id">Переглянути</a>
-        </div>
+<style>
+    body {
+        background-color: #5C4033; 
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        width: 100%;
     }
-}
+
+    .posts-container {
+        max-width: 800px;
+        margin: 100px auto;
+        padding: 30px;
+        background-color: #ffffff;
+        border-radius: 20px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        color: #333;
+    }
+
+    h2 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    .links {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+        .links a {
+            color: #5C4033;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 10px;
+        }
+
+            .links a:hover {
+                text-decoration: underline;
+            }
+
+    .post-card {
+        background-color: #f5f5dc; 
+        border-radius: 20px;
+        padding: 20px;
+        margin-bottom: 20px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    }
+
+        .post-card h3 {
+            margin-top: 0;
+        }
+
+        .post-card small {
+            color: #666;
+        }
+
+        .post-card a {
+            color: #333;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+            .post-card a:hover {
+                text-decoration: underline;
+            }
+
+    form button.logout-btn {
+        background: none;
+        border: none;
+        color: blue;
+        cursor: pointer;
+        padding: 0;
+        font-weight: bold;
+    }
+
+    p.no-posts {
+        text-align: center;
+        font-weight: bold;
+    }
+</style>
+
+<div class="posts-container">
+    <h2>Усі пости</h2>
+
+    <div class="links">
+        @if (string.IsNullOrEmpty(Model.Username))
+        {
+            <a href="/Login">Увійти</a>
+        }
+        else
+        {
+            <span>Привіт, @Model.Username! | </span>
+            <a href="/MyPosts">Мої пости</a>
+            <a href="/CreatePost">Створити пост</a>
+            <a href="/Logs">Логи дій</a>
+            <a href="/PostAnalytics">Аналітика постів</a>
+            <form method="post" asp-page-handler="Logout" style="display:inline;">
+                <button type="submit" class="logout-btn">Вийти</button>
+            </form>
+        }
+    </div>
+
+    @if (!Model.AllPosts.Any())
+    {
+        <p class="no-posts">Постів поки немає.</p>
+    }
+    else
+    {
+        @foreach (var post in Model.AllPosts)
+        {
+            <div class="post-card">
+                <h3>@post.Title</h3>
+                <p>@post.Content</p>
+                <small>
+                    Автор: @post.Author |
+                    Створено: @post.CreatedAt.ToString("dd.MM.yyyy HH:mm")
+                </small><br />
+                <b>Лайків:</b> @post.Likes.Count <br />
+                <b>Коментарів:</b> @post.Comments.Count <br />
+                <a href="/ViewPost?id=@post.Id">Переглянути</a>
+            </div>
+        }
+    }
+</div>
