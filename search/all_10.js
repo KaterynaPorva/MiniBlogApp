@@ -1,0 +1,24 @@
+var searchData=
+[
+  ['unknownauthor_0',['UnknownAuthor',['../classMiniBlogApp_1_1Tests_1_1UtilsTests_1_1PostStatsUtilsTests.html#a1abe03ef86f0715e74142ca60165f557',1,'MiniBlogApp::Tests::UtilsTests::PostStatsUtilsTests']]],
+  ['updatepost_5fshouldchangecontent_1',['UpdatePost_ShouldChangeContent',['../classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageAdvancedTests.html#abb350cdef01b43c174685877d4b88370',1,'MiniBlogApp::Tests::ServiceTests::BlogStorageAdvancedTests']]],
+  ['updatepost_5fshouldfailgracefully_5fwhenpostdoesnotexist_2',['UpdatePost_ShouldFailGracefully_WhenPostDoesNotExist',['../classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageEdgeCaseTests.html#a14b447df63ab31278a1db44729736b58',1,'MiniBlogApp::Tests::ServiceTests::BlogStorageEdgeCaseTests']]],
+  ['useauthorization_3',['UseAuthorization',['../Program_8cs.html#af6f72d752b2e73aa0292f74bd13237ab',1,'Program.cs']]],
+  ['usehttpsredirection_4',['UseHttpsRedirection',['../Program_8cs.html#aa4d447fc3129a3aa301d736b8bd04ae9',1,'Program.cs']]],
+  ['user_5',['user',['../classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1LoggerServiceAdvancedTests.html#a87e8f8e3645daa73d79d56f2e464945f',1,'MiniBlogApp.Tests.ServiceTests.LoggerServiceAdvancedTests.User'],['../classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageAddLikeTests.html#a82aade055922307a24592b6ec6862a3c',1,'MiniBlogApp.Tests.ServiceTests.BlogStorageAddLikeTests.User']]],
+  ['user1_6',['user1',['../classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageAdvancedTests.html#a79f2f70a23f09db3a8fb3488f7a0824d',1,'MiniBlogApp.Tests.ServiceTests.BlogStorageAdvancedTests.User1'],['../classMiniBlogApp_1_1Tests_1_1UtilsTests_1_1PostStatsUtilsTests.html#a536a4393fbe6e4cb694f201500e30cdd',1,'MiniBlogApp.Tests.UtilsTests.PostStatsUtilsTests.User1']]],
+  ['user2_7',['User2',['../classMiniBlogApp_1_1Tests_1_1UtilsTests_1_1PostStatsUtilsTests.html#a08d5f7fdcba31861c0b68f2f68ff5911',1,'MiniBlogApp::Tests::UtilsTests::PostStatsUtilsTests']]],
+  ['user3_8',['User3',['../classMiniBlogApp_1_1Tests_1_1UtilsTests_1_1PostStatsUtilsTests.html#afd0492b4935a8c0c9e171d973a2d3f44',1,'MiniBlogApp::Tests::UtilsTests::PostStatsUtilsTests']]],
+  ['user4_9',['User4',['../classMiniBlogApp_1_1Tests_1_1UtilsTests_1_1PostStatsUtilsTests.html#a97cc4cef5bca9e789b6d1d7fa51e8f40',1,'MiniBlogApp::Tests::UtilsTests::PostStatsUtilsTests']]],
+  ['user5_10',['User5',['../classMiniBlogApp_1_1Tests_1_1UtilsTests_1_1PostStatsUtilsTests.html#a5625b88d62c998a8d72b9215e04b3b49',1,'MiniBlogApp::Tests::UtilsTests::PostStatsUtilsTests']]],
+  ['username_11',['username',['../classMiniBlogApp_1_1Pages_1_1CreatePostModel.html#ac10959e7a79b43f44aabf92f48fb84f7',1,'MiniBlogApp.Pages.CreatePostModel.Username'],['../classMiniBlogApp_1_1Services_1_1ActionLogger.html#afca827f12bbafda92ed9237b4e81b86d',1,'MiniBlogApp.Services.ActionLogger.Username'],['../classMiniBlogApp_1_1Pages_1_1EditPostModel.html#ad32cacb8550e34949e4d8566de4f32c9',1,'MiniBlogApp.Pages.EditPostModel.Username'],['../classMiniBlogApp_1_1Pages_1_1IndexModel.html#acc7419315f5da45bdf461d46cf7c6f1b',1,'MiniBlogApp.Pages.IndexModel.Username'],['../classMiniBlogApp_1_1Pages_1_1MyPostsModel.html#a0d386ab49260974311beae21aa185bd1',1,'MiniBlogApp.Pages.MyPostsModel.Username'],['../classMiniBlogApp_1_1Pages_1_1ViewPostModel.html#a4ad7fefa70f12521d96b87d294ebe93a',1,'MiniBlogApp.Pages.ViewPostModel.Username'],['../classMiniBlogApp_1_1Models_1_1Like.html#ae4cfbacb0fe4ec7413b9149cb0ce4aa0',1,'MiniBlogApp.Models.Like.Username'],['../classMiniBlogApp_1_1Models_1_1BlogUser.html#aba79bd09257b74d32f84a1c4b80db595',1,'MiniBlogApp.Models.BlogUser.Username']]],
+  ['userouting_12',['UseRouting',['../Program_8cs.html#a94c810d266751293a2d511a720a5625f',1,'Program.cs']]],
+  ['userservice_13',['UserService',['../classMiniBlogApp_1_1Services_1_1UserService.html',1,'MiniBlogApp::Services']]],
+  ['userservice_2ecs_14',['UserService.cs',['../UserService_8cs.html',1,'']]],
+  ['userserviceadvancedtests_15',['UserServiceAdvancedTests',['../classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1UserServiceAdvancedTests.html',1,'MiniBlogApp::Tests::ServiceTests']]],
+  ['userserviceadvancedtests_2ecs_16',['UserServiceAdvancedTests.cs',['../UserServiceAdvancedTests_8cs.html',1,'']]],
+  ['userservicetests_17',['UserServiceTests',['../classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1UserServiceTests.html',1,'MiniBlogApp::Tests::ServiceTests']]],
+  ['userservicetests_2ecs_18',['UserServiceTests.cs',['../UserServiceTests_8cs.html',1,'']]],
+  ['usesession_19',['UseSession',['../Program_8cs.html#a5c33896bff93d8072abd01914b8370f8',1,'Program.cs']]],
+  ['usestaticfiles_20',['UseStaticFiles',['../Program_8cs.html#a906a3ce545279a7a73941f1d7b64d7cf',1,'Program.cs']]]
+];

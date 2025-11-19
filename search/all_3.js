@@ -1,0 +1,19 @@
+var searchData=
+[
+  ['comment_0',['Comment',['../classMiniBlogApp_1_1Models_1_1Comment.html',1,'MiniBlogApp::Models']]],
+  ['comment_2ecs_1',['Comment.cs',['../Comment_8cs.html',1,'']]],
+  ['comment1text_2',['Comment1Text',['../classMiniBlogApp_1_1Tests_1_1UtilsTests_1_1PostStatsUtilsTests.html#a124974c503faf37b4006d4128b64a67f',1,'MiniBlogApp::Tests::UtilsTests::PostStatsUtilsTests']]],
+  ['comment2text_3',['Comment2Text',['../classMiniBlogApp_1_1Tests_1_1UtilsTests_1_1PostStatsUtilsTests.html#a3a3766317b97fe2188c732c0cb8a5270',1,'MiniBlogApp::Tests::UtilsTests::PostStatsUtilsTests']]],
+  ['comment3text_4',['Comment3Text',['../classMiniBlogApp_1_1Tests_1_1UtilsTests_1_1PostStatsUtilsTests.html#aa469e2234f32d9e13a22109dd0030095',1,'MiniBlogApp::Tests::UtilsTests::PostStatsUtilsTests']]],
+  ['commentcontent_5',['CommentContent',['../classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1LoggerServiceAdvancedTests.html#ab7487ded094e22bfed97726a52b0af79',1,'MiniBlogApp::Tests::ServiceTests::LoggerServiceAdvancedTests']]],
+  ['commentlogger_6',['commentlogger',['../classMiniBlogApp_1_1Services_1_1CommentLogger.html',1,'MiniBlogApp.Services.CommentLogger'],['../classMiniBlogApp_1_1Services_1_1CommentLogger.html#a8d29fd7580395f752e5011bd6b75ae9b',1,'MiniBlogApp.Services.CommentLogger.CommentLogger()']]],
+  ['comments_7',['Comments',['../classMiniBlogApp_1_1Models_1_1Post.html#a570662ce687c4f7ccd91e9be2f44ff42',1,'MiniBlogApp::Models::Post']]],
+  ['commentssummary_8',['CommentsSummary',['../classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageEdgeCaseTests.html#a11d143edab9e59d49d352adcd5120799',1,'MiniBlogApp::Tests::ServiceTests::BlogStorageEdgeCaseTests']]],
+  ['commenttext_9',['CommentText',['../classMiniBlogApp_1_1Services_1_1CommentLogger.html#acfa524fb6acab8a942df2aadec478acc',1,'MiniBlogApp::Services::CommentLogger']]],
+  ['content_10',['content',['../classMiniBlogApp_1_1Models_1_1Post.html#a8cad2b471c7ac338a1a4446312124984',1,'MiniBlogApp.Models.Post.Content'],['../classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageAddLikeTests.html#a3a5f217a6ea83121e8b0c57f19856444',1,'MiniBlogApp.Tests.ServiceTests.BlogStorageAddLikeTests.Content'],['../classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageAddPostTests.html#ae1998529bb6d20691a2e7257b2271fa6',1,'MiniBlogApp.Tests.ServiceTests.BlogStorageAddPostTests.Content']]],
+  ['correctpassword_11',['correctpassword',['../classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1UserServiceAdvancedTests.html#affb112512ff7010befb141fa71d26325',1,'MiniBlogApp.Tests.ServiceTests.UserServiceAdvancedTests.CorrectPassword'],['../classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1UserServiceTests.html#a11098989326aeb08f9be23d61ed57308',1,'MiniBlogApp.Tests.ServiceTests.UserServiceTests.CorrectPassword']]],
+  ['correctusername_12',['correctusername',['../classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1UserServiceAdvancedTests.html#a9d6d0ba6528e0150eba935e545f5d3ce',1,'MiniBlogApp.Tests.ServiceTests.UserServiceAdvancedTests.CorrectUsername'],['../classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1UserServiceTests.html#a3a4b41c8932dd0c1b478aa3ab47d8903',1,'MiniBlogApp.Tests.ServiceTests.UserServiceTests.CorrectUsername']]],
+  ['createdat_13',['createdat',['../classMiniBlogApp_1_1Models_1_1Comment.html#a4256f73a6c2646d1b3dd952635bc9682',1,'MiniBlogApp.Models.Comment.CreatedAt'],['../classMiniBlogApp_1_1Models_1_1Post.html#a3ce25818c0094c83959428a7580f0434',1,'MiniBlogApp.Models.Post.CreatedAt']]],
+  ['createpost_2ecshtml_2ecs_14',['CreatePost.cshtml.cs',['../CreatePost_8cshtml_8cs.html',1,'']]],
+  ['createpostmodel_15',['CreatePostModel',['../classMiniBlogApp_1_1Pages_1_1CreatePostModel.html',1,'MiniBlogApp::Pages']]]
+];

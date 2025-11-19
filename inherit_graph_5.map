@@ -1,0 +1,9 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$classMiniBlogApp_1_1Services_1_1ActionLogger.html" title=" " alt="" coords="5,69,213,109"/>
+<area shape="rect" id="Node000001" href="$classMiniBlogApp_1_1Services_1_1CommentLogger.html" title=" " alt="" coords="261,5,492,45"/>
+<area shape="poly" id="edge1_Node000000_Node000001" title=" " alt="" coords="206,63,292,43,293,48,207,69"/>
+<area shape="rect" id="Node000002" href="$classMiniBlogApp_1_1Services_1_1LikeLogger.html" title=" " alt="" coords="280,69,473,109"/>
+<area shape="poly" id="edge2_Node000000_Node000002" title=" " alt="" coords="227,87,280,87,280,92,227,92"/>
+<area shape="rect" id="Node000003" href="$classMiniBlogApp_1_1Services_1_1PostLogger.html" title=" " alt="" coords="279,133,474,173"/>
+<area shape="poly" id="edge3_Node000000_Node000003" title=" " alt="" coords="207,110,293,131,292,136,206,115"/>
+</map>
