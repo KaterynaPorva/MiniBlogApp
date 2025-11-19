@@ -74,7 +74,8 @@ PROJECT_ICON           =
 # entered, it will be relative to the location where Doxygen was started. If
 # left blank the current directory will be used.
 
-OUTPUT_DIRECTORY       = "C:/Users/Dream Store/Desktop/projectcopy/docs"
+OUTPUT_DIRECTORY = docs
+
 
 # If the CREATE_SUBDIRS tag is set to YES then Doxygen will create up to 4096
 # sub-directories (in 2 levels) under the output directory of each output format
@@ -1012,14 +1013,16 @@ WARN_LOGFILE           =
 # spaces. See also FILE_PATTERNS and EXTENSION_MAPPING
 # Note: If this tag is empty the current directory is searched.
 
-INPUT                  =     "C:/Users/Dream Store/Desktop/project/MiniBlogApp" \
-                             "C:/Users/Dream Store/Desktop/project/MiniBlogApp.Tests" \
-                             "C:/Users/Dream Store/Desktop/project/MiniBlogApp/Models" \
-                             "C:/Users/Dream Store/Desktop/project/MiniBlogApp/Pages" \
-                             "C:/Users/Dream Store/Desktop/project/MiniBlogApp/Services" \
-                             "C:/Users/Dream Store/Desktop/project/MiniBlogApp/LoggerTests" \
-                             "C:/Users/Dream Store/Desktop/project/MiniBlogApp/ServiceTests" \
-                             "C:/Users/Dream Store/Desktop/project/MiniBlogApp/UtilsTests"
+INPUT = \
+  MiniBlogApp \
+  MiniBlogApp.Tests \
+  MiniBlogApp/Models \
+  MiniBlogApp/Pages \
+  MiniBlogApp/Services \
+  MiniBlogApp/LoggerTests \
+  MiniBlogApp/ServiceTests \
+  MiniBlogApp/UtilsTests
+
 
 
 # This tag can be used to specify the character encoding of the source files
@@ -1163,24 +1166,26 @@ EXCLUDE_SYMBOLS        =
 # that contain example code fragments that are included (see the \include
 # command).
 
-EXAMPLE_PATH           =     "C:/Users/Dream Store/Desktop/project/MiniBlogApp/Models/Post.cs" \
-                             "C:/Users/Dream Store/Desktop/project/MiniBlogApp/Models/Like.cs" \
-                             "C:/Users/Dream Store/Desktop/project/MiniBlogApp/Models/BlogUser.cs" \
-                             "C:/Users/Dream Store/Desktop/project/MiniBlogApp/Models/Comment.cs" \
-                             "C:/Users/Dream Store/Desktop/project/MiniBlogApp/Pages/CreatePost.cshtml.cs" \
-                             "C:/Users/Dream Store/Desktop/project/MiniBlogApp/Pages/EditPost.cshtml.cs" \
-                             "C:/Users/Dream Store/Desktop/project/MiniBlogApp/Pages/Error.cshtml.cs" \
-                             "C:/Users/Dream Store/Desktop/project/MiniBlogApp/Pages/Index.cshtml.cs" \
-                             "C:/Users/Dream Store/Desktop/project/MiniBlogApp/Pages/Login.cshtml.cs" \
-                             "C:/Users/Dream Store/Desktop/project/MiniBlogApp/Pages/Logs.cshtml.cs" \
-                             "C:/Users/Dream Store/Desktop/project/MiniBlogApp/Pages/MyPosts.cshtml.cs" \
-                             "C:/Users/Dream Store/Desktop/project/MiniBlogApp/Pages/PostAnalytics.cshtml.cs" \
-                             "C:/Users/Dream Store/Desktop/project/MiniBlogApp/Pages/Privacy.cshtml.cs" \
-                             "C:/Users/Dream Store/Desktop/project/MiniBlogApp/Pages/ViewPost.cshtml.cs" \
-                             "C:/Users/Dream Store/Desktop/project/MiniBlogApp/Services/BlogStorage.cs" \
-                             "C:/Users/Dream Store/Desktop/project/MiniBlogApp/Services/LoggerService.cs" \
-                             "C:/Users/Dream Store/Desktop/project/MiniBlogApp/Services/PostAnalysisService.cs" \
-                             "C:/Users/Dream Store/Desktop/project/MiniBlogApp/Services/UserService.cs" \
+EXAMPLE_PATH = \
+  MiniBlogApp/Models/Post.cs \
+  MiniBlogApp/Models/Like.cs \
+  MiniBlogApp/Models/BlogUser.cs \
+  MiniBlogApp/Models/Comment.cs \
+  MiniBlogApp/Pages/CreatePost.cshtml.cs \
+  MiniBlogApp/Pages/EditPost.cshtml.cs \
+  MiniBlogApp/Pages/Error.cshtml.cs \
+  MiniBlogApp/Pages/Index.cshtml.cs \
+  MiniBlogApp/Pages/Login.cshtml.cs \
+  MiniBlogApp/Pages/Logs.cshtml.cs \
+  MiniBlogApp/Pages/MyPosts.cshtml.cs \
+  MiniBlogApp/Pages/PostAnalytics.cshtml.cs \
+  MiniBlogApp/Pages/Privacy.cshtml.cs \
+  MiniBlogApp/Pages/ViewPost.cshtml.cs \
+  MiniBlogApp/Services/BlogStorage.cs \
+  MiniBlogApp/Services/LoggerService.cs \
+  MiniBlogApp/Services/PostAnalysisService.cs \
+  MiniBlogApp/Services/UserService.cs
+
 
 
 # If the value of the EXAMPLE_PATH tag contains directories, you can use the
@@ -1511,9 +1516,10 @@ HTML_STYLESHEET        =
 # documentation.
 # This tag requires that the tag GENERATE_HTML is set to YES.
 
-HTML_EXTRA_STYLESHEET  = =   "C:/Users/Dream Store/Desktop/project/doc/doxygen-awesome-css/doxygen-awesome.css" \
-                             "C:/Users/Dream Store/Desktop/project/doc/doxygen-awesome-css" \
-                             "C:/Users/Dream Store/Desktop/project/doc/doxygen-awesome-css/doxygen-awesome-sidebar-only.css"
+HTML_EXTRA_STYLESHEET = \
+  doc/doxygen-awesome-css/doxygen-awesome.css \
+  doc/doxygen-awesome-css/doxygen-awesome-sidebar-only.css
+
 
 
 # The HTML_EXTRA_FILES tag can be used to specify one or more extra images or
@@ -2946,7 +2952,7 @@ INTERACTIVE_SVG        = NO
 # found. If left blank, it is assumed the dot tool can be found in the path.
 # This tag requires that the tag HAVE_DOT is set to YES.
 
-DOT_PATH               = "C:/Program Files/Graphviz/bin"
+
 
 # The DOTFILE_DIRS tag can be used to specify one or more directories that
 # contain dot files that are included in the documentation (see the \dotfile
