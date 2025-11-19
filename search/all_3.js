@@ -5,7 +5,7 @@ var searchData=
   ['comment1text_2',['Comment1Text',['../classMiniBlogApp_1_1Tests_1_1UtilsTests_1_1PostStatsUtilsTests.html#a124974c503faf37b4006d4128b64a67f',1,'MiniBlogApp::Tests::UtilsTests::PostStatsUtilsTests']]],
   ['comment2text_3',['Comment2Text',['../classMiniBlogApp_1_1Tests_1_1UtilsTests_1_1PostStatsUtilsTests.html#a3a3766317b97fe2188c732c0cb8a5270',1,'MiniBlogApp::Tests::UtilsTests::PostStatsUtilsTests']]],
   ['comment3text_4',['Comment3Text',['../classMiniBlogApp_1_1Tests_1_1UtilsTests_1_1PostStatsUtilsTests.html#aa469e2234f32d9e13a22109dd0030095',1,'MiniBlogApp::Tests::UtilsTests::PostStatsUtilsTests']]],
-  ['commentcontent_5',['CommentContent',['../classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1LoggerServiceAdvancedTests.html#ab7487ded094e22bfed97726a52b0af79',1,'MiniBlogApp::Tests::ServiceTests::LoggerServiceAdvancedTests']]],
+  ['commentcontent_5',['CommentContent',['../classLoggerServiceAdvancedTests.html#aea07986fda4d0163932566dee36cb76a',1,'LoggerServiceAdvancedTests']]],
   ['commentlogger_6',['commentlogger',['../classMiniBlogApp_1_1Services_1_1CommentLogger.html',1,'MiniBlogApp.Services.CommentLogger'],['../classMiniBlogApp_1_1Services_1_1CommentLogger.html#a8d29fd7580395f752e5011bd6b75ae9b',1,'MiniBlogApp.Services.CommentLogger.CommentLogger()']]],
   ['comments_7',['Comments',['../classMiniBlogApp_1_1Models_1_1Post.html#a570662ce687c4f7ccd91e9be2f44ff42',1,'MiniBlogApp::Models::Post']]],
   ['commentssummary_8',['CommentsSummary',['../classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageEdgeCaseTests.html#a11d143edab9e59d49d352adcd5120799',1,'MiniBlogApp::Tests::ServiceTests::BlogStorageEdgeCaseTests']]],

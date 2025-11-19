@@ -12,5 +12,5 @@ var searchData=
   ['minimumusercount_9',['MinimumUserCount',['../classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1UserServiceAdvancedTests.html#a6241cbb131355724eb37473d7c0d8eef',1,'MiniBlogApp::Tests::ServiceTests::UserServiceAdvancedTests']]],
   ['myposts_10',['MyPosts',['../classMiniBlogApp_1_1Pages_1_1MyPostsModel.html#a20fb7ef828d56376a5c3397f8d2beef0',1,'MiniBlogApp::Pages::MyPostsModel']]],
   ['myposts_2ecshtml_2ecs_11',['MyPosts.cshtml.cs',['../MyPosts_8cshtml_8cs.html',1,'']]],
-  ['mypostsmodel_12',['MyPostsModel',['../classMiniBlogApp_1_1Pages_1_1MyPostsModel.html',1,'MiniBlogApp::Pages']]]
+  ['mypostsmodel_12',['mypostsmodel',['../classMiniBlogApp_1_1Pages_1_1MyPostsModel.html',1,'MiniBlogApp.Pages.MyPostsModel'],['../classMyPostsModel.html',1,'MyPostsModel']]]
 ];

@@ -97,19 +97,27 @@ $(document).ready(function(){initNavTree('LoggerService_8cs.html',''); initResiz
 </div><!--header-->
 <div class="contents">
 
+<p>Logging framework for user actions in the blog.  
+<a href="#details">More...</a></p>
+
 <p><a href="LoggerService_8cs_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMiniBlogApp_1_1Services_1_1ActionLogger.html">MiniBlogApp.Services.ActionLogger</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Abstract base class for logging user actions.  <a href="classMiniBlogApp_1_1Services_1_1ActionLogger.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMiniBlogApp_1_1Services_1_1PostLogger.html">MiniBlogApp.Services.PostLogger</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs creation of a post by a user.  <a href="classMiniBlogApp_1_1Services_1_1PostLogger.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMiniBlogApp_1_1Services_1_1CommentLogger.html">MiniBlogApp.Services.CommentLogger</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs when a user leaves a comment.  <a href="classMiniBlogApp_1_1Services_1_1CommentLogger.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMiniBlogApp_1_1Services_1_1LikeLogger.html">MiniBlogApp.Services.LikeLogger</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Logs when a user likes a post.  <a href="classMiniBlogApp_1_1Services_1_1LikeLogger.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><b>MiniBlogApp.Services.LoggerService</b></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Service for storing and retrieving user action logs. <br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -119,7 +127,12 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespaceMiniBlogApp_1_1Services" id="r_namespaceMiniBlogApp_1_1Services"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceMiniBlogApp_1_1Services.html">MiniBlogApp.Services</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Logging framework for user actions in the blog. </p>
+<p>Provides a base abstract class ActionLogger and specialized loggers for posts, comments, and likes. LoggerService stores all logs in memory and provides methods for adding, retrieving, and clearing logs. Can be extended to write logs to a database or external service. </p>
+
+<p class="definition">Definition in file <a class="el" href="LoggerService_8cs_source.html">LoggerService.cs</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

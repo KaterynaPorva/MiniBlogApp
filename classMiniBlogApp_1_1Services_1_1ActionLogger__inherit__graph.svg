@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Abstract base class for logging user actions.">
 <polygon fill="#999999" stroke="#666666" points="156,-78 0,-78 0,-48 156,-48 156,-78"/>
 <text text-anchor="start" x="8" y="-66" font-family="Helvetica,sans-Serif" font-size="10.00">MiniBlogApp.Services.Action</text>
 <text text-anchor="middle" x="78" y="-55" font-family="Helvetica,sans-Serif" font-size="10.00">Logger</text>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="classMiniBlogApp_1_1Services_1_1CommentLogger.html" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="classMiniBlogApp_1_1Services_1_1CommentLogger.html" target="_top" xlink:title="Logs when a user leaves a comment.">
 <polygon fill="white" stroke="#666666" points="365,-126 192,-126 192,-96 365,-96 365,-126"/>
 <text text-anchor="start" x="200" y="-114" font-family="Helvetica,sans-Serif" font-size="10.00">MiniBlogApp.Services.Comment</text>
 <text text-anchor="middle" x="278.5" y="-103" font-family="Helvetica,sans-Serif" font-size="10.00">Logger</text>
@@ -40,7 +40,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="classMiniBlogApp_1_1Services_1_1LikeLogger.html" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="classMiniBlogApp_1_1Services_1_1LikeLogger.html" target="_top" xlink:title="Logs when a user likes a post.">
 <polygon fill="white" stroke="#666666" points="351,-78 206,-78 206,-48 351,-48 351,-78"/>
 <text text-anchor="start" x="214" y="-66" font-family="Helvetica,sans-Serif" font-size="10.00">MiniBlogApp.Services.Like</text>
 <text text-anchor="middle" x="278.5" y="-55" font-family="Helvetica,sans-Serif" font-size="10.00">Logger</text>
@@ -59,7 +59,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="classMiniBlogApp_1_1Services_1_1PostLogger.html" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="classMiniBlogApp_1_1Services_1_1PostLogger.html" target="_top" xlink:title="Logs creation of a post by a user.">
 <polygon fill="white" stroke="#666666" points="351.5,-30 205.5,-30 205.5,0 351.5,0 351.5,-30"/>
 <text text-anchor="start" x="213.5" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">MiniBlogApp.Services.Post</text>
 <text text-anchor="middle" x="278.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">Logger</text>

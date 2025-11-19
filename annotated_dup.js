@@ -33,8 +33,7 @@ var annotated_dup =
           [ "BlogStorageAddPostTests", "classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageAddPostTests.html", "classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageAddPostTests" ],
           [ "BlogStorageAdvancedTests", "classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageAdvancedTests.html", "classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageAdvancedTests" ],
           [ "BlogStorageEdgeCaseTests", "classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageEdgeCaseTests.html", "classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageEdgeCaseTests" ],
-          [ "LoggerServiceAdvancedTests", "classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1LoggerServiceAdvancedTests.html", "classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1LoggerServiceAdvancedTests" ],
-          [ "LoggerServiceTestsCollection", "classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1LoggerServiceTestsCollection.html", null ],
+          [ "BlogStorageTestsCollection", "classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageTestsCollection.html", null ],
           [ "UserServiceAdvancedTests", "classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1UserServiceAdvancedTests.html", "classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1UserServiceAdvancedTests" ],
           [ "UserServiceTests", "classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1UserServiceTests.html", "classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1UserServiceTests" ]
         ] ],
@@ -44,5 +43,16 @@ var annotated_dup =
         ] ]
       ] ]
     ] ],
-    [ "BlogStorageTestsCollection", "classBlogStorageTestsCollection.html", null ]
+    [ "EditPostModel", "classEditPostModel.html", null ],
+    [ "ErrorModel", "classErrorModel.html", null ],
+    [ "IndexModel", "classIndexModel.html", null ],
+    [ "LoggerServiceAdvancedTests", "classLoggerServiceAdvancedTests.html", "classLoggerServiceAdvancedTests" ],
+    [ "LoggerServiceTestsCollection", "classLoggerServiceTestsCollection.html", null ],
+    [ "LoginModel", "classLoginModel.html", null ],
+    [ "LogsModel", "classLogsModel.html", null ],
+    [ "MyPostsModel", "classMyPostsModel.html", null ],
+    [ "PostAnalyticsModel", "classPostAnalyticsModel.html", null ],
+    [ "PostAnalyzer", "classPostAnalyzer.html", null ],
+    [ "PrivacyModel", "classPrivacyModel.html", null ],
+    [ "ViewPostModel", "classViewPostModel.html", null ]
 ];

@@ -46,14 +46,15 @@ var NAVTREE =
         [ "Functions", "globals_func.html", null ],
         [ "Variables", "globals_vars.html", null ]
       ] ]
-    ] ]
+    ] ],
+    [ "Examples", "examples.html", "examples" ]
   ] ]
 ];
 
 var NAVTREEINDEX =
 [
 "BlogStorageAddLikeTests_8cs.html",
-"classMiniBlogApp_1_1Services_1_1PostLogger.html#a5f1a18f4cc58df292d641f32bb9d8ab9"
+"classMiniBlogApp_1_1Services_1_1ActionLogger.html#a9049c905c2109219d3a7de22a20e19ac"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

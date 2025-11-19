@@ -96,15 +96,23 @@ $(document).ready(function(){initNavTree('classMiniBlogApp_1_1Models_1_1Like.htm
   <div class="headertitle"><div class="title">MiniBlogApp.Models.Like Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Represents a "like" on a blog post.  
+ <a href="classMiniBlogApp_1_1Models_1_1Like.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
-<tr class="memitem:ae4cfbacb0fe4ec7413b9149cb0ce4aa0" id="r_ae4cfbacb0fe4ec7413b9149cb0ce4aa0"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMiniBlogApp_1_1Models_1_1Like.html#ae4cfbacb0fe4ec7413b9149cb0ce4aa0">Username</a> = string.Empty<code> [get, set]</code></td></tr>
+<tr class="memitem:ae4cfbacb0fe4ec7413b9149cb0ce4aa0" id="r_ae4cfbacb0fe4ec7413b9149cb0ce4aa0"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPostAnalyzer.html">string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMiniBlogApp_1_1Models_1_1Like.html#ae4cfbacb0fe4ec7413b9149cb0ce4aa0">Username</a> = string.Empty<code> [get, set]</code></td></tr>
+<tr class="memdesc:ae4cfbacb0fe4ec7413b9149cb0ce4aa0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Username of the user who liked the post.  <br /></td></tr>
 <tr class="separator:ae4cfbacb0fe4ec7413b9149cb0ce4aa0"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="Like_8cs_source.html#l00003">3</a> of file <a class="el" href="Like_8cs_source.html">Like.cs</a>.</p>
+<div class="textblock"><p>Represents a "like" on a blog post. </p>
+<p>This class stores the username of the user who liked a specific post. Each like is associated with a user and a post. It can be used to count the number of likes, display which users liked a post, and prevent duplicate likes from the same user. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="BlogStorage_8cs-example.html#_a2">BlogStorage.cs</a>.</dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="Like_8cs_source.html#l00030">30</a> of file <a class="el" href="Like_8cs_source.html">Like.cs</a>.</p>
 </div><h2 class="groupheader">Property Documentation</h2>
 <a id="ae4cfbacb0fe4ec7413b9149cb0ce4aa0" name="ae4cfbacb0fe4ec7413b9149cb0ce4aa0"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ae4cfbacb0fe4ec7413b9149cb0ce4aa0">&#9670;&#160;</a></span>Username</h2>
@@ -116,7 +124,7 @@ Properties</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">string MiniBlogApp.Models.Like.Username = string.Empty</td>
+          <td class="memname"><a class="el" href="classPostAnalyzer.html">string</a> MiniBlogApp.Models.Like.Username = string.Empty</td>
         </tr>
       </table>
   </td>
@@ -126,8 +134,13 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Like_8cs_source.html#l00005">5</a> of file <a class="el" href="Like_8cs_source.html">Like.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">    5</span>{ <span class="keyword">get</span>; <span class="keyword">set</span>; } = <span class="keywordtype">string</span>.Empty;</div>
+<p>Username of the user who liked the post. </p>
+<p>Identifies which registered user added a like. Must correspond to a valid username in the system. Can be used for displaying likes and ensuring that each user can like a post only once. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="Like_8cs-example.html#a0">Like.cs</a>.</dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="Like_8cs_source.html#l00040">40</a> of file <a class="el" href="Like_8cs_source.html">Like.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   40</span>{ <span class="keyword">get</span>; <span class="keyword">set</span>; } = <span class="keywordtype">string</span>.Empty;</div>
 </div><!-- fragment -->
 </div>
 </div>

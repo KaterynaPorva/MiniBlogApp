@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Logs when a user likes a post.">
 <polygon fill="#999999" stroke="#666666" points="145,-30 0,-30 0,0 145,0 145,-30"/>
 <text text-anchor="start" x="8" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">MiniBlogApp.Services.Like</text>
 <text text-anchor="middle" x="72.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">Logger</text>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="classMiniBlogApp_1_1Services_1_1ActionLogger.html" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="classMiniBlogApp_1_1Services_1_1ActionLogger.html" target="_top" xlink:title="Abstract base class for logging user actions.">
 <polygon fill="white" stroke="#666666" points="112.5,-85 32.5,-85 32.5,-66 112.5,-66 112.5,-85"/>
 <text text-anchor="middle" x="72.5" y="-73" font-family="Helvetica,sans-Serif" font-size="10.00">ActionLogger</text>
 </a>

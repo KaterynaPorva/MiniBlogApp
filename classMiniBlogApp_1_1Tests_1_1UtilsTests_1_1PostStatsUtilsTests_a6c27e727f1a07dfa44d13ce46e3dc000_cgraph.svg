@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Verifies that summarization by a specific author returns correct totals.">
 <polygon fill="#999999" stroke="#666666" points="201,-41 0,-41 0,0 201,0 201,-41"/>
 <text text-anchor="start" x="8" y="-29" font-family="Helvetica,sans-Serif" font-size="10.00">MiniBlogApp.Tests.UtilsTests.</text>
 <text text-anchor="start" x="8" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">PostStatsUtilsTests.Summarize</text>
@@ -22,7 +22,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="classMiniBlogApp_1_1Tests_1_1UtilsTests_1_1PostStatsUtilsTests.html#a6a69d2e7f795585ba7ca414017adbe0b" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="classMiniBlogApp_1_1Tests_1_1UtilsTests_1_1PostStatsUtilsTests.html#a6a69d2e7f795585ba7ca414017adbe0b" target="_top" xlink:title="Returns a sample list of posts for testing.">
 <polygon fill="white" stroke="#666666" points="430,-35.5 237,-35.5 237,-5.5 430,-5.5 430,-35.5"/>
 <text text-anchor="start" x="245" y="-23.5" font-family="Helvetica,sans-Serif" font-size="10.00">MiniBlogApp.Tests.UtilsTests.</text>
 <text text-anchor="middle" x="333.5" y="-12.5" font-family="Helvetica,sans-Serif" font-size="10.00">PostStatsUtilsTests.GetSamplePosts</text>

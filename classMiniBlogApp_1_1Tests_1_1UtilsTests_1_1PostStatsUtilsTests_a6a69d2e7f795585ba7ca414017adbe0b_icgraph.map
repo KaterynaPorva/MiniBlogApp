@@ -1,9 +1,9 @@
 <map id="MiniBlogApp.Tests.UtilsTests.PostStatsUtilsTests.GetSamplePosts" name="MiniBlogApp.Tests.UtilsTests.PostStatsUtilsTests.GetSamplePosts">
-<area shape="rect" id="Node000001" title=" " alt="" coords="356,91,613,131"/>
-<area shape="rect" id="Node000002" href="$classMiniBlogApp_1_1Tests_1_1UtilsTests_1_1PostStatsUtilsTests.html#a444c7006944b6cde4a35eac48d258d3d" title=" " alt="" coords="5,5,308,60"/>
+<area shape="rect" id="Node000001" title="Returns a sample list of posts for testing." alt="" coords="356,91,613,131"/>
+<area shape="rect" id="Node000002" href="$classMiniBlogApp_1_1Tests_1_1UtilsTests_1_1PostStatsUtilsTests.html#a444c7006944b6cde4a35eac48d258d3d" title="Verifies that summarization handles an author with no posts." alt="" coords="5,5,308,60"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="387,91,271,63,272,58,388,86"/>
-<area shape="rect" id="Node000003" href="$classMiniBlogApp_1_1Tests_1_1UtilsTests_1_1PostStatsUtilsTests.html#a6c27e727f1a07dfa44d13ce46e3dc000" title=" " alt="" coords="23,84,291,139"/>
+<area shape="rect" id="Node000003" href="$classMiniBlogApp_1_1Tests_1_1UtilsTests_1_1PostStatsUtilsTests.html#a6c27e727f1a07dfa44d13ce46e3dc000" title="Verifies that summarization by a specific author returns correct totals." alt="" coords="23,84,291,139"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="342,114,291,114,291,109,342,109"/>
-<area shape="rect" id="Node000004" href="$classMiniBlogApp_1_1Tests_1_1UtilsTests_1_1PostStatsUtilsTests.html#af05456635854b5f6f961a7d23c577026" title=" " alt="" coords="45,163,269,217"/>
+<area shape="rect" id="Node000004" href="$classMiniBlogApp_1_1Tests_1_1UtilsTests_1_1PostStatsUtilsTests.html#af05456635854b5f6f961a7d23c577026" title="Verifies that summarization of all posts returns correct totals." alt="" coords="45,163,269,217"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="388,137,270,166,268,161,386,132"/>
 </map>

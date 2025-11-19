@@ -1,5 +1,5 @@
 <map id="MiniBlogApp.Pages.PostAnalyticsModel.OnGet" name="MiniBlogApp.Pages.PostAnalyticsModel.OnGet">
-<area shape="rect" id="Node000001" title=" " alt="" coords="5,5,244,45"/>
-<area shape="rect" id="Node000002" href="$classMiniBlogApp_1_1Services_1_1PostAnalyzer.html#a5374938cb7fd56cdb590300fcfe54b3a" title=" " alt="" coords="292,5,487,45"/>
+<area shape="rect" id="Node000001" title="Handles GET request for the post analytics page." alt="" coords="5,5,244,45"/>
+<area shape="rect" id="Node000002" href="$classMiniBlogApp_1_1Services_1_1PostAnalyzer.html#a5374938cb7fd56cdb590300fcfe54b3a" title="Analyzes a single post." alt="" coords="292,5,487,45"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="244,23,278,23,278,28,244,28"/>
 </map>

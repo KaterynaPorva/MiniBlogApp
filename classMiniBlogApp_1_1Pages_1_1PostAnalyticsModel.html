@@ -115,18 +115,21 @@ $(document).ready(function(){initNavTree('classMiniBlogApp_1_1Pages_1_1PostAnaly
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a6a1f56cc501fed821319661fb1d67fec" id="r_a6a1f56cc501fed821319661fb1d67fec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMiniBlogApp_1_1Pages_1_1PostAnalyticsModel.html#a6a1f56cc501fed821319661fb1d67fec">OnGet</a> ()</td></tr>
+<tr class="memdesc:a6a1f56cc501fed821319661fb1d67fec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles GET request for the post analytics page.  <br /></td></tr>
 <tr class="separator:a6a1f56cc501fed821319661fb1d67fec"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
 <tr class="memitem:a707ffb3d8a582b86854ac5c6db769922" id="r_a707ffb3d8a582b86854ac5c6db769922"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">List</a>&lt; <a class="el" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">string</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMiniBlogApp_1_1Pages_1_1PostAnalyticsModel.html#a707ffb3d8a582b86854ac5c6db769922">AnalyzedPosts</a> = <a class="el" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">new</a>()<code> [get, set]</code></td></tr>
+<tr class="memdesc:a707ffb3d8a582b86854ac5c6db769922"><td class="mdescLeft">&#160;</td><td class="mdescRight">List of analyzed posts in textual format.  <br /></td></tr>
 <tr class="separator:a707ffb3d8a582b86854ac5c6db769922"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a5f38adddc23aff68db46d025b9fcb011" id="r_a5f38adddc23aff68db46d025b9fcb011"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">List</a>&lt; <a class="el" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">string</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMiniBlogApp_1_1Pages_1_1PostAnalyticsModel.html#a5f38adddc23aff68db46d025b9fcb011">Summary</a> = <a class="el" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">new</a>()<code> [get, set]</code></td></tr>
+<tr class="memdesc:a5f38adddc23aff68db46d025b9fcb011"><td class="mdescLeft">&#160;</td><td class="mdescRight">Summary statistics for all posts.  <br /></td></tr>
 <tr class="separator:a5f38adddc23aff68db46d025b9fcb011"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="PostAnalytics_8cshtml_8cs_source.html#l00007">7</a> of file <a class="el" href="PostAnalytics_8cshtml_8cs_source.html">PostAnalytics.cshtml.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="PostAnalytics_8cshtml_8cs_source.html#l00025">25</a> of file <a class="el" href="PostAnalytics_8cshtml_8cs_source.html">PostAnalytics.cshtml.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a6a1f56cc501fed821319661fb1d67fec" name="a6a1f56cc501fed821319661fb1d67fec"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6a1f56cc501fed821319661fb1d67fec">&#9670;&#160;</a></span>OnGet()</h2>
@@ -143,23 +146,28 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="PostAnalytics_8cshtml_8cs_source.html#l00012">12</a> of file <a class="el" href="PostAnalytics_8cshtml_8cs_source.html">PostAnalytics.cshtml.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   13</span>        {</div>
-<div class="line"><span class="lineno">   14</span>            <a class="code hl_class" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">var</a> <a class="code hl_class" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">posts</a> = BlogStorage.GetAllPosts().ToList();</div>
-<div class="line"><span class="lineno">   15</span> </div>
-<div class="line"><span class="lineno">   16</span>            <span class="keywordflow">foreach</span> (<a class="code hl_class" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">var</a> <a class="code hl_class" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">post</a> <span class="keywordflow">in</span> <a class="code hl_class" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">posts</a>)</div>
-<div class="line"><span class="lineno">   17</span>            {</div>
-<div class="line"><span class="lineno">   18</span>                <a class="code hl_class" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">var</a> <a class="code hl_class" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">analyzer</a> = <span class="keyword">new</span> <a class="code hl_class" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">PostAnalyzer&lt;Post&gt;</a>();</div>
-<div class="line"><span class="lineno">   19</span>                <a class="code hl_property" href="classMiniBlogApp_1_1Pages_1_1PostAnalyticsModel.html#a707ffb3d8a582b86854ac5c6db769922">AnalyzedPosts</a>.Add(<a class="code hl_class" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">analyzer</a>.<a class="code hl_function" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html#a5374938cb7fd56cdb590300fcfe54b3a">Analyze</a>(<a class="code hl_class" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">post</a>));</div>
-<div class="line"><span class="lineno">   20</span>            }</div>
-<div class="line"><span class="lineno">   21</span> </div>
-<div class="line"><span class="lineno">   22</span>            <a class="code hl_property" href="classMiniBlogApp_1_1Pages_1_1PostAnalyticsModel.html#a5f38adddc23aff68db46d025b9fcb011">Summary</a>.Add(PostStatsUtils.Summarize(<a class="code hl_class" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">posts</a>));</div>
-<div class="line"><span class="lineno">   23</span>            <a class="code hl_property" href="classMiniBlogApp_1_1Pages_1_1PostAnalyticsModel.html#a5f38adddc23aff68db46d025b9fcb011">Summary</a>.Add(PostStatsUtils.Summarize(<a class="code hl_class" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">posts</a>, <span class="stringliteral">&quot;serhii&quot;</span>)); </div>
-<div class="line"><span class="lineno">   24</span>        }</div>
-<div class="ttc" id="aclassMiniBlogApp_1_1Pages_1_1PostAnalyticsModel_html_a5f38adddc23aff68db46d025b9fcb011"><div class="ttname"><a href="classMiniBlogApp_1_1Pages_1_1PostAnalyticsModel.html#a5f38adddc23aff68db46d025b9fcb011">MiniBlogApp.Pages.PostAnalyticsModel.Summary</a></div><div class="ttdeci">List&lt; string &gt; Summary</div><div class="ttdef"><b>Definition</b> <a href="PostAnalytics_8cshtml_8cs_source.html#l00010">PostAnalytics.cshtml.cs:10</a></div></div>
-<div class="ttc" id="aclassMiniBlogApp_1_1Pages_1_1PostAnalyticsModel_html_a707ffb3d8a582b86854ac5c6db769922"><div class="ttname"><a href="classMiniBlogApp_1_1Pages_1_1PostAnalyticsModel.html#a707ffb3d8a582b86854ac5c6db769922">MiniBlogApp.Pages.PostAnalyticsModel.AnalyzedPosts</a></div><div class="ttdeci">List&lt; string &gt; AnalyzedPosts</div><div class="ttdef"><b>Definition</b> <a href="PostAnalytics_8cshtml_8cs_source.html#l00009">PostAnalytics.cshtml.cs:9</a></div></div>
-<div class="ttc" id="aclassMiniBlogApp_1_1Services_1_1PostAnalyzer_html"><div class="ttname"><a href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">MiniBlogApp.Services.PostAnalyzer</a></div><div class="ttdef"><b>Definition</b> <a href="PostAnalysisService_8cs_source.html#l00005">PostAnalysisService.cs:6</a></div></div>
-<div class="ttc" id="aclassMiniBlogApp_1_1Services_1_1PostAnalyzer_html_a5374938cb7fd56cdb590300fcfe54b3a"><div class="ttname"><a href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html#a5374938cb7fd56cdb590300fcfe54b3a">MiniBlogApp.Services.PostAnalyzer.Analyze</a></div><div class="ttdeci">string Analyze(T post)</div><div class="ttdef"><b>Definition</b> <a href="PostAnalysisService_8cs_source.html#l00007">PostAnalysisService.cs:7</a></div></div>
+<p>Handles GET request for the post analytics page. </p>
+<p>Loads all posts from BlogStorage, analyzes each post using <a class="el" href="classPostAnalyzer.html" title="Analyzes individual blog posts.">PostAnalyzer</a>, and generates summary statistics using PostStatsUtils. Populates AnalyzedPosts and Summary properties for display on the page. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="PostAnalytics_8cshtml_8cs-example.html#a3">PostAnalytics.cshtml.cs</a>.</dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="PostAnalytics_8cshtml_8cs_source.html#l00055">55</a> of file <a class="el" href="PostAnalytics_8cshtml_8cs_source.html">PostAnalytics.cshtml.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   56</span>        {</div>
+<div class="line"><span class="lineno">   57</span>            <a class="code hl_class" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">var</a> <a class="code hl_class" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">posts</a> = BlogStorage.GetAllPosts().ToList();</div>
+<div class="line"><span class="lineno">   58</span> </div>
+<div class="line"><span class="lineno">   59</span>            <span class="keywordflow">foreach</span> (<a class="code hl_class" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">var</a> <a class="code hl_class" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">post</a> <span class="keywordflow">in</span> <a class="code hl_class" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">posts</a>)</div>
+<div class="line"><span class="lineno">   60</span>            {</div>
+<div class="line"><span class="lineno">   61</span>                <a class="code hl_class" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">var</a> <a class="code hl_class" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">analyzer</a> = <span class="keyword">new</span> <a class="code hl_class" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">PostAnalyzer&lt;Post&gt;</a>();</div>
+<div class="line"><span class="lineno">   62</span>                <a class="code hl_property" href="classMiniBlogApp_1_1Pages_1_1PostAnalyticsModel.html#a707ffb3d8a582b86854ac5c6db769922">AnalyzedPosts</a>.Add(<a class="code hl_class" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">analyzer</a>.<a class="code hl_function" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html#a5374938cb7fd56cdb590300fcfe54b3a">Analyze</a>(<a class="code hl_class" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">post</a>));</div>
+<div class="line"><span class="lineno">   63</span>            }</div>
+<div class="line"><span class="lineno">   64</span> </div>
+<div class="line"><span class="lineno">   65</span>            <a class="code hl_property" href="classMiniBlogApp_1_1Pages_1_1PostAnalyticsModel.html#a5f38adddc23aff68db46d025b9fcb011">Summary</a>.Add(PostStatsUtils.Summarize(<a class="code hl_class" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">posts</a>));</div>
+<div class="line"><span class="lineno">   66</span>            <a class="code hl_property" href="classMiniBlogApp_1_1Pages_1_1PostAnalyticsModel.html#a5f38adddc23aff68db46d025b9fcb011">Summary</a>.Add(PostStatsUtils.Summarize(<a class="code hl_class" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">posts</a>, <span class="stringliteral">&quot;serhii&quot;</span>));</div>
+<div class="line"><span class="lineno">   67</span>        }</div>
+<div class="ttc" id="aclassMiniBlogApp_1_1Pages_1_1PostAnalyticsModel_html_a5f38adddc23aff68db46d025b9fcb011"><div class="ttname"><a href="classMiniBlogApp_1_1Pages_1_1PostAnalyticsModel.html#a5f38adddc23aff68db46d025b9fcb011">MiniBlogApp.Pages.PostAnalyticsModel.Summary</a></div><div class="ttdeci">List&lt; string &gt; Summary</div><div class="ttdoc">Summary statistics for all posts.</div><div class="ttdef"><b>Definition</b> <a href="PostAnalytics_8cshtml_8cs_source.html#l00047">PostAnalytics.cshtml.cs:47</a></div></div>
+<div class="ttc" id="aclassMiniBlogApp_1_1Pages_1_1PostAnalyticsModel_html_a707ffb3d8a582b86854ac5c6db769922"><div class="ttname"><a href="classMiniBlogApp_1_1Pages_1_1PostAnalyticsModel.html#a707ffb3d8a582b86854ac5c6db769922">MiniBlogApp.Pages.PostAnalyticsModel.AnalyzedPosts</a></div><div class="ttdeci">List&lt; string &gt; AnalyzedPosts</div><div class="ttdoc">List of analyzed posts in textual format.</div><div class="ttdef"><b>Definition</b> <a href="PostAnalytics_8cshtml_8cs_source.html#l00040">PostAnalytics.cshtml.cs:40</a></div></div>
+<div class="ttc" id="aclassMiniBlogApp_1_1Services_1_1PostAnalyzer_html"><div class="ttname"><a href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">MiniBlogApp.Services.PostAnalyzer</a></div><div class="ttdef"><b>Definition</b> <a href="PostAnalysisService_8cs_source.html#l00025">PostAnalysisService.cs:26</a></div></div>
+<div class="ttc" id="aclassMiniBlogApp_1_1Services_1_1PostAnalyzer_html_a5374938cb7fd56cdb590300fcfe54b3a"><div class="ttname"><a href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html#a5374938cb7fd56cdb590300fcfe54b3a">MiniBlogApp.Services.PostAnalyzer.Analyze</a></div><div class="ttdeci">string Analyze(T post)</div><div class="ttdoc">Analyzes a single post.</div><div class="ttdef"><b>Definition</b> <a href="PostAnalysisService_8cs_source.html#l00033">PostAnalysisService.cs:33</a></div></div>
 </div><!-- fragment --><div id="dynsection-2" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-2-trigger" src="closed.png" alt="+"/> Here is the call graph for this function:</div>
 <div id="dynsection-2-summary" class="dynsummary" style="display:block;">
@@ -191,10 +199,16 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="PostAnalytics_8cshtml_8cs_source.html#l00009">9</a> of file <a class="el" href="PostAnalytics_8cshtml_8cs_source.html">PostAnalytics.cshtml.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">    9</span>{ <span class="keyword">get</span>; <span class="keyword">set</span>; } = <span class="keyword">new</span>();</div>
+<p>List of analyzed posts in textual format. </p>
+<dl class="section return"><dt>Returns</dt><dd>List&lt;string&gt; Each element contains information about the post such as author, likes, and comments.</dd></dl>
+<p>Populated by analyzing each post individually using <a class="el" href="classPostAnalyzer.html" title="Analyzes individual blog posts.">PostAnalyzer</a>. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="PostAnalytics_8cshtml_8cs-example.html#a1">PostAnalytics.cshtml.cs</a>.</dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="PostAnalytics_8cshtml_8cs_source.html#l00040">40</a> of file <a class="el" href="PostAnalytics_8cshtml_8cs_source.html">PostAnalytics.cshtml.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   40</span>{ <span class="keyword">get</span>; <span class="keyword">set</span>; } = <span class="keyword">new</span>();</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="PostAnalytics_8cshtml_8cs_source.html#l00012">MiniBlogApp.Pages.PostAnalyticsModel.OnGet()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="PostAnalytics_8cshtml_8cs_source.html#l00055">MiniBlogApp.Pages.PostAnalyticsModel.OnGet()</a>.</p>
 
 </div>
 </div>
@@ -218,10 +232,16 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="PostAnalytics_8cshtml_8cs_source.html#l00010">10</a> of file <a class="el" href="PostAnalytics_8cshtml_8cs_source.html">PostAnalytics.cshtml.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   10</span>{ <span class="keyword">get</span>; <span class="keyword">set</span>; } = <span class="keyword">new</span>();</div>
+<p>Summary statistics for all posts. </p>
+<dl class="section return"><dt>Returns</dt><dd>List&lt;string&gt; The first element contains overall statistics; the second contains statistics for a specific user.</dd></dl>
+<p>Useful for quickly evaluating the blog's performance and user engagement using PostStatsUtils. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="PostAnalytics_8cshtml_8cs-example.html#a2">PostAnalytics.cshtml.cs</a>.</dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="PostAnalytics_8cshtml_8cs_source.html#l00047">47</a> of file <a class="el" href="PostAnalytics_8cshtml_8cs_source.html">PostAnalytics.cshtml.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   47</span>{ <span class="keyword">get</span>; <span class="keyword">set</span>; } = <span class="keyword">new</span>();</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="PostAnalytics_8cshtml_8cs_source.html#l00012">MiniBlogApp.Pages.PostAnalyticsModel.OnGet()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="PostAnalytics_8cshtml_8cs_source.html#l00055">MiniBlogApp.Pages.PostAnalyticsModel.OnGet()</a>.</p>
 
 </div>
 </div>

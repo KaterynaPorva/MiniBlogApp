@@ -11,7 +11,7 @@
 <!-- Node1 -->
 <g id="Node000001" class="node">
 <title>Node1</title>
-<g id="a_Node000001"><a xlink:title=" ">
+<g id="a_Node000001"><a xlink:title="Analyzes a single post.">
 <polygon fill="#999999" stroke="#666666" points="439,-84 293,-84 293,-54 439,-54 439,-84"/>
 <text text-anchor="start" x="301" y="-72" font-family="Helvetica,sans-Serif" font-size="10.00">MiniBlogApp.Services.Post</text>
 <text text-anchor="middle" x="366" y="-61" font-family="Helvetica,sans-Serif" font-size="10.00">Analyzer.Analyze</text>
@@ -21,7 +21,7 @@
 <!-- Node2 -->
 <g id="Node000002" class="node">
 <title>Node2</title>
-<g id="a_Node000002"><a xlink:href="classMiniBlogApp_1_1Tests_1_1UtilsTests_1_1PostAnalyzerTests.html#a99dcb37188bd29747f86f3c3cc104d5c" target="_top" xlink:title=" ">
+<g id="a_Node000002"><a xlink:href="classMiniBlogApp_1_1Tests_1_1UtilsTests_1_1PostAnalyzerTests.html#a99dcb37188bd29747f86f3c3cc104d5c" target="_top" xlink:title="Tests PostAnalyzer with posts that have multiple likes and comments.">
 <polygon fill="white" stroke="#666666" points="257,-148.5 0,-148.5 0,-107.5 257,-107.5 257,-148.5"/>
 <text text-anchor="start" x="8" y="-136.5" font-family="Helvetica,sans-Serif" font-size="10.00">MiniBlogApp.Tests.UtilsTests.</text>
 <text text-anchor="start" x="8" y="-125.5" font-family="Helvetica,sans-Serif" font-size="10.00">PostAnalyzerTests.Analyze</text>
@@ -41,7 +41,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="classMiniBlogApp_1_1Tests_1_1UtilsTests_1_1PostAnalyzerTests.html#a02a8edca28d64fba780deeb46d0042e7" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="classMiniBlogApp_1_1Tests_1_1UtilsTests_1_1PostAnalyzerTests.html#a02a8edca28d64fba780deeb46d0042e7" target="_top" xlink:title="Tests PostAnalyzer with posts that have null author or title.">
 <polygon fill="white" stroke="#666666" points="237.5,-89.5 19.5,-89.5 19.5,-48.5 237.5,-48.5 237.5,-89.5"/>
 <text text-anchor="start" x="27.5" y="-77.5" font-family="Helvetica,sans-Serif" font-size="10.00">MiniBlogApp.Tests.UtilsTests.</text>
 <text text-anchor="start" x="27.5" y="-66.5" font-family="Helvetica,sans-Serif" font-size="10.00">PostAnalyzerTests.Analyze</text>
@@ -61,7 +61,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="classMiniBlogApp_1_1Pages_1_1PostAnalyticsModel.html#a6a1f56cc501fed821319661fb1d67fec" target="_top" xlink:title=" ">
+<g id="a_Node000004"><a xlink:href="classMiniBlogApp_1_1Pages_1_1PostAnalyticsModel.html#a6a1f56cc501fed821319661fb1d67fec" target="_top" xlink:title="Handles GET request for the post analytics page.">
 <polygon fill="white" stroke="#666666" points="218,-30 39,-30 39,0 218,0 218,-30"/>
 <text text-anchor="start" x="47" y="-18" font-family="Helvetica,sans-Serif" font-size="10.00">MiniBlogApp.Pages.PostAnalytics</text>
 <text text-anchor="middle" x="128.5" y="-7" font-family="Helvetica,sans-Serif" font-size="10.00">Model.OnGet</text>

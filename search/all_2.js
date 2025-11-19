@@ -9,7 +9,7 @@ var searchData=
   ['blogstorageadvancedtests_2ecs_6',['BlogStorageAdvancedTests.cs',['../BlogStorageAdvancedTests_8cs.html',1,'']]],
   ['blogstorageedgecasetests_7',['blogstorageedgecasetests',['../classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageEdgeCaseTests.html',1,'MiniBlogApp.Tests.ServiceTests.BlogStorageEdgeCaseTests'],['../classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageEdgeCaseTests.html#a9277aa134b3c458e991f232a36e5d252',1,'MiniBlogApp.Tests.ServiceTests.BlogStorageEdgeCaseTests.BlogStorageEdgeCaseTests()']]],
   ['blogstorageedgecasetests_2ecs_8',['BlogStorageEdgeCaseTests.cs',['../BlogStorageEdgeCaseTests_8cs.html',1,'']]],
-  ['blogstoragetestscollection_9',['BlogStorageTestsCollection',['../classBlogStorageTestsCollection.html',1,'']]],
+  ['blogstoragetestscollection_9',['BlogStorageTestsCollection',['../classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageTestsCollection.html',1,'MiniBlogApp::Tests::ServiceTests']]],
   ['blogstoragetestscollection_2ecs_10',['BlogStorageTestsCollection.cs',['../BlogStorageTestsCollection_8cs.html',1,'']]],
   ['bloguser_11',['BlogUser',['../classMiniBlogApp_1_1Models_1_1BlogUser.html',1,'MiniBlogApp::Models']]],
   ['bloguser_2ecs_12',['BlogUser.cs',['../BlogUser_8cs.html',1,'']]],

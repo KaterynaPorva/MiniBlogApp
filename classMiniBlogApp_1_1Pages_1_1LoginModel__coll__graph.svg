@@ -38,7 +38,7 @@
 <!-- Node3 -->
 <g id="Node000003" class="node">
 <title>Node3</title>
-<g id="a_Node000003"><a xlink:href="classMiniBlogApp_1_1Services_1_1UserService.html" target="_top" xlink:title=" ">
+<g id="a_Node000003"><a xlink:href="classMiniBlogApp_1_1Services_1_1UserService.html" target="_top" xlink:title="Service for managing blog users and authentication.">
 <polygon fill="white" stroke="#666666" points="236,-96 88,-96 88,-66 236,-66 236,-96"/>
 <text text-anchor="start" x="96" y="-84" font-family="Helvetica,sans-Serif" font-size="10.00">MiniBlogApp.Services.User</text>
 <text text-anchor="middle" x="162" y="-73" font-family="Helvetica,sans-Serif" font-size="10.00">Service</text>

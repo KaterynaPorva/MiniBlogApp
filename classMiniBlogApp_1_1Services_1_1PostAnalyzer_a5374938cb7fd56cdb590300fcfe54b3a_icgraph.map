@@ -1,9 +1,9 @@
 <map id="MiniBlogApp.Services.PostAnalyzer.Analyze" name="MiniBlogApp.Services.PostAnalyzer.Analyze">
-<area shape="rect" id="Node000001" title=" " alt="" coords="396,91,591,131"/>
-<area shape="rect" id="Node000002" href="$classMiniBlogApp_1_1Tests_1_1UtilsTests_1_1PostAnalyzerTests.html#a99dcb37188bd29747f86f3c3cc104d5c" title=" " alt="" coords="5,5,348,60"/>
+<area shape="rect" id="Node000001" title="Analyzes a single post." alt="" coords="396,91,591,131"/>
+<area shape="rect" id="Node000002" href="$classMiniBlogApp_1_1Tests_1_1UtilsTests_1_1PostAnalyzerTests.html#a99dcb37188bd29747f86f3c3cc104d5c" title="Tests PostAnalyzer with posts that have multiple likes and comments." alt="" coords="5,5,348,60"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="409,90,347,74,301,63,302,57,349,69,410,85"/>
-<area shape="rect" id="Node000003" href="$classMiniBlogApp_1_1Tests_1_1UtilsTests_1_1PostAnalyzerTests.html#a02a8edca28d64fba780deeb46d0042e7" title=" " alt="" coords="31,84,322,139"/>
+<area shape="rect" id="Node000003" href="$classMiniBlogApp_1_1Tests_1_1UtilsTests_1_1PostAnalyzerTests.html#a02a8edca28d64fba780deeb46d0042e7" title="Tests PostAnalyzer with posts that have null author or title." alt="" coords="31,84,322,139"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="382,114,322,114,322,109,382,109"/>
-<area shape="rect" id="Node000004" href="$classMiniBlogApp_1_1Pages_1_1PostAnalyticsModel.html#a6a1f56cc501fed821319661fb1d67fec" title=" " alt="" coords="57,163,296,203"/>
+<area shape="rect" id="Node000004" href="$classMiniBlogApp_1_1Pages_1_1PostAnalyticsModel.html#a6a1f56cc501fed821319661fb1d67fec" title="Handles GET request for the post analytics page." alt="" coords="57,163,296,203"/>
 <area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="409,138,349,153,287,166,286,161,347,147,407,132"/>
 </map>

@@ -115,20 +115,24 @@ $(document).ready(function(){initNavTree('classMiniBlogApp_1_1Pages_1_1IndexMode
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a43ba94a4f90a4c53e311de2ddc23b471" id="r_a43ba94a4f90a4c53e311de2ddc23b471"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">void</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMiniBlogApp_1_1Pages_1_1IndexModel.html#a43ba94a4f90a4c53e311de2ddc23b471">OnGet</a> ()</td></tr>
+<tr class="memdesc:a43ba94a4f90a4c53e311de2ddc23b471"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles GET request for the main blog page.  <br /></td></tr>
 <tr class="separator:a43ba94a4f90a4c53e311de2ddc23b471"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a38aa126b8d21bd4b8e6acca3c33b578c" id="r_a38aa126b8d21bd4b8e6acca3c33b578c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">IActionResult</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMiniBlogApp_1_1Pages_1_1IndexModel.html#a38aa126b8d21bd4b8e6acca3c33b578c">OnPostLogout</a> ()</td></tr>
+<tr class="memdesc:a38aa126b8d21bd4b8e6acca3c33b578c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Handles POST request to log out the user.  <br /></td></tr>
 <tr class="separator:a38aa126b8d21bd4b8e6acca3c33b578c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
 <tr class="memitem:a88cd73c399fa2a28db7efaca5daa87fc" id="r_a88cd73c399fa2a28db7efaca5daa87fc"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">List</a>&lt; <a class="el" href="classMiniBlogApp_1_1Models_1_1Post.html">Post</a> &gt;&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMiniBlogApp_1_1Pages_1_1IndexModel.html#a88cd73c399fa2a28db7efaca5daa87fc">AllPosts</a> = <a class="el" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">new</a>()<code> [get, set]</code></td></tr>
+<tr class="memdesc:a88cd73c399fa2a28db7efaca5daa87fc"><td class="mdescLeft">&#160;</td><td class="mdescRight">Collection of all blog posts.  <br /></td></tr>
 <tr class="separator:a88cd73c399fa2a28db7efaca5daa87fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acc7419315f5da45bdf461d46cf7c6f1b" id="r_acc7419315f5da45bdf461d46cf7c6f1b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">string</a>?&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMiniBlogApp_1_1Pages_1_1IndexModel.html#acc7419315f5da45bdf461d46cf7c6f1b">Username</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:acc7419315f5da45bdf461d46cf7c6f1b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Username of the currently logged-in user.  <br /></td></tr>
 <tr class="separator:acc7419315f5da45bdf461d46cf7c6f1b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock">
-<p class="definition">Definition at line <a class="el" href="Index_8cshtml_8cs_source.html#l00008">8</a> of file <a class="el" href="Index_8cshtml_8cs_source.html">Index.cshtml.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Index_8cshtml_8cs_source.html#l00027">27</a> of file <a class="el" href="Index_8cshtml_8cs_source.html">Index.cshtml.cs</a>.</p>
 </div><h2 class="groupheader">Member Function Documentation</h2>
 <a id="a43ba94a4f90a4c53e311de2ddc23b471" name="a43ba94a4f90a4c53e311de2ddc23b471"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a43ba94a4f90a4c53e311de2ddc23b471">&#9670;&#160;</a></span>OnGet()</h2>
@@ -145,14 +149,19 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Index_8cshtml_8cs_source.html#l00013">13</a> of file <a class="el" href="Index_8cshtml_8cs_source.html">Index.cshtml.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   14</span>        {</div>
-<div class="line"><span class="lineno">   15</span>            <a class="code hl_property" href="classMiniBlogApp_1_1Pages_1_1IndexModel.html#acc7419315f5da45bdf461d46cf7c6f1b">Username</a> = <a class="code hl_class" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">HttpContext</a>.Session.GetString(<span class="stringliteral">&quot;Username&quot;</span>);</div>
-<div class="line"><span class="lineno">   16</span>            <a class="code hl_property" href="classMiniBlogApp_1_1Pages_1_1IndexModel.html#a88cd73c399fa2a28db7efaca5daa87fc">AllPosts</a> = BlogStorage.GetAllPosts().ToList();</div>
-<div class="line"><span class="lineno">   17</span>        }</div>
-<div class="ttc" id="aclassMiniBlogApp_1_1Pages_1_1IndexModel_html_a88cd73c399fa2a28db7efaca5daa87fc"><div class="ttname"><a href="classMiniBlogApp_1_1Pages_1_1IndexModel.html#a88cd73c399fa2a28db7efaca5daa87fc">MiniBlogApp.Pages.IndexModel.AllPosts</a></div><div class="ttdeci">List&lt; Post &gt; AllPosts</div><div class="ttdef"><b>Definition</b> <a href="Index_8cshtml_8cs_source.html#l00010">Index.cshtml.cs:10</a></div></div>
-<div class="ttc" id="aclassMiniBlogApp_1_1Pages_1_1IndexModel_html_acc7419315f5da45bdf461d46cf7c6f1b"><div class="ttname"><a href="classMiniBlogApp_1_1Pages_1_1IndexModel.html#acc7419315f5da45bdf461d46cf7c6f1b">MiniBlogApp.Pages.IndexModel.Username</a></div><div class="ttdeci">string? Username</div><div class="ttdef"><b>Definition</b> <a href="Index_8cshtml_8cs_source.html#l00011">Index.cshtml.cs:11</a></div></div>
-<div class="ttc" id="aclassMiniBlogApp_1_1Services_1_1PostAnalyzer_html"><div class="ttname"><a href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">MiniBlogApp.Services.PostAnalyzer</a></div><div class="ttdef"><b>Definition</b> <a href="PostAnalysisService_8cs_source.html#l00005">PostAnalysisService.cs:6</a></div></div>
+<p>Handles GET request for the main blog page. </p>
+<p>Retrieves the username from the session and loads all posts from BlogStorage. If no user is logged in, Username will be null. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="Index_8cshtml_8cs-example.html#a3">Index.cshtml.cs</a>.</dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="Index_8cshtml_8cs_source.html#l00056">56</a> of file <a class="el" href="Index_8cshtml_8cs_source.html">Index.cshtml.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   57</span>        {</div>
+<div class="line"><span class="lineno">   58</span>            <a class="code hl_property" href="classMiniBlogApp_1_1Pages_1_1IndexModel.html#acc7419315f5da45bdf461d46cf7c6f1b">Username</a> = <a class="code hl_class" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">HttpContext</a>.Session.GetString(<span class="stringliteral">&quot;Username&quot;</span>);</div>
+<div class="line"><span class="lineno">   59</span>            <a class="code hl_property" href="classMiniBlogApp_1_1Pages_1_1IndexModel.html#a88cd73c399fa2a28db7efaca5daa87fc">AllPosts</a> = BlogStorage.GetAllPosts().ToList();</div>
+<div class="line"><span class="lineno">   60</span>        }</div>
+<div class="ttc" id="aclassMiniBlogApp_1_1Pages_1_1IndexModel_html_a88cd73c399fa2a28db7efaca5daa87fc"><div class="ttname"><a href="classMiniBlogApp_1_1Pages_1_1IndexModel.html#a88cd73c399fa2a28db7efaca5daa87fc">MiniBlogApp.Pages.IndexModel.AllPosts</a></div><div class="ttdeci">List&lt; Post &gt; AllPosts</div><div class="ttdoc">Collection of all blog posts.</div><div class="ttdef"><b>Definition</b> <a href="Index_8cshtml_8cs_source.html#l00043">Index.cshtml.cs:43</a></div></div>
+<div class="ttc" id="aclassMiniBlogApp_1_1Pages_1_1IndexModel_html_acc7419315f5da45bdf461d46cf7c6f1b"><div class="ttname"><a href="classMiniBlogApp_1_1Pages_1_1IndexModel.html#acc7419315f5da45bdf461d46cf7c6f1b">MiniBlogApp.Pages.IndexModel.Username</a></div><div class="ttdeci">string? Username</div><div class="ttdoc">Username of the currently logged-in user.</div><div class="ttdef"><b>Definition</b> <a href="Index_8cshtml_8cs_source.html#l00049">Index.cshtml.cs:49</a></div></div>
+<div class="ttc" id="aclassMiniBlogApp_1_1Services_1_1PostAnalyzer_html"><div class="ttname"><a href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">MiniBlogApp.Services.PostAnalyzer</a></div><div class="ttdef"><b>Definition</b> <a href="PostAnalysisService_8cs_source.html#l00025">PostAnalysisService.cs:26</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -171,11 +180,16 @@ Properties</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Index_8cshtml_8cs_source.html#l00018">18</a> of file <a class="el" href="Index_8cshtml_8cs_source.html">Index.cshtml.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   19</span>        {</div>
-<div class="line"><span class="lineno">   20</span>            <a class="code hl_class" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">HttpContext</a>.Session.Clear(); </div>
-<div class="line"><span class="lineno">   21</span>            <span class="keywordflow">return</span> <a class="code hl_class" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">RedirectToPage</a>(<span class="stringliteral">&quot;/Login&quot;</span>);</div>
-<div class="line"><span class="lineno">   22</span>        }</div>
+<p>Handles POST request to log out the user. </p>
+<p>Clears the current session and redirects the user to the login page. Ensures that no session data is retained after logout. </p><dl class="section return"><dt>Returns</dt><dd>IActionResult Redirects to the Login page after session clearance. </dd></dl>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="Index_8cshtml_8cs-example.html#a4">Index.cshtml.cs</a>.</dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="Index_8cshtml_8cs_source.html#l00068">68</a> of file <a class="el" href="Index_8cshtml_8cs_source.html">Index.cshtml.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   69</span>        {</div>
+<div class="line"><span class="lineno">   70</span>            <a class="code hl_class" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">HttpContext</a>.Session.Clear();</div>
+<div class="line"><span class="lineno">   71</span>            <span class="keywordflow">return</span> <a class="code hl_class" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">RedirectToPage</a>(<span class="stringliteral">&quot;/Login&quot;</span>);</div>
+<div class="line"><span class="lineno">   72</span>        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -200,10 +214,16 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Index_8cshtml_8cs_source.html#l00010">10</a> of file <a class="el" href="Index_8cshtml_8cs_source.html">Index.cshtml.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   10</span>{ <span class="keyword">get</span>; <span class="keyword">set</span>; } = <span class="keyword">new</span>();</div>
+<p>Collection of all blog posts. </p>
+<dl class="section return"><dt>Returns</dt><dd>List&lt;Post&gt; Returns a list of all posts available in the blog.</dd></dl>
+<p>Populated from BlogStorage when the page is loaded via OnGet method. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="Index_8cshtml_8cs-example.html#a1">Index.cshtml.cs</a>.</dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="Index_8cshtml_8cs_source.html#l00043">43</a> of file <a class="el" href="Index_8cshtml_8cs_source.html">Index.cshtml.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   43</span>{ <span class="keyword">get</span>; <span class="keyword">set</span>; } = <span class="keyword">new</span>();</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="Index_8cshtml_8cs_source.html#l00013">MiniBlogApp.Pages.IndexModel.OnGet()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Index_8cshtml_8cs_source.html#l00056">MiniBlogApp.Pages.IndexModel.OnGet()</a>.</p>
 
 </div>
 </div>
@@ -227,10 +247,15 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Index_8cshtml_8cs_source.html#l00011">11</a> of file <a class="el" href="Index_8cshtml_8cs_source.html">Index.cshtml.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   11</span>{ <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
+<p>Username of the currently logged-in user. </p>
+<p>This property is used to display user information and control access to certain actions. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="Index_8cshtml_8cs-example.html#a2">Index.cshtml.cs</a>.</dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="Index_8cshtml_8cs_source.html#l00049">49</a> of file <a class="el" href="Index_8cshtml_8cs_source.html">Index.cshtml.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   49</span>{ <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="Index_8cshtml_8cs_source.html#l00013">MiniBlogApp.Pages.IndexModel.OnGet()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Index_8cshtml_8cs_source.html#l00056">MiniBlogApp.Pages.IndexModel.OnGet()</a>.</p>
 
 </div>
 </div>

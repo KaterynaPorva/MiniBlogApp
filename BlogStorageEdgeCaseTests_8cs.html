@@ -97,11 +97,15 @@ $(document).ready(function(){initNavTree('BlogStorageEdgeCaseTests_8cs.html','')
 </div><!--header-->
 <div class="contents">
 
+<p>Edge case unit tests for BlogStorage functionality.  
+<a href="#details">More...</a></p>
+
 <p><a href="BlogStorageEdgeCaseTests_8cs_source.html">Go to the source code of this file.</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="nested-classes" name="nested-classes"></a>
 Classes</h2></td></tr>
 <tr class="memitem:"><td class="memItemLeft" align="right" valign="top">class &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageEdgeCaseTests.html">MiniBlogApp.Tests.ServiceTests.BlogStorageEdgeCaseTests</a></td></tr>
+<tr class="memdesc:"><td class="mdescLeft">&#160;</td><td class="mdescRight">Edge case tests for BlogStorage operations.  <a href="classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageEdgeCaseTests.html#details">More...</a><br /></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="namespaces" name="namespaces"></a>
@@ -113,7 +117,18 @@ Namespaces</h2></td></tr>
 <tr class="memitem:namespaceMiniBlogApp_1_1Tests_1_1ServiceTests" id="r_namespaceMiniBlogApp_1_1Tests_1_1ServiceTests"><td class="memItemLeft" align="right" valign="top">namespace &#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="namespaceMiniBlogApp_1_1Tests_1_1ServiceTests.html">MiniBlogApp.Tests.ServiceTests</a></td></tr>
 <tr class="separator:"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-</div><!-- contents -->
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Edge case unit tests for BlogStorage functionality. </p>
+<p>Contains tests covering unusual or extreme scenarios:</p><ul>
+<li>Adding comments with empty text</li>
+<li>Case sensitivity of usernames when adding likes</li>
+<li>Adding posts with very long content</li>
+<li>Updating non-existent posts</li>
+<li>Summarizing posts with no likes or comments Each test clears the in-memory storage and logs to ensure isolation. </li>
+</ul>
+
+<p class="definition">Definition in file <a class="el" href="BlogStorageEdgeCaseTests_8cs_source.html">BlogStorageEdgeCaseTests.cs</a>.</p>
+</div></div><!-- contents -->
 </div><!-- doc-content -->
 <!-- start footer part -->
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->

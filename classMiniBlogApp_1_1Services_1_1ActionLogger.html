@@ -98,6 +98,9 @@ $(document).ready(function(){initNavTree('classMiniBlogApp_1_1Services_1_1Action
   <div class="headertitle"><div class="title">MiniBlogApp.Services.ActionLogger Class Reference<span class="mlabels"><span class="mlabel">abstract</span></span></div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Abstract base class for logging user actions.  
+ <a href="classMiniBlogApp_1_1Services_1_1ActionLogger.html#details">More...</a></p>
 <div id="dynsection-0" onclick="return toggleVisibility(this)" class="dynheader closed" style="cursor:pointer;">
   <img id="dynsection-0-trigger" src="closed.png" alt="+"/> Inheritance diagram for MiniBlogApp.Services.ActionLogger:</div>
 <div id="dynsection-0-summary" class="dynsummary" style="display:block;">
@@ -109,23 +112,29 @@ $(document).ready(function(){initNavTree('classMiniBlogApp_1_1Services_1_1Action
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pub-methods" name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
 <tr class="memitem:a9049c905c2109219d3a7de22a20e19ac" id="r_a9049c905c2109219d3a7de22a20e19ac"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">virtual</a> <a class="el" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMiniBlogApp_1_1Services_1_1ActionLogger.html#a9049c905c2109219d3a7de22a20e19ac">GetMessage</a> ()</td></tr>
+<tr class="memdesc:a9049c905c2109219d3a7de22a20e19ac"><td class="mdescLeft">&#160;</td><td class="mdescRight">Returns a default message for the action.  <br /></td></tr>
 <tr class="separator:a9049c905c2109219d3a7de22a20e19ac"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="pro-methods" name="pro-methods"></a>
 Protected Member Functions</h2></td></tr>
 <tr class="memitem:a7b573e34f09cd33b4f012d074bf1de0d" id="r_a7b573e34f09cd33b4f012d074bf1de0d"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMiniBlogApp_1_1Services_1_1ActionLogger.html#a7b573e34f09cd33b4f012d074bf1de0d">ActionLogger</a> (<a class="el" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">string</a> <a class="el" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">username</a>)</td></tr>
+<tr class="memdesc:a7b573e34f09cd33b4f012d074bf1de0d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Constructor for ActionLogger.  <br /></td></tr>
 <tr class="separator:a7b573e34f09cd33b4f012d074bf1de0d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
 <tr class="memitem:afca827f12bbafda92ed9237b4e81b86d" id="r_afca827f12bbafda92ed9237b4e81b86d"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMiniBlogApp_1_1Services_1_1ActionLogger.html#afca827f12bbafda92ed9237b4e81b86d">Username</a> = string.Empty<code> [get, set]</code></td></tr>
+<tr class="memdesc:afca827f12bbafda92ed9237b4e81b86d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Username of the user who performed the action.  <br /></td></tr>
 <tr class="separator:afca827f12bbafda92ed9237b4e81b86d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a15b410d94bff854758472b4ac4c62120" id="r_a15b410d94bff854758472b4ac4c62120"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">DateTime</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMiniBlogApp_1_1Services_1_1ActionLogger.html#a15b410d94bff854758472b4ac4c62120">Timestamp</a><code> [get, set]</code></td></tr>
+<tr class="memdesc:a15b410d94bff854758472b4ac4c62120"><td class="mdescLeft">&#160;</td><td class="mdescRight">Timestamp of when the action occurred.  <br /></td></tr>
 <tr class="separator:a15b410d94bff854758472b4ac4c62120"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="LoggerService_8cs_source.html#l00003">3</a> of file <a class="el" href="LoggerService_8cs_source.html">LoggerService.cs</a>.</p>
+<div class="textblock"><p>Abstract base class for logging user actions. </p>
+<p>Stores the username of the user performing the action and the timestamp. Can be extended for specific actions like creating posts, commenting, or liking. </p>
+
+<p class="definition">Definition at line <a class="el" href="LoggerService_8cs_source.html#l00037">37</a> of file <a class="el" href="LoggerService_8cs_source.html">LoggerService.cs</a>.</p>
 </div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
 <a id="a7b573e34f09cd33b4f012d074bf1de0d" name="a7b573e34f09cd33b4f012d074bf1de0d"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a7b573e34f09cd33b4f012d074bf1de0d">&#9670;&#160;</a></span>ActionLogger()</h2>
@@ -151,13 +160,23 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="LoggerService_8cs_source.html#l00008">8</a> of file <a class="el" href="LoggerService_8cs_source.html">LoggerService.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">    9</span>        {</div>
-<div class="line"><span class="lineno">   10</span>            <a class="code hl_property" href="classMiniBlogApp_1_1Services_1_1ActionLogger.html#afca827f12bbafda92ed9237b4e81b86d">Username</a> = username;</div>
-<div class="line"><span class="lineno">   11</span>            <a class="code hl_property" href="classMiniBlogApp_1_1Services_1_1ActionLogger.html#a15b410d94bff854758472b4ac4c62120">Timestamp</a> = DateTime.Now;</div>
-<div class="line"><span class="lineno">   12</span>        }</div>
-<div class="ttc" id="aclassMiniBlogApp_1_1Services_1_1ActionLogger_html_a15b410d94bff854758472b4ac4c62120"><div class="ttname"><a href="classMiniBlogApp_1_1Services_1_1ActionLogger.html#a15b410d94bff854758472b4ac4c62120">MiniBlogApp.Services.ActionLogger.Timestamp</a></div><div class="ttdeci">DateTime Timestamp</div><div class="ttdef"><b>Definition</b> <a href="LoggerService_8cs_source.html#l00006">LoggerService.cs:6</a></div></div>
-<div class="ttc" id="aclassMiniBlogApp_1_1Services_1_1ActionLogger_html_afca827f12bbafda92ed9237b4e81b86d"><div class="ttname"><a href="classMiniBlogApp_1_1Services_1_1ActionLogger.html#afca827f12bbafda92ed9237b4e81b86d">MiniBlogApp.Services.ActionLogger.Username</a></div><div class="ttdeci">string Username</div><div class="ttdef"><b>Definition</b> <a href="LoggerService_8cs_source.html#l00005">LoggerService.cs:5</a></div></div>
+<p>Constructor for ActionLogger. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">username</td><td>Username of the user performing the action.</td></tr>
+  </table>
+  </dd>
+</dl>
+<p>Sets the timestamp to current time. </p>
+
+<p class="definition">Definition at line <a class="el" href="LoggerService_8cs_source.html#l00050">50</a> of file <a class="el" href="LoggerService_8cs_source.html">LoggerService.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   51</span>        {</div>
+<div class="line"><span class="lineno">   52</span>            <a class="code hl_property" href="classMiniBlogApp_1_1Services_1_1ActionLogger.html#afca827f12bbafda92ed9237b4e81b86d">Username</a> = <a class="code hl_class" href="classPostAnalyzer.html">username</a>;</div>
+<div class="line"><span class="lineno">   53</span>            <a class="code hl_property" href="classMiniBlogApp_1_1Services_1_1ActionLogger.html#a15b410d94bff854758472b4ac4c62120">Timestamp</a> = <a class="code hl_class" href="classPostAnalyzer.html">DateTime</a>.Now;</div>
+<div class="line"><span class="lineno">   54</span>        }</div>
+<div class="ttc" id="aclassMiniBlogApp_1_1Services_1_1ActionLogger_html_a15b410d94bff854758472b4ac4c62120"><div class="ttname"><a href="classMiniBlogApp_1_1Services_1_1ActionLogger.html#a15b410d94bff854758472b4ac4c62120">MiniBlogApp.Services.ActionLogger.Timestamp</a></div><div class="ttdeci">DateTime Timestamp</div><div class="ttdoc">Timestamp of when the action occurred.</div><div class="ttdef"><b>Definition</b> <a href="LoggerService_8cs_source.html#l00043">LoggerService.cs:43</a></div></div>
+<div class="ttc" id="aclassMiniBlogApp_1_1Services_1_1ActionLogger_html_afca827f12bbafda92ed9237b4e81b86d"><div class="ttname"><a href="classMiniBlogApp_1_1Services_1_1ActionLogger.html#afca827f12bbafda92ed9237b4e81b86d">MiniBlogApp.Services.ActionLogger.Username</a></div><div class="ttdeci">string Username</div><div class="ttdoc">Username of the user who performed the action.</div><div class="ttdef"><b>Definition</b> <a href="LoggerService_8cs_source.html#l00040">LoggerService.cs:40</a></div></div>
+<div class="ttc" id="aclassPostAnalyzer_html"><div class="ttname"><a href="classPostAnalyzer.html">PostAnalyzer</a></div><div class="ttdoc">Analyzes individual blog posts.</div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -185,12 +204,17 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p>Reimplemented in <a class="el" href="classMiniBlogApp_1_1Services_1_1PostLogger.html#acabdfbc08a10d599a62cf70410a9b076">MiniBlogApp.Services.PostLogger</a>, <a class="el" href="classMiniBlogApp_1_1Services_1_1CommentLogger.html#a5739570a73f23cecfb052d1c5900d1ef">MiniBlogApp.Services.CommentLogger</a>, and <a class="el" href="classMiniBlogApp_1_1Services_1_1LikeLogger.html#ac655757bbcbeb7d4a664e16d03cc67e3">MiniBlogApp.Services.LikeLogger</a>.</p>
+<p>Returns a default message for the action. </p>
+<dl class="section return"><dt>Returns</dt><dd>string Message describing the action. </dd></dl>
 
-<p class="definition">Definition at line <a class="el" href="LoggerService_8cs_source.html#l00014">14</a> of file <a class="el" href="LoggerService_8cs_source.html">LoggerService.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   15</span>        {</div>
-<div class="line"><span class="lineno">   16</span>            <span class="keywordflow">return</span> $<span class="stringliteral">&quot;{Timestamp:HH:mm} - Користувач {Username} виконав якусь дію.&quot;</span>;</div>
-<div class="line"><span class="lineno">   17</span>        }</div>
+<p>Reimplemented in <a class="el" href="classMiniBlogApp_1_1Services_1_1PostLogger.html#acabdfbc08a10d599a62cf70410a9b076">MiniBlogApp.Services.PostLogger</a>, <a class="el" href="classMiniBlogApp_1_1Services_1_1CommentLogger.html#a5739570a73f23cecfb052d1c5900d1ef">MiniBlogApp.Services.CommentLogger</a>, and <a class="el" href="classMiniBlogApp_1_1Services_1_1LikeLogger.html#ac655757bbcbeb7d4a664e16d03cc67e3">MiniBlogApp.Services.LikeLogger</a>.</p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="LoggerService_8cs-example.html#a3">LoggerService.cs</a>.</dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="LoggerService_8cs_source.html#l00060">60</a> of file <a class="el" href="LoggerService_8cs_source.html">LoggerService.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   61</span>        {</div>
+<div class="line"><span class="lineno">   62</span>            <span class="keywordflow">return</span> <a class="code hl_class" href="classPostAnalyzer.html">$</a><span class="stringliteral">&quot;{Timestamp:HH:mm} - User {Username} performed an action.&quot;</span>;</div>
+<div class="line"><span class="lineno">   63</span>        }</div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -215,10 +239,14 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="LoggerService_8cs_source.html#l00006">6</a> of file <a class="el" href="LoggerService_8cs_source.html">LoggerService.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">    6</span>{ <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
+<p>Timestamp of when the action occurred. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="LoggerService_8cs-example.html#a2">LoggerService.cs</a>.</dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="LoggerService_8cs_source.html#l00043">43</a> of file <a class="el" href="LoggerService_8cs_source.html">LoggerService.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   43</span>{ <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="LoggerService_8cs_source.html#l00008">MiniBlogApp.Services.ActionLogger.ActionLogger()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="LoggerService_8cs_source.html#l00050">MiniBlogApp.Services.ActionLogger.ActionLogger()</a>.</p>
 
 </div>
 </div>
@@ -242,10 +270,14 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="LoggerService_8cs_source.html#l00005">5</a> of file <a class="el" href="LoggerService_8cs_source.html">LoggerService.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">    5</span>{ <span class="keyword">get</span>; <span class="keyword">set</span>; } = <span class="keywordtype">string</span>.Empty;</div>
+<p>Username of the user who performed the action. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="LoggerService_8cs-example.html#a1">LoggerService.cs</a>.</dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="LoggerService_8cs_source.html#l00040">40</a> of file <a class="el" href="LoggerService_8cs_source.html">LoggerService.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   40</span>{ <span class="keyword">get</span>; <span class="keyword">set</span>; } = <span class="keywordtype">string</span>.Empty;</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="LoggerService_8cs_source.html#l00008">MiniBlogApp.Services.ActionLogger.ActionLogger()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="LoggerService_8cs_source.html#l00050">MiniBlogApp.Services.ActionLogger.ActionLogger()</a>.</p>
 
 </div>
 </div>

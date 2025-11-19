@@ -2,6 +2,6 @@
 <area shape="rect" id="Node000001" title=" " alt="" coords="23,108,249,133"/>
 <area shape="rect" id="Node000002" title=" " alt="" coords="5,13,99,38"/>
 <area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="73,46,128,106,124,110,69,50"/>
-<area shape="rect" id="Node000003" href="$classMiniBlogApp_1_1Services_1_1UserService.html" title=" " alt="" coords="123,5,320,45"/>
+<area shape="rect" id="Node000003" href="$classMiniBlogApp_1_1Services_1_1UserService.html" title="Service for managing blog users and authentication." alt="" coords="123,5,320,45"/>
 <area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="197,57,149,109,145,106,193,53"/>
 </map>

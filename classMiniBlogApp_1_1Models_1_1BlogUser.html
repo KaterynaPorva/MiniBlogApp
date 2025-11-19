@@ -96,17 +96,26 @@ $(document).ready(function(){initNavTree('classMiniBlogApp_1_1Models_1_1BlogUser
   <div class="headertitle"><div class="title">MiniBlogApp.Models.BlogUser Class Reference</div></div>
 </div><!--header-->
 <div class="contents">
+
+<p>Represents a user of the blog application.  
+ <a href="classMiniBlogApp_1_1Models_1_1BlogUser.html#details">More...</a></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a id="properties" name="properties"></a>
 Properties</h2></td></tr>
-<tr class="memitem:aba79bd09257b74d32f84a1c4b80db595" id="r_aba79bd09257b74d32f84a1c4b80db595"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMiniBlogApp_1_1Models_1_1BlogUser.html#aba79bd09257b74d32f84a1c4b80db595">Username</a><code> [get, set]</code></td></tr>
+<tr class="memitem:aba79bd09257b74d32f84a1c4b80db595" id="r_aba79bd09257b74d32f84a1c4b80db595"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPostAnalyzer.html">string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMiniBlogApp_1_1Models_1_1BlogUser.html#aba79bd09257b74d32f84a1c4b80db595">Username</a> = string.Empty<code> [get, set]</code></td></tr>
+<tr class="memdesc:aba79bd09257b74d32f84a1c4b80db595"><td class="mdescLeft">&#160;</td><td class="mdescRight">Username of the blog user.  <br /></td></tr>
 <tr class="separator:aba79bd09257b74d32f84a1c4b80db595"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:add0df3bd2b83228a24814bdd6275fa2c" id="r_add0df3bd2b83228a24814bdd6275fa2c"><td class="memItemLeft" align="right" valign="top">string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMiniBlogApp_1_1Models_1_1BlogUser.html#add0df3bd2b83228a24814bdd6275fa2c">Password</a><code> [get, set]</code></td></tr>
+<tr class="memitem:add0df3bd2b83228a24814bdd6275fa2c" id="r_add0df3bd2b83228a24814bdd6275fa2c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="classPostAnalyzer.html">string</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="classMiniBlogApp_1_1Models_1_1BlogUser.html#add0df3bd2b83228a24814bdd6275fa2c">Password</a> = string.Empty<code> [get, set]</code></td></tr>
+<tr class="memdesc:add0df3bd2b83228a24814bdd6275fa2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Password of the blog user.  <br /></td></tr>
 <tr class="separator:add0df3bd2b83228a24814bdd6275fa2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock">
-<p class="definition">Definition at line <a class="el" href="BlogUser_8cs_source.html#l00003">3</a> of file <a class="el" href="BlogUser_8cs_source.html">BlogUser.cs</a>.</p>
+<div class="textblock"><p>Represents a user of the blog application. </p>
+<p>This class stores the simplest possible form of user information. It is used primarily for login validation and session tracking. Although minimal by design for the laboratory context, it serves as a foundation for extending authentication and user management features, such as adding email verification, password recovery, or user permissions. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="Login_8cshtml_8cs-example.html#_a3">Login.cshtml.cs</a>, and <a class="el" href="UserService_8cs-example.html#_a2">UserService.cs</a>.</dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="BlogUser_8cs_source.html#l00034">34</a> of file <a class="el" href="BlogUser_8cs_source.html">BlogUser.cs</a>.</p>
 </div><h2 class="groupheader">Property Documentation</h2>
 <a id="add0df3bd2b83228a24814bdd6275fa2c" name="add0df3bd2b83228a24814bdd6275fa2c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#add0df3bd2b83228a24814bdd6275fa2c">&#9670;&#160;</a></span>Password</h2>
@@ -118,7 +127,7 @@ Properties</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">string MiniBlogApp.Models.BlogUser.Password</td>
+          <td class="memname"><a class="el" href="classPostAnalyzer.html">string</a> MiniBlogApp.Models.BlogUser.Password = string.Empty</td>
         </tr>
       </table>
   </td>
@@ -128,10 +137,15 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="BlogUser_8cs_source.html#l00006">6</a> of file <a class="el" href="BlogUser_8cs_source.html">BlogUser.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">    6</span>{ <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
+<p>Password of the blog user. </p>
+<p>The stored password is currently in plain text due to simplicity requirements of the project environment. In real-world systems, passwords must always be stored securely using hashing (e.g., bcrypt, PBKDF2) and salted values. This property is used during login to verify the user's identity. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="BlogUser_8cs-example.html#a1">BlogUser.cs</a>.</dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="BlogUser_8cs_source.html#l00056">56</a> of file <a class="el" href="BlogUser_8cs_source.html">BlogUser.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   56</span>{ <span class="keyword">get</span>; <span class="keyword">set</span>; } = <span class="keywordtype">string</span>.Empty;</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="Login_8cshtml_8cs_source.html#l00030">MiniBlogApp.Pages.LoginModel.OnPost()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Login_8cshtml_8cs_source.html#l00087">MiniBlogApp.Pages.LoginModel.OnPost()</a>.</p>
 
 </div>
 </div>
@@ -145,7 +159,7 @@ Properties</h2></td></tr>
   <td class="mlabels-left">
       <table class="memname">
         <tr>
-          <td class="memname">string MiniBlogApp.Models.BlogUser.Username</td>
+          <td class="memname"><a class="el" href="classPostAnalyzer.html">string</a> MiniBlogApp.Models.BlogUser.Username = string.Empty</td>
         </tr>
       </table>
   </td>
@@ -155,10 +169,15 @@ Properties</h2></td></tr>
 </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="BlogUser_8cs_source.html#l00005">5</a> of file <a class="el" href="BlogUser_8cs_source.html">BlogUser.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">    5</span>{ <span class="keyword">get</span>; <span class="keyword">set</span>; }</div>
+<p>Username of the blog user. </p>
+<p>The username acts as the primary identifier for the user. It must be unique across the system to distinguish users during authentication, authorization, or when associating content such as posts, likes, or comments. If the username is invalid or duplicated, user authentication may fail. </p>
+<dl class="section examples"><dt>Examples</dt><dd><a class="el" href="BlogUser_8cs-example.html#a0">BlogUser.cs</a>.</dd>
+</dl>
+
+<p class="definition">Definition at line <a class="el" href="BlogUser_8cs_source.html#l00045">45</a> of file <a class="el" href="BlogUser_8cs_source.html">BlogUser.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   45</span>{ <span class="keyword">get</span>; <span class="keyword">set</span>; } = <span class="keywordtype">string</span>.Empty;</div>
 </div><!-- fragment -->
-<p class="reference">Referenced by <a class="el" href="Login_8cshtml_8cs_source.html#l00030">MiniBlogApp.Pages.LoginModel.OnPost()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Login_8cshtml_8cs_source.html#l00087">MiniBlogApp.Pages.LoginModel.OnPost()</a>.</p>
 
 </div>
 </div>
