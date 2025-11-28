@@ -1,6 +1,6 @@
 ﻿@page
 @model MiniBlogApp.Pages.ViewPostModel
-@{
+@using Markdig  @{
     Layout = "_Layout";
     ViewData["Title"] = Model.Post?.Title ?? "Пост не знайдено";
 }
@@ -83,6 +83,19 @@
         font-style: italic;
         margin-bottom: 20px;
     }
+    
+    /* Додамо трохи стилів для відрендереного Markdown */
+    .post-content blockquote {
+        border-left: 4px solid #ccc;
+        margin-left: 0;
+        padding-left: 16px;
+        color: #666;
+    }
+    .post-content code {
+        background-color: #f4f4f4;
+        padding: 2px 4px;
+        border-radius: 4px;
+    }
 </style>
 
 <div class="posts-container">
@@ -98,7 +111,10 @@
     {
         <h1>@Model.Post.Title</h1>
         <p class="author">Автор: @Model.Post.Author</p>
-        <p>@Model.Post.Content</p>
+        
+        <div class="post-content">
+            @Html.Raw(Markdown.ToHtml(Model.Post.Content ?? ""))
+        </div>
 
         <form method="post" asp-page-handler="Like">
             <input type="hidden" name="id" value="@Model.Post.Id" />
