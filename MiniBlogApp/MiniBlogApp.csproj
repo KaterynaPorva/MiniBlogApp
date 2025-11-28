@@ -6,4 +6,8 @@
     <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
 
+  <ItemGroup>
+    <PackageReference Include="Markdig" Version="0.44.0" />
+  </ItemGroup>
+
 </Project>
