@@ -1,14 +1,13 @@
 ﻿@page
 @model MiniBlogApp.Pages.MyPostsModel
-@{
+@using Markdig @{
     Layout = "_Layout";
     ViewData["Title"] = "Мої пости";
 }
 
-
 <style>
     body {
-        background-color: #5C4033; 
+        background-color: #5C4033;
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
@@ -47,7 +46,7 @@
             }
 
     .post-card {
-        background-color: #f5f5dc; 
+        background-color: #f5f5dc;
         border-radius: 20px;
         padding: 20px;
         margin-bottom: 20px;
@@ -113,7 +112,11 @@
         {
             <div class="post-card">
                 <h3>@post.Title</h3>
-                <p>@post.Content</p>
+
+                <div class="post-content">
+                    @Html.Raw(Markdown.ToHtml(post.Content ?? ""))
+                </div>
+
                 <small>Створено: @post.CreatedAt.ToString("dd.MM.yyyy HH:mm")</small>
 
                 <div class="post-actions">
