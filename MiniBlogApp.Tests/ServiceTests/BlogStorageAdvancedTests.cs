@@ -6,6 +6,20 @@ using MiniBlogApp.Models;
 
 namespace MiniBlogApp.Tests.ServiceTests
 {
+    /**
+     * @file BlogStorageAdvancedTests.cs
+     * @brief Advanced unit tests for BlogStorage functionality.
+     * @details Contains tests for adding posts, likes, comments, updating posts, 
+     *          deleting posts, and ensuring proper logging behavior.
+     *          Each test clears the in-memory storage and logs to guarantee isolation.
+     */
+
+    /**
+     * @class BlogStorageAdvancedTests
+     * @brief Advanced tests for BlogStorage operations.
+     * @details Verifies that BlogStorage methods correctly update posts, handle likes and comments,
+     *          maintain unique IDs, and log actions appropriately.
+     */
     [Collection("BlogStorageTests")]
     public class BlogStorageAdvancedTests
     {
@@ -23,12 +37,23 @@ namespace MiniBlogApp.Tests.ServiceTests
         private const string ShortContent1 = "C1";
         private const string ShortContent2 = "C2";
 
+        /**
+         * @brief Constructor runs before each test.
+         * @details Clears BlogStorage posts and LoggerService logs to ensure 
+         *          tests are isolated and independent.
+         */
         public BlogStorageAdvancedTests()
         {
             BlogStorage.Posts.Clear();
             LoggerService.ClearAll();
         }
 
+        /**
+         * @brief Tests adding a comment to a post.
+         * @details Verifies that the comment is correctly added to the post
+         *          and that a corresponding log entry is created.
+         * @return void
+         */
         [Fact]
         public void AddComment_ShouldAddToPostAndLogMessage()
         {
@@ -45,6 +70,12 @@ namespace MiniBlogApp.Tests.ServiceTests
             Assert.Contains(logs, msg => msg.Contains("залишив коментар"));
         }
 
+        /**
+         * @brief Tests adding likes to a post.
+         * @details Ensures that a user can like a post only once,
+         *          and that logging reflects a single like per user.
+         * @return void
+         */
         [Fact]
         public void AddLike_ShouldLogMessageOnlyOncePerUser()
         {
@@ -60,6 +91,12 @@ namespace MiniBlogApp.Tests.ServiceTests
             Assert.Contains(logs, msg => msg.Contains("створив пост"));
         }
 
+        /**
+         * @brief Tests adding multiple posts.
+         * @details Checks that each post receives a unique ID and
+         *          that logs correctly reflect post creation.
+         * @return void
+         */
         [Fact]
         public void AddPost_ShouldAssignUniqueIdsAndLogMessages()
         {
@@ -73,6 +110,12 @@ namespace MiniBlogApp.Tests.ServiceTests
             Assert.Contains(logs, msg => msg.Contains(ShortTitle2));
         }
 
+        /**
+         * @brief Tests updating the content of a post.
+         * @details Ensures that UpdatePost correctly changes the post's content
+         *          while keeping the ID and author intact.
+         * @return void
+         */
         [Fact]
         public void UpdatePost_ShouldChangeContent()
         {
@@ -85,6 +128,12 @@ namespace MiniBlogApp.Tests.ServiceTests
             Assert.Equal(NewContent, updatedPost.Content);
         }
 
+        /**
+         * @brief Tests deleting a post.
+         * @details Ensures that DeletePost removes the post from storage
+         *          and that it is no longer retrievable.
+         * @return void
+         */
         [Fact]
         public void DeletePost_ShouldRemovePost()
         {
