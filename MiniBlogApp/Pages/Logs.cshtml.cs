@@ -1,6 +1,7 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using MiniBlogApp.Services;
+using NToastNotify;
 
 namespace MiniBlogApp.Pages
 {
@@ -9,27 +10,39 @@ namespace MiniBlogApp.Pages
      * @brief Page model for displaying and managing user activity logs.
      *
      * @details This file contains the LogsModel class used in MiniBlogApp.
-     *          It handles retrieving and displaying the activity logs and 
-     *          provides functionality to clear all logs. Useful for auditing 
-     *          and monitoring user activity within the application.
+     * It handles retrieving and displaying the activity logs and 
+     * provides functionality to clear all logs. Useful for auditing 
+     * and monitoring user activity within the application.
+     * Now uses NToastNotify for user feedback.
      *
      * @example Logs.cshtml.cs
      * @code
-     * var model = new LogsModel();
+     * var model = new LogsModel(toastNotification);
      * model.OnGet();
      * // model.Logs now contains all recorded user actions
      * IActionResult result = model.OnPostClearLogs();
-     * // result redirects to the same page with log cleared
+     * // result redirects to the same page with logs cleared and a toast message
      * @endcode
      */
     public class LogsModel : PageModel
     {
+        private readonly IToastNotification _toastNotification; // 2. Сервіс повідомлень
+
+        /**
+         * @brief Constructor for LogsModel.
+         * @param toastNotification Injected service for displaying notifications.
+         */
+        public LogsModel(IToastNotification toastNotification)
+        {
+            _toastNotification = toastNotification;
+        }
+
         /**
          * @class LogsModel
          * @brief Handles displaying and managing user activity logs.
          *
          * @details Retrieves logs from LoggerService and allows clearing them.
-         *          Intended for administrators or monitoring purposes.
+         * Intended for administrators or monitoring purposes.
          */
 
         /**
@@ -51,13 +64,15 @@ namespace MiniBlogApp.Pages
         /**
          * @brief Handles POST requests to clear the activity log.
          * @details Clears all entries in the activity log using LoggerService.
-         *          Displays a success message using TempData and redirects to the same page.
+         * Displays a success toast message and redirects to the same page.
          * @return IActionResult Redirects to the current page after clearing the log.
          */
         public IActionResult OnPostClearLogs()
         {
             LoggerService.ClearAll();
-            TempData["Message"] = "������ ��������� �������.";
+            
+            _toastNotification.AddSuccessToastMessage("Журнал активності успішно очищено. 🧹");
+            
             return RedirectToPage();
         }
     }
