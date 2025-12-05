@@ -1,4 +1,4 @@
-using Microsoft.AspNetCore.Mvc;
+п»їusing Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using MiniBlogApp.Models;
 using MiniBlogApp.Services;
@@ -88,13 +88,11 @@ namespace MiniBlogApp.Pages
 
             var post = BlogStorage.GetPostById(id);
 
-            // Перевіряємо, чи пост існує і чи належить він поточному користувачу
             if (post != null && post.Author == username)
             {
                 BlogStorage.DeletePost(id);
 
-                // Відображаємо жовте повідомлення (Warning) про видалення
-                _toastNotification.AddWarningToastMessage("Пост було видалено. ???");
+                _toastNotification.AddWarningToastMessage("РџРѕСЃС‚ Р±СѓР»Рѕ РІРёРґР°Р»РµРЅРѕ. рџ—‘пёЏ");
             }
 
             return RedirectToPage();

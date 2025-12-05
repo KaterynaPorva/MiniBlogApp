@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using MiniBlogApp.Models;
 using MiniBlogApp.Services;
-using NToastNotify; // 1. Підключили бібліотеку
+using NToastNotify; 
 
 namespace MiniBlogApp.Pages
 {
@@ -123,10 +123,8 @@ namespace MiniBlogApp.Pages
             if (post == null || post.Author != Username)
                 return RedirectToPage("/MyPosts");
 
-            // Оновлюємо пост
             BlogStorage.UpdatePost(Id, Title, PostContent);
 
-            // 3. ПОВІДОМЛЕННЯ ПРО РЕДАГУВАННЯ (Зелене/Success)
             _toastNotification.AddSuccessToastMessage($"Пост '{Title}' успішно оновлено! ✏️");
 
             return RedirectToPage("/MyPosts");

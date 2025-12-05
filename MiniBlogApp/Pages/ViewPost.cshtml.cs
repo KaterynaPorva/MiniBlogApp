@@ -1,7 +1,8 @@
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using MiniBlogApp.Models;
 using MiniBlogApp.Services;
+using NToastNotify;
 
 namespace MiniBlogApp.Pages
 {
@@ -26,12 +27,18 @@ namespace MiniBlogApp.Pages
     public class ViewPostModel : PageModel
     {
         /**
-         * @class ViewPostModel
-         * @brief Handles logic for viewing a single blog post.
-         *
-         * @details Manages the retrieval of a post by ID, allows logged-in users to like or comment,
-         *          and ensures the post is associated with the current user session.
-         */
+        * @class ViewPostModel
+        * @brief Handles logic for viewing a single blog post.
+        *
+        * @details Manages the retrieval of a post by ID, allows logged-in users to like or comment,
+        *          and ensures the post is associated with the current user session.
+        */
+        private readonly IToastNotification _toastNotification; // 2. Змінна для сервісу повідомлень
+
+        public ViewPostModel(IToastNotification toastNotification)
+        {
+            _toastNotification = toastNotification;
+        }
 
         /**
          * @brief The ID of the post to view.
@@ -61,10 +68,17 @@ namespace MiniBlogApp.Pages
          *          Populates the Post and Username properties for page rendering.
          * @return void
          */
-        public void OnGet()
+        public IActionResult OnGet()
         {
             Username = HttpContext.Session.GetString("Username");
             Post = BlogStorage.GetPostById(Id);
+
+            if (Post == null)
+            {
+                return RedirectToPage("/Index"); // або NotFound()
+            }
+
+            return Page();
         }
 
         /**
@@ -80,6 +94,9 @@ namespace MiniBlogApp.Pages
                 return RedirectToPage("/Login");
 
             BlogStorage.AddLike(id, username);
+
+            _toastNotification.AddInfoToastMessage("Ви вподобали цей пост! ❤️");
+
             return RedirectToPage(new { id });
         }
 
@@ -97,9 +114,17 @@ namespace MiniBlogApp.Pages
                 return RedirectToPage("/Login");
 
             if (!string.IsNullOrWhiteSpace(commentText))
+            {
                 BlogStorage.AddComment(id, username, commentText);
+
+                _toastNotification.AddSuccessToastMessage("Коментар успішно додано! 💬");
+            }
+            else
+            {
+                _toastNotification.AddErrorToastMessage("Коментар не може бути порожнім.");
+            }
 
             return RedirectToPage(new { id });
         }
     }
-}
+} 

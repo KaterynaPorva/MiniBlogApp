@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using MiniBlogApp.Services;
-using NToastNotify; // 1. Підключили бібліотеку
+using NToastNotify; 
 
 namespace MiniBlogApp.Pages
 {
@@ -96,10 +96,8 @@ namespace MiniBlogApp.Pages
                 return Page();
             }
 
-            // Використовуємо статичний метод, як у вас було
             BlogStorage.AddPost(Username, Title, PostContent);
 
-            // 3. ВИКЛИКАЄМО ПОВІДОМЛЕННЯ ПРО УСПІХ
             _toastNotification.AddSuccessToastMessage($"Пост '{Title}' успішно створено!");
 
             return RedirectToPage("/MyPosts");
