@@ -1,6 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using MiniBlogApp.Services;
+using NToastNotify; // 1. Підключили бібліотеку
 
 namespace MiniBlogApp.Pages
 {
@@ -24,6 +25,17 @@ namespace MiniBlogApp.Pages
      */
     public class CreatePostModel : PageModel
     {
+        private readonly IToastNotification _toastNotification; // 2. Змінна для сервісу повідомлень
+
+        /**
+         * @brief Constructor to inject services.
+         * @param toastNotification The toast notification service.
+         */
+        public CreatePostModel(IToastNotification toastNotification)
+        {
+            _toastNotification = toastNotification;
+        }
+
         /**
          * @brief Title of the new post.
          * @details Bound to the input field on the Razor page form.
@@ -80,10 +92,16 @@ namespace MiniBlogApp.Pages
             if (string.IsNullOrWhiteSpace(Title) || string.IsNullOrWhiteSpace(PostContent))
             {
                 ModelState.AddModelError("", "Please fill in all fields.");
+                _toastNotification.AddErrorToastMessage("Помилка! Заповніть усі поля."); // Можна додати і тут
                 return Page();
             }
 
+            // Використовуємо статичний метод, як у вас було
             BlogStorage.AddPost(Username, Title, PostContent);
+
+            // 3. ВИКЛИКАЄМО ПОВІДОМЛЕННЯ ПРО УСПІХ
+            _toastNotification.AddSuccessToastMessage($"Пост '{Title}' успішно створено!");
+
             return RedirectToPage("/MyPosts");
         }
     }
