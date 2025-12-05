@@ -12,6 +12,8 @@ using Microsoft.Extensions.DependencyInjection;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddMvc().AddNToastNotifyToastr();
+
 /**
  * @brief Registers Razor Pages support.
  * @details Enables handling of .cshtml page requests throughout the application.
@@ -72,6 +74,8 @@ app.UseSession();
 
 /** @brief Enables authorization middleware. */
 app.UseAuthorization();
+
+app.UseNToastNotify();
 
 /** @brief Maps Razor Pages to the request pipeline. */
 app.MapRazorPages();
