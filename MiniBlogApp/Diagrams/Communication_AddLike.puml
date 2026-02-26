@@ -1,0 +1,27 @@
+﻿@startuml MiniBlogApp_Communication
+
+title Діаграма комунікацій: Процес додавання лайку (MiniBlogApp)
+
+' Налаштування стилю
+skinparam object {
+    BackgroundColor #F9F9F9
+    BorderColor #333333
+}
+
+' Використовуємо object для всіх учасників, щоб PlantUML сприйняв це як Object/Communication діаграму
+object ":Користувач" as user
+object "page: RazorPageModel" as ui
+object "service: BlogStorage" as storage
+object "db: DbContext" as database
+
+' Взаємодія з нумерацією кроків (повідомлень)
+user -right-> ui : 1: Натискає "Лайк" (POST запит)
+ui -right-> storage : 2: AddLikeAsync(postId, userId)
+storage -down-> database : 3: Add(new Like)
+storage -down-> database : 4: SaveChangesAsync()
+
+' Повернення результату (зазвичай позначається пунктиром)
+storage .left.> ui : 5: Повертає успішний статус
+ui .left.> user : 6: Оновлює UI (збільшує лічильник лайків)
+
+@enduml

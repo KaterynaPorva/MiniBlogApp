@@ -1,0 +1,32 @@
+﻿@startuml MiniBlogApp_Deployment
+
+title Діаграма розгортання: Фізична архітектура MiniBlogApp
+
+' Визначаємо клієнтський вузол
+node "Клієнтський пристрій\n(ПК, Ноутбук, Смартфон)" as ClientNode {
+    component "Web Browser\n(Chrome, Safari, Edge)" as Browser
+}
+
+' Визначаємо сервер застосунків (де хоститься ASP.NET Core)
+node "Сервер застосунків\n(Web Server: IIS / Kestrel / Nginx)" as AppServer {
+    node "ASP.NET Core 8.0 Runtime" as Runtime {
+        component "MiniBlogApp.Web" as WebApp {
+            artifact "MiniBlogApp.dll"
+            artifact "appsettings.json"
+            folder "wwwroot (css, js, images)"
+        }
+    }
+}
+
+' Визначаємо сервер бази даних
+node "Сервер баз даних\n(Database Server)" as DbServer {
+    database "DBMS\n(SQL Server / PostgreSQL / SQLite)" as DBMS {
+        artifact "MiniBlogApp_DB" as Database
+    }
+}
+
+' Зв'язки між фізичними вузлами мережі
+Browser ==down==> WebApp : HTTP/HTTPS\n(TCP/IP, Порт 80/443)
+WebApp ==down==> DBMS : ADO.NET / EF Core\n(TCP/IP, Порт 1433/5432)
+
+@enduml

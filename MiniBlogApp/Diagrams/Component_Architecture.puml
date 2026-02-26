@@ -1,0 +1,36 @@
+﻿@startuml MiniBlogApp_Components
+
+title Діаграма компонентів: Логічна структура MiniBlogApp
+
+package "Проєкт: MiniBlogApp" {
+    component "Web UI (Razor Pages)\n[Папка Pages]" as Pages
+    component "Сервіси (Business Logic)\n[Папка Services]" as Services
+    component "Моделі даних (Entities)\n[Папка Models]" as Models
+    component "Доступ до даних\n[DbContext / Repository]" as DataAccess
+}
+
+package "Проєкт: MiniBlogApp.Tests" {
+    component "Модульні тести\n[Папки ServiceTests, UtilsTests]" as Tests
+}
+
+database "База даних (SQL / SQLite)" as DB
+() "Клієнт (Браузер)" as Client
+
+' Взаємодія користувача з системою
+Client --> Pages : HTTP-запити (GET / POST)
+
+' Внутрішні залежності основного проєкту
+Pages --> Services : Виклик методів бізнес-логіки
+Pages --> Models : Використання моделей для UI
+
+Services --> DataAccess : Передача даних на збереження
+Services --> Models : Обробка сутностей (User, Post)
+
+DataAccess --> Models : ORM-маппінг (Entity Framework)
+DataAccess --> DB : Виконання SQL-запитів
+
+' Залежності тестового проєкту
+Tests ..> Services : Тестує логіку (BlogStorage, UserService)
+Tests ..> Models : Створює тестові об'єкти (mocks)
+
+@enduml

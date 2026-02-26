@@ -1,0 +1,43 @@
+﻿@startuml MiniBlogApp_InteractionOverview
+
+title Діаграма огляду взаємодії: Робота користувача з блогом (MiniBlogApp)
+
+skinparam conditionStyle inside
+
+start
+
+' Посилання на діаграму авторизації
+partition "**ref** Авторизація (Login_Sequence)" {
+    :Користувач входить у систему;
+}
+
+if (Яку дію обирає користувач?) then (Створити допис)
+    
+    ' Посилання на нашу першу діаграму
+    partition "**ref** Створення допису (CreatePost_Sequence)" {
+        :Заповнення форми;
+        :Збереження через PostService;
+    }
+
+else (Читати стрічку)
+    
+    partition "**ref** Завантаження стрічки (LoadFeed_Sequence)" {
+        :Отримання дописів з бази даних;
+    }
+    
+    ' Паралельні дії: користувач може робити і те, і інше
+    fork
+        partition "**ref** Додавання лайку (AddLike_Sequence)" {
+            :Виклик сервісу додавання лайку;
+        }
+    fork again
+        partition "**ref** Додавання коментаря (AddComment_Sequence)" {
+            :Відправка тексту коментаря;
+        }
+    end fork
+
+endif
+
+stop
+
+@enduml

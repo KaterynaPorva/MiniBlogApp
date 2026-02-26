@@ -1,0 +1,30 @@
+﻿@startuml
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Гість\n(Guest)" as guest
+actor "Авторизований\nКористувач (BlogUser)" as user
+
+package "Система MiniBlogApp" {
+  usecase "Перегляд постів" as UC1
+  usecase "Реєстрація та Вхід" as UC2
+  usecase "Створення поста" as UC3
+  usecase "Редагування власного поста" as UC4
+  usecase "Додавання коментаря" as UC5
+  usecase "Поставити лайк" as UC6
+  usecase "Перегляд аналітики постів" as UC7
+}
+
+guest --> UC1
+guest --> UC2
+
+user --> UC1
+user --> UC3
+user --> UC4
+user --> UC5
+user --> UC6
+user --> UC7
+
+' Показуємо, що Користувач може робити все те саме, що і Гість
+guest <|-- user : " розширює права"
+@enduml

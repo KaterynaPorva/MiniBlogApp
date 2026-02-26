@@ -1,0 +1,81 @@
+﻿@startuml MiniBlogApp_ClassDiagram
+
+title Діаграма класів: Моделі даних та сервіси MiniBlogApp
+
+' Налаштування стилю для відображення іконок видимості (public/private)
+skinparam classAttributeIconSize 0
+
+package "Models (Сутності бази даних)" {
+    
+    class User {
+        + Id : int
+        + Username : string
+        + Email : string
+        + PasswordHash : string
+        + CreatedAt : DateTime
+        + IsActive : bool
+    }
+    
+    class Post {
+        + Id : int
+        + Title : string
+        + Content : string
+        + CreatedAt : DateTime
+        + IsPublished : bool
+        + AuthorId : int
+    }
+    
+    class Comment {
+        + Id : int
+        + Text : string
+        + CreatedAt : DateTime
+        + PostId : int
+        + UserId : int
+    }
+    
+    class Like {
+        + Id : int
+        + PostId : int
+        + UserId : int
+        + CreatedAt : DateTime
+    }
+}
+
+package "Services & Data (Логіка та доступ до даних)" {
+    
+    class AppDbContext {
+        + Users : DbSet<User>
+        + Posts : DbSet<Post>
+        + Comments : DbSet<Comment>
+        + Likes : DbSet<Like>
+        + SaveChangesAsync() : Task<int>
+    }
+    
+    class BlogStorage {
+        - _context : AppDbContext
+        + AddPostAsync(post: Post) : Task
+        + GetPostsAsync() : Task<List<Post>>
+        + AddLikeAsync(postId: int, userId: int) : Task
+        + AddCommentAsync(comment: Comment) : Task
+    }
+    
+    class UserService {
+        - _context : AppDbContext
+        + RegisterUserAsync(user: User) : Task
+        + AuthenticateAsync(email: string, pass: string) : Task<User>
+    }
+}
+
+' Зв'язки між сутностями (Відношення 1 до багатьох)
+User "1" -- "0..*" Post : пише >
+User "1" -- "0..*" Comment : залишає >
+User "1" -- "0..*" Like : ставить >
+
+Post "1" *-- "0..*" Comment : містить >
+Post "1" *-- "0..*" Like : має >
+
+' Залежності сервісів від контексту БД
+BlogStorage ..> AppDbContext : використовує
+UserService ..> AppDbContext : використовує
+
+@enduml

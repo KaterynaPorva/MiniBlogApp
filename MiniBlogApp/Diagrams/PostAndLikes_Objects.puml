@@ -1,0 +1,47 @@
+﻿@startuml MiniBlogApp_Object_Snapshot
+
+title Діаграма об'єктів: Стан системи з користувачами, дописом та лайком
+
+' Оголошення об'єктів (екземплярів класів)
+object "<u>activeStorage: BlogStorage</u>" as storage {
+    TotalPosts = 1
+    TotalLikes = 1
+}
+
+object "<u>authorUser: User</u>" as u1 {
+    Id = 1
+    Username = "Kateryna"
+    Email = "kateryna@example.com"
+    IsActive = true
+}
+
+object "<u>readerUser: User</u>" as u2 {
+    Id = 2
+    Username = "Ivan"
+    Email = "ivan@example.com"
+    IsActive = true
+}
+
+object "<u>firstPost: Post</u>" as p1 {
+    Id = 101
+    Title = "Мій перший допис"
+    Content = "Привіт, світ! Це мій новий блог."
+    CreatedAt = "2026-02-26 10:00"
+    IsPublished = true
+    AuthorId = 1
+}
+
+object "<u>postLike: Like</u>" as l1 {
+    Id = 501
+    PostId = 101
+    UserId = 2
+    CreatedAt = "2026-02-26 11:15"
+}
+
+' Зв'язки між конкретними об'єктами
+storage *-- p1 : містить у пам'яті/БД
+u1 -- p1 : є автором
+p1 *-- l1 : має
+u2 -- l1 : поставив
+
+@enduml

@@ -1,0 +1,37 @@
+﻿@startuml MiniBlogApp_Post_State
+
+title Діаграма станів: Життєвий цикл допису (Post)
+
+' Визначаємо початкову точку
+[*] --> Draft : Створення нового допису
+
+' Стан "Чернетка" (може багаторазово редагуватися перед публікацією)
+state "Чернетка (Draft)" as Draft
+Draft : Допис створено, але не видно користувачам
+
+' Стан "Опубліковано"
+state "Опубліковано (Published)" as Published
+Published : Допис доступний для читання та коментування
+
+' Стан "Приховано / В архіві"
+state "В архіві (Archived)" as Archived
+Archived : Допис приховано з основної стрічки
+
+' Стан "Видалено"
+state "Видалено (Deleted)" as Deleted
+Deleted : Позначено як видалене (Soft Delete)
+
+' Переходи між станами
+Draft --> Published : Опублікувати
+Published --> Published : Редагувати (Оновлення даних)
+Published --> Archived : Приховати / Перенести в архів
+Archived --> Published : Відновити публікацію
+
+Draft --> Deleted : Видалити
+Published --> Deleted : Видалити
+Archived --> Deleted : Видалити
+
+' Кінцева точка
+Deleted --> [*] : Остаточне очищення (Hard Delete)
+
+@enduml

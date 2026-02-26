@@ -1,0 +1,45 @@
+﻿@startuml MiniBlogApp_CreatePost_Sequence
+
+title Sequence Diagram: Створення допису (MiniBlogApp)
+
+autonumber
+actor "Користувач" as User
+participant "Браузер (UI)" as Browser
+participant "PostController" as Controller
+participant "PostService" as Service
+participant "ApplicationDbContext" as DB
+
+User -> Browser: Вводить дані та натискає "Створити допис"
+Browser -> Controller: POST /Post/Create (PostViewModel)
+activate Controller
+
+Controller -> Controller: Перевірка валідності (ModelState.IsValid)
+
+alt Дані невалідні
+    Controller --> Browser: Повертає View з повідомленнями про помилки
+    Browser --> User: Відображає помилки форми
+else Дані валідні
+    Controller -> Service: CreatePostAsync(PostViewModel, UserId)
+    activate Service
+
+    Service -> Service: Додаткова бізнес-логіка\n(напр., обробка тегів)
+    Service -> DB: Posts.AddAsync(newPost)
+    activate DB
+    DB --> Service: Відстеження сутності (Entity Tracked)
+    deactivate DB
+
+    Service -> DB: SaveChangesAsync()
+    activate DB
+    DB --> Service: Успішне збереження в БД
+    deactivate DB
+
+    Service --> Controller: Результат (Id нового допису)
+    deactivate Service
+
+    Controller --> Browser: RedirectToAction("Details", new { id = PostId })
+    deactivate Controller
+    
+    Browser --> User: Відображає сторінку створеного допису
+end
+
+@enduml
