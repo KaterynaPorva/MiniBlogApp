@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using MiniBlogApp.Models;
 using MiniBlogApp.Services;
@@ -11,12 +12,13 @@ namespace MiniBlogApp.Pages
      * @brief Page model for blog post analytics.
      *
      * @details This file contains the PostAnalyticsModel class used in MiniBlogApp.
-     *          It provides functionality to analyze all posts, generate textual summaries,
-     *          and compute statistics for overall blog performance and specific users.
+     * It provides functionality to analyze all posts, generate textual summaries,
+     * and compute statistics for overall blog performance and specific users.
+     * Now uses IBlogStorage via Dependency Injection.
      *
      * @example PostAnalytics.cshtml.cs
      * @code
-     * var model = new PostAnalyticsModel();
+     * var model = new PostAnalyticsModel(blogStorage);
      * model.OnGet();
      * // model.AnalyzedPosts now contains textual analysis for each post
      * // model.Summary contains overall and user-specific statistics
@@ -24,12 +26,24 @@ namespace MiniBlogApp.Pages
      */
     public class PostAnalyticsModel : PageModel
     {
+        // 1. Додаємо поле для нашого сховища
+        private readonly IBlogStorage _blogStorage;
+
+        /**
+         * @brief Constructor for PostAnalyticsModel.
+         * @param blogStorage The injected service for accessing blog data.
+         */
+        public PostAnalyticsModel(IBlogStorage blogStorage)
+        {
+            _blogStorage = blogStorage; // 2. Ініціалізуємо сервіс
+        }
+
         /**
          * @class PostAnalyticsModel
          * @brief Handles the analytics and statistics of blog posts.
          *
-         * @details Retrieves all posts from BlogStorage, analyzes them individually,
-         *          and stores results for display on the analytics page.
+         * @details Retrieves all posts from IBlogStorage, analyzes them individually,
+         * and stores results for display on the analytics page.
          */
 
         /**
@@ -48,13 +62,14 @@ namespace MiniBlogApp.Pages
 
         /**
          * @brief Handles GET request for the post analytics page.
-         * @details Loads all posts from BlogStorage, analyzes each post using PostAnalyzer,
-         *          and generates summary statistics using PostStatsUtils. Populates
-         *          AnalyzedPosts and Summary properties for display on the page.
+         * @details Loads all posts from IBlogStorage, analyzes each post using PostAnalyzer,
+         * and generates summary statistics using PostStatsUtils. Populates
+         * AnalyzedPosts and Summary properties for display on the page.
          */
         public void OnGet()
         {
-            var posts = BlogStorage.GetAllPosts().ToList();
+            // 3. Використовуємо інжектований об'єкт замість статичного класу
+            var posts = _blogStorage.GetAllPosts().ToList();
 
             foreach (var post in posts)
             {

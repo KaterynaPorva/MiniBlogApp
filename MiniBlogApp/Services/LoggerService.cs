@@ -1,4 +1,8 @@
-﻿namespace MiniBlogApp.Services
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace MiniBlogApp.Services
 {
     /**
      * @file LoggerService.cs
@@ -6,33 +10,14 @@
      * @details
      * Provides a base abstract class ActionLogger and specialized loggers for posts, comments, and likes.
      * LoggerService stores all logs in memory and provides methods for adding, retrieving, and clearing logs.
-     * Can be extended to write logs to a database or external service.
-     * 
-     * @example LoggerService.cs
-     * @code
-     * // Logging a post creation
-     * var postLog = new PostLogger("serhii", "My Post");
-     * LoggerService.AddLog(postLog);
-     *
-     * // Logging a comment
-     * LoggerService.AddLog(new CommentLogger("user1", "Nice post!"));
-     *
-     * // Logging a like
-     * LoggerService.AddLog(new LikeLogger("user2", "My Post"));
-     *
-     * // Retrieving all logs
-     * var allLogs = LoggerService.GetLogs();
-     *
-     * // Clearing logs
-     * LoggerService.ClearAll();
-     * @endcode
+     * Now implements IActivityLogger for Dependency Injection and uses locks for thread safety.
      */
 
     /**
      * @class ActionLogger
      * @brief Abstract base class for logging user actions.
      * @details Stores the username of the user performing the action and the timestamp.
-     *          Can be extended for specific actions like creating posts, commenting, or liking.
+     * Can be extended for specific actions like creating posts, commenting, or liking.
      */
     public abstract class ActionLogger
     {
@@ -145,35 +130,51 @@
      * @class LoggerService
      * @brief Service for storing and retrieving user action logs.
      * @details
-     * Stores all ActionLogger instances in memory. Allows adding, retrieving (sorted by timestamp descending),
-     * and clearing all logs. Can be extended to persist logs to a database or file.
+     * Stores all ActionLogger instances in memory safely. Allows adding, retrieving 
+     * (sorted by timestamp descending), and clearing all logs. 
+     * Implements IActivityLogger for DI.
      */
-    public static class LoggerService
+    public class LoggerService : IActivityLogger
     {
+        /** @brief Об'єкт для блокування потоків (забезпечує Thread-Safety). */
+        private readonly object _lock = new object();
+
         /** @brief Collection of all logged actions. */
-        public static List<ActionLogger> Logs { get; } = new();
+        public List<ActionLogger> Logs { get; } = new();
 
         /**
-         * @brief Adds a new log entry.
+         * @brief Adds a new log entry safely.
          * @param log ActionLogger instance representing the action.
          */
-        public static void AddLog(ActionLogger log)
+        public void AddLog(ActionLogger log)
         {
-            Logs.Add(log);
+            lock (_lock)
+            {
+                Logs.Add(log);
+            }
         }
 
         /**
-         * @brief Retrieves all logs ordered by timestamp descending.
+         * @brief Retrieves all logs ordered by timestamp descending safely.
          * @return IEnumerable<ActionLogger> Collection of all logs sorted newest first.
          */
-        public static IEnumerable<ActionLogger> GetLogs() => Logs.OrderByDescending(l => l.Timestamp);
+        public IEnumerable<ActionLogger> GetLogs()
+        {
+            lock (_lock)
+            {
+                return Logs.OrderByDescending(l => l.Timestamp).ToList();
+            }
+        }
 
         /**
-         * @brief Clears all stored logs.
+         * @brief Clears all stored logs safely.
          */
-        public static void ClearAll()
+        public void ClearAll()
         {
-            Logs.Clear();
+            lock (_lock)
+            {
+                Logs.Clear();
+            }
         }
     }
 }

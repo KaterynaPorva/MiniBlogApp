@@ -11,13 +11,13 @@ namespace MiniBlogApp.Pages
      * @brief Page model for viewing a single blog post.
      *
      * @details This file contains the ViewPostModel class used in MiniBlogApp.
-     *          It handles displaying a post, adding likes, and adding comments.
-     *          Retrieves the current user from the session to allow interactions
-     *          and loads the post from BlogStorage using its ID.
+     * It handles displaying a post, adding likes, and adding comments.
+     * Retrieves the current user from the session to allow interactions
+     * and loads the post from IBlogStorage using its ID.
      *
      * @example ViewPost.cshtml.cs
      * @code
-     * var model = new ViewPostModel();
+     * var model = new ViewPostModel(toastNotification, blogStorage);
      * model.Id = 1;
      * model.OnGet();
      * IActionResult likeResult = model.OnPostLike(1);
@@ -27,51 +27,57 @@ namespace MiniBlogApp.Pages
     public class ViewPostModel : PageModel
     {
         /**
-        * @class ViewPostModel
-        * @brief Handles logic for viewing a single blog post.
-        *
-        * @details Manages the retrieval of a post by ID, allows logged-in users to like or comment,
-        *          and ensures the post is associated with the current user session.
-        */
-        private readonly IToastNotification _toastNotification; // 2. Змінна для сервісу повідомлень
+         * @class ViewPostModel
+         * @brief Handles logic for viewing a single blog post.
+         *
+         * @details Manages the retrieval of a post by ID, allows logged-in users to like or comment,
+         * and ensures the post is associated with the current user session.
+         */
+        private readonly IToastNotification _toastNotification;
 
-        public ViewPostModel(IToastNotification toastNotification)
+        // 1. Додаємо поле для нашого сховища
+        private readonly IBlogStorage _blogStorage;
+
+        public ViewPostModel(IToastNotification toastNotification, IBlogStorage blogStorage)
         {
             _toastNotification = toastNotification;
+            _blogStorage = blogStorage; // 2. Ініціалізуємо сервіс
         }
 
         /**
          * @brief The ID of the post to view.
          * @details Bound from the query string using [BindProperty(SupportsGet = true)].
-         *          Used to retrieve the post from BlogStorage and perform actions like liking or commenting.
+         * Used to retrieve the post from IBlogStorage and perform actions like liking or commenting.
          */
         [BindProperty(SupportsGet = true)]
         public int Id { get; set; }
 
         /**
          * @brief The post object being viewed.
-         * @details Populated in OnGet using BlogStorage.GetPostById.
-         *          Contains all information about the post, including author, content, comments, and likes.
+         * @details Populated in OnGet using IBlogStorage.GetPostById.
+         * Contains all information about the post, including author, content, comments, and likes.
          */
         public Post? Post { get; set; }
 
         /**
          * @brief The username of the currently logged-in user.
          * @details Retrieved from the session in OnGet and action methods.
-         *          Used to authorize actions such as liking or commenting.
+         * Used to authorize actions such as liking or commenting.
          */
         public string? Username { get; set; }
 
         /**
          * @brief Handles GET requests to display the post.
          * @details Retrieves the post by ID and the current username from the session.
-         *          Populates the Post and Username properties for page rendering.
+         * Populates the Post and Username properties for page rendering.
          * @return void
          */
         public IActionResult OnGet()
         {
             Username = HttpContext.Session.GetString("Username");
-            Post = BlogStorage.GetPostById(Id);
+
+            // 3. Використовуємо інжектований об'єкт замість статичного класу
+            Post = _blogStorage.GetPostById(Id);
 
             if (Post == null)
             {
@@ -93,7 +99,8 @@ namespace MiniBlogApp.Pages
             if (string.IsNullOrEmpty(username))
                 return RedirectToPage("/Login");
 
-            BlogStorage.AddLike(id, username);
+            // 4. Додаємо лайк через інжектований об'єкт
+            _blogStorage.AddLike(id, username);
 
             _toastNotification.AddInfoToastMessage("Ви вподобали цей пост! ❤️");
 
@@ -115,7 +122,8 @@ namespace MiniBlogApp.Pages
 
             if (!string.IsNullOrWhiteSpace(commentText))
             {
-                BlogStorage.AddComment(id, username, commentText);
+                // 5. Додаємо коментар через інжектований об'єкт
+                _blogStorage.AddComment(id, username, commentText);
 
                 _toastNotification.AddSuccessToastMessage("Коментар успішно додано! 💬");
             }
@@ -127,4 +135,4 @@ namespace MiniBlogApp.Pages
             return RedirectToPage(new { id });
         }
     }
-} 
+}

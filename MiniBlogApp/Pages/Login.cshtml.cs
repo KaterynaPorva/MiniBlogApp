@@ -10,9 +10,9 @@ namespace MiniBlogApp.Pages
      * @brief Page model for the user login page.
      *
      * @details This file contains the LoginModel class used in MiniBlogApp.
-     *          It handles user authentication via UserService, manages session
-     *          data for logged-in users, and redirects authenticated users to
-     *          the main page. Provides feedback when login fails.
+     * It handles user authentication via UserService, manages session
+     * data for logged-in users, and redirects authenticated users to
+     * the main page. Provides feedback when login fails.
      *
      * @example Login.cshtml.cs
      * @code
@@ -30,8 +30,8 @@ namespace MiniBlogApp.Pages
          * @brief Handles authentication and session management for user login.
          *
          * @details Uses UserService to verify credentials, sets session for authenticated users,
-         *          and displays errors when authentication fails. Redirects already logged-in
-         *          users to the main blog page.
+         * and displays errors when authentication fails. Redirects already logged-in
+         * users to the main blog page.
          */
 
         /**
@@ -67,22 +67,24 @@ namespace MiniBlogApp.Pages
         /**
          * @brief Handles GET requests for the login page.
          * @details Redirects authenticated users (users with an existing session) to the main blog page.
+         * @return IActionResult Redirects to index or returns the login page.
          */
-        public void OnGet()
+        public IActionResult OnGet() // Змінено з void на IActionResult
         {
             var existing = HttpContext.Session.GetString("Username");
             if (!string.IsNullOrEmpty(existing))
             {
-                Response.Redirect("/Index");
+                return RedirectToPage("/Index"); // Правильний редирект для Razor Pages
             }
+
+            return Page(); // Повертаємо сторінку, якщо користувач не авторизований
         }
 
         /**
          * @brief Handles POST requests for user login.
          * @details Authenticates the user using UserService. If successful, sets the session
-         *          and redirects to the main page. If unsuccessful, displays an error message.
+         * and redirects to the main page. If unsuccessful, displays an error message.
          * @return IActionResult Redirects to the main page on successful login, or returns the login page with an error.
-         * @throws InvalidOperationException If an unexpected error occurs during authentication (optional, for logging purposes).
          */
         public IActionResult OnPost()
         {

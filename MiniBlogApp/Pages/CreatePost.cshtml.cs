@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using MiniBlogApp.Services;
-using NToastNotify; 
+using NToastNotify;
 
 namespace MiniBlogApp.Pages
 {
@@ -10,14 +10,14 @@ namespace MiniBlogApp.Pages
      * @brief Page model for creating a new blog post.
      *
      * @details This file contains the PageModel class used in MiniBlogApp for creating new posts.
-     *          Handles both GET and POST requests. Only authenticated users can create posts.
-     *          Validates input fields and saves posts using BlogStorage.
+     * Handles both GET and POST requests. Only authenticated users can create posts.
+     * Validates input fields and saves posts using injected IBlogStorage.
      *
      * @example CreatePost.cshtml.cs
      * @details Simulating creation of a new post for user "serhii"
      * result redirects to /MyPosts if successful
      * @code
-     * var model = new CreatePostModel();
+     * var model = new CreatePostModel(toastNotification, blogStorage);
      * model.Title = "My New Post";
      * model.PostContent = "This is the content of my new post.";
      * IActionResult result = model.OnPost();
@@ -25,21 +25,24 @@ namespace MiniBlogApp.Pages
      */
     public class CreatePostModel : PageModel
     {
-        private readonly IToastNotification _toastNotification; // 2. Змінна для сервісу повідомлень
+        private readonly IToastNotification _toastNotification; // Змінна для сервісу повідомлень
+        private readonly IBlogStorage _blogStorage; // 1. Додаємо змінну для нашого нового сховища
 
         /**
          * @brief Constructor to inject services.
          * @param toastNotification The toast notification service.
+         * @param blogStorage The blog storage service.
          */
-        public CreatePostModel(IToastNotification toastNotification)
+        public CreatePostModel(IToastNotification toastNotification, IBlogStorage blogStorage)
         {
             _toastNotification = toastNotification;
+            _blogStorage = blogStorage; // 2. Зберігаємо сервіс при створенні сторінки
         }
 
         /**
          * @brief Title of the new post.
          * @details Bound to the input field on the Razor page form.
-         *          Represents the main heading of the post. Cannot be empty.
+         * Represents the main heading of the post. Cannot be empty.
          * @bindproperty
          */
         [BindProperty]
@@ -48,7 +51,7 @@ namespace MiniBlogApp.Pages
         /**
          * @brief Content of the new post.
          * @details Bound to the textarea field on the Razor page form.
-         *          Stores the main text of the blog post. Cannot be empty.
+         * Stores the main text of the blog post. Cannot be empty.
          * @bindproperty
          */
         [BindProperty]
@@ -63,7 +66,7 @@ namespace MiniBlogApp.Pages
         /**
          * @brief Handles GET requests for the Create Post page.
          * @details Checks authentication. If the user is not logged in, redirects to the Login page.
-         *          Otherwise, returns the page to display the form for creating a new post.
+         * Otherwise, returns the page to display the form for creating a new post.
          * @return IActionResult Returns the page or redirects to login if unauthenticated.
          */
         public IActionResult OnGet()
@@ -78,8 +81,8 @@ namespace MiniBlogApp.Pages
         /**
          * @brief Handles POST requests to create a new post.
          * @details Validates that Title and PostContent are not empty. 
-         *          If validation fails, adds an error message and returns the same page.
-         *          If valid, saves the post via BlogStorage and redirects to the MyPosts page.
+         * If validation fails, adds an error message and returns the same page.
+         * If valid, saves the post via BlogStorage and redirects to the MyPosts page.
          * @return IActionResult Redirects to MyPosts on success, or returns the same page on validation failure.
          * @throws InvalidOperationException If the user is not logged in (handled via redirect).
          */
@@ -92,11 +95,12 @@ namespace MiniBlogApp.Pages
             if (string.IsNullOrWhiteSpace(Title) || string.IsNullOrWhiteSpace(PostContent))
             {
                 ModelState.AddModelError("", "Please fill in all fields.");
-                _toastNotification.AddErrorToastMessage("Помилка! Заповніть усі поля."); // Можна додати і тут
+                _toastNotification.AddErrorToastMessage("Помилка! Заповніть усі поля.");
                 return Page();
             }
 
-            BlogStorage.AddPost(Username, Title, PostContent);
+            // 3. ВИКОРИСТОВУЄМО ІНЖЕКТОВАНИЙ СЕРВІС ЗАМІСТЬ СТАТИЧНОГО КЛАСУ
+            _blogStorage.AddPost(Username, Title, PostContent);
 
             _toastNotification.AddSuccessToastMessage($"Пост '{Title}' успішно створено!");
 

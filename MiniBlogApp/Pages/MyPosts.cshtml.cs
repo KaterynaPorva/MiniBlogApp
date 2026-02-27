@@ -19,7 +19,7 @@ namespace MiniBlogApp.Pages
      *
      * @example MyPosts.cshtml.cs
      * @code
-     * var model = new MyPostsModel(toastNotificationService);
+     * var model = new MyPostsModel(toastNotificationService, blogStorage);
      * IActionResult getResult = model.OnGet();
      * // getResult returns the page with the logged-in user's posts
      * IActionResult deleteResult = model.OnPostDelete(1);
@@ -34,19 +34,24 @@ namespace MiniBlogApp.Pages
          */
         private readonly IToastNotification _toastNotification;
 
+        // 1. Додаємо поле для нашого сховища
+        private readonly IBlogStorage _blogStorage;
+
         /**
          * @brief Constructor for MyPostsModel.
          * @param toastNotification The injected service for handling UI notifications.
+         * @param blogStorage The injected service for accessing blog data.
          */
-        public MyPostsModel(IToastNotification toastNotification)
+        public MyPostsModel(IToastNotification toastNotification, IBlogStorage blogStorage)
         {
             _toastNotification = toastNotification;
+            _blogStorage = blogStorage; // 2. Ініціалізуємо сервіс
         }
 
         /**
          * @brief Collection of the current user's blog posts.
          * @return List<Post> All posts created by the logged-in user.
-         * @details Populated from BlogStorage when OnGet is called.
+         * @details Populated from IBlogStorage when OnGet is called.
          */
         public List<Post> MyPosts { get; set; } = new();
 
@@ -68,7 +73,8 @@ namespace MiniBlogApp.Pages
             if (string.IsNullOrEmpty(Username))
                 return RedirectToPage("/Login");
 
-            MyPosts = BlogStorage.GetPostsByUser(Username).ToList();
+            // 3. Використовуємо інжектований об'єкт замість статичного класу
+            MyPosts = _blogStorage.GetPostsByUser(Username).ToList();
             return Page();
         }
 
@@ -86,11 +92,13 @@ namespace MiniBlogApp.Pages
             if (string.IsNullOrEmpty(username))
                 return RedirectToPage("/Login");
 
-            var post = BlogStorage.GetPostById(id);
+            // 4. Отримуємо пост через інжектований об'єкт
+            var post = _blogStorage.GetPostById(id);
 
             if (post != null && post.Author == username)
             {
-                BlogStorage.DeletePost(id);
+                // 5. Видаляємо пост через інжектований об'єкт
+                _blogStorage.DeletePost(id);
 
                 _toastNotification.AddWarningToastMessage("Пост було видалено. 🗑️");
             }
