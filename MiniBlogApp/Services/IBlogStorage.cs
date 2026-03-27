@@ -1,4 +1,5 @@
 ﻿using MiniBlogApp.Models;
+using MiniBlogApp.Strategies;
 using System.Collections.Generic;
 
 namespace MiniBlogApp.Services
@@ -19,5 +20,6 @@ namespace MiniBlogApp.Services
         Post? GetPostById(int id);
         void AddLike(int postId, string username);
         void AddComment(int postId, string author, string text);
+        IEnumerable<Post> GetAllPosts(IPostSortStrategy sortStrategy);
     }
 }

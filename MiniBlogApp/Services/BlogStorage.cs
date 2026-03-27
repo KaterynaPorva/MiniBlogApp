@@ -1,4 +1,5 @@
 ﻿using MiniBlogApp.Models;
+using MiniBlogApp.Strategies;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -174,6 +175,19 @@ namespace MiniBlogApp.Services
         private Post? GetPostByIdInternal(int id)
         {
             return Posts.FirstOrDefault(p => p.Id == id);
+        }
+        /**
+         * @brief Returns all posts sorted using a specific strategy (Патерн Strategy).
+         */
+        public IEnumerable<Post> GetAllPosts(IPostSortStrategy sortStrategy)
+        {
+            lock (_lock)
+            {
+                // Спочатку робимо безпечну копію списку
+                var currentPosts = Posts.ToList();
+                // Делегуємо логіку сортування переданій стратегії
+                return sortStrategy.Sort(currentPosts).ToList();
+            }
         }
     }
 }

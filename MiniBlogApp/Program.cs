@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.AspNetCore.Http;
 using MiniBlogApp.Services;
+using System;
 
 /**
  * @file Program.cs
@@ -37,9 +39,7 @@ builder.Services.AddSession(options =>
  * @details Усі сервіси додаються як Singleton, щоб дані зберігалися в пам'яті.
  */
 builder.Services.AddSingleton<UserService>();
-
 builder.Services.AddSingleton<IActivityLogger, LoggerService>();
-
 builder.Services.AddSingleton<IBlogStorage, BlogStorage>();
 
 var app = builder.Build();
@@ -63,11 +63,5 @@ app.UseAuthorization();
 app.UseNToastNotify();
 
 app.MapRazorPages();
-
-/**
- * @brief Default route.
- * Redirects the root URL (/) to the login page.
- */
-app.MapGet("/", () => Results.Redirect("/Login"));
 
 app.Run();

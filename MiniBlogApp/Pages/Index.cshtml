@@ -107,6 +107,11 @@
         }
     </div>
 
+    <div style="text-align: right; margin-bottom: 20px;">
+        <strong>Сортувати за: </strong>
+        <a href="/Index?SortBy=date" style="margin-right: 10px; color: #5C4033; font-weight: bold; text-decoration: none;">🕒 Найновішими</a> |
+        <a href="/Index?SortBy=popular" style="margin-left: 10px; color: #5C4033; font-weight: bold; text-decoration: none;">❤️ Популярністю</a>
+    </div>
     @if (!Model.AllPosts.Any())
     {
         <p class="no-posts">Постів поки немає.</p>
