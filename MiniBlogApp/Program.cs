@@ -42,6 +42,9 @@ builder.Services.AddSingleton<UserService>();
 builder.Services.AddSingleton<IActivityLogger, LoggerService>();
 builder.Services.AddSingleton<IBlogStorage, BlogStorage>();
 
+//Реєстрація Адаптера для обробки Markdown (Патерн Adapter)
+builder.Services.AddSingleton<IMarkdownParser, MarkdigAdapter>();
+
 var app = builder.Build();
 
 /**

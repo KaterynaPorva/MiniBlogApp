@@ -1,6 +1,6 @@
 ﻿@page
 @model MiniBlogApp.Pages.IndexModel
-@using Markdig  @{
+@{
     Layout = "_Layout";
     ViewData["Title"] = "Головна";
 }
@@ -112,6 +112,7 @@
         <a href="/Index?SortBy=date" style="margin-right: 10px; color: #5C4033; font-weight: bold; text-decoration: none;">🕒 Найновішими</a> |
         <a href="/Index?SortBy=popular" style="margin-left: 10px; color: #5C4033; font-weight: bold; text-decoration: none;">❤️ Популярністю</a>
     </div>
+
     @if (!Model.AllPosts.Any())
     {
         <p class="no-posts">Постів поки немає.</p>
@@ -124,7 +125,7 @@
                 <h3>@post.Title</h3>
 
                 <div class="post-content">
-                    @Html.Raw(Markdown.ToHtml(post.Content ?? ""))
+                    @Html.Raw(Model.ConvertMarkdown(post.Content ?? ""))
                 </div>
 
                 <small>

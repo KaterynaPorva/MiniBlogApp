@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using MiniBlogApp.Models;
 using MiniBlogApp.Services;
-using MiniBlogApp.Strategies; // 1. Додано підключення папки зі стратегіями
+using MiniBlogApp.Strategies;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -19,17 +19,19 @@ namespace MiniBlogApp.Pages
     public class IndexModel : PageModel
     {
         private readonly IBlogStorage _blogStorage;
+        private readonly IMarkdownParser _markdownParser; //Поле для Адаптера
 
-        public IndexModel(IBlogStorage blogStorage)
+        //Конструктор тепер приймає ще й парсер
+        public IndexModel(IBlogStorage blogStorage, IMarkdownParser markdownParser)
         {
             _blogStorage = blogStorage;
+            _markdownParser = markdownParser;
         }
 
         public List<Post> AllPosts { get; set; } = new();
 
         public string? Username { get; set; }
 
-        // 2. ДОДАНО: Властивість для отримання параметра сортування з URL
         [BindProperty(SupportsGet = true)]
         public string SortBy { get; set; } = "date";
 
@@ -37,7 +39,7 @@ namespace MiniBlogApp.Pages
         {
             Username = HttpContext.Session.GetString("Username");
 
-            // 3. ЗМІНЕНО: Вибираємо стратегію на основі запиту користувача (Патерн Strategy)
+            // Вибираємо стратегію на основі запиту користувача (Патерн Strategy)
             IPostSortStrategy strategy;
 
             if (SortBy == "popular")
@@ -57,6 +59,13 @@ namespace MiniBlogApp.Pages
         {
             HttpContext.Session.Clear();
             return RedirectToPage("/Login");
+        }
+
+        /** * @brief 3. ДОДАНО: Метод для конвертації Markdown в HTML через Адаптер 
+         */
+        public string ConvertMarkdown(string content)
+        {
+            return _markdownParser.Parse(content);
         }
     }
 }
