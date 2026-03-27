@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - MiniBlogApp</title>
+    <title>@ViewData["Title"] - @MiniBlogApp.Models.BlogSettings.Instance.BlogName</title>
 
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
@@ -63,7 +63,7 @@
 
 <body>
     <header>
-        MiniBlogApp
+        @MiniBlogApp.Models.BlogSettings.Instance.BlogName
     </header>
 
     <main role="main">
@@ -71,7 +71,7 @@
     </main>
 
     <footer>
-        © 2025 - MiniBlogApp - <a asp-page="/Privacy">Privacy</a>
+        @MiniBlogApp.Models.BlogSettings.Instance.FooterText - <a asp-page="/Privacy">Privacy</a>
     </footer>
 
     @await Component.InvokeAsync("NToastNotify")
