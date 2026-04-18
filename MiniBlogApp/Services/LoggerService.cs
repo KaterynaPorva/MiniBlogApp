@@ -5,104 +5,92 @@ using System.Linq;
 namespace MiniBlogApp.Services
 {
     /**
-     * @file LoggerService.cs
-     * @brief Logging framework for user actions in the blog.
-     * @details Оновлено для використання патерну Factory Method. 
-     * Тепер всі логери реалізують єдиний інтерфейс ILogEntry.
+     * @class BaseLogEntry
+     * @brief ПАТЕРН TEMPLATE METHOD (Шаблонний метод).
+     * @details Цей клас визначає загальний алгоритм (шаблон) форматування логу.
      */
-
-    /**
-     * @class PostLogger
-     * @brief Logs creation of a post by a user.
-     */
-    public class PostLogger : ILogEntry // ЗМІНЕНО НА ILogEntry
+    public abstract class BaseLogEntry : ILogEntry
     {
-        private readonly string _username;
-        public string PostTitle { get; set; }
+        protected readonly string _username;
 
-        public PostLogger(string username, string postTitle)
+        protected BaseLogEntry(string username)
         {
             _username = username;
-            PostTitle = postTitle;
         }
-
-        public string GetMessage()
-        {
-            return $"[{DateTime.Now:HH:mm}] - User {_username} created post: '{PostTitle}'.";
-        }
-    }
-
-    /**
-     * @class CommentLogger
-     * @brief Logs when a user leaves a comment.
-     */
-    public class CommentLogger : ILogEntry // ЗМІНЕНО НА ILogEntry
-    {
-        private readonly string _username;
-        public string CommentText { get; set; }
-
-        public CommentLogger(string username, string commentText)
-        {
-            _username = username;
-            CommentText = commentText;
-        }
-
-        public string GetMessage()
-        {
-            return $"[{DateTime.Now:HH:mm}] - User {_username} left a comment: '{CommentText}'.";
-        }
-    }
-
-    /**
-     * @class LikeLogger
-     * @brief Logs when a user likes a post.
-     */
-    public class LikeLogger : ILogEntry // ЗМІНЕНО НА ILogEntry
-    {
-        private readonly string _username;
-        public string PostTitle { get; set; }
-
-        public LikeLogger(string username, string postTitle)
-        {
-            _username = username;
-            PostTitle = postTitle;
-        }
-
-        public string GetMessage()
-        {
-            return $"[{DateTime.Now:HH:mm}] - User {_username} liked post: '{PostTitle}'.";
-        }
-    }
-
-    /**
-     * @class LoggerService
-     * @brief Service for storing and retrieving user action logs.
-     * @details Тепер працює з інтерфейсом ILogEntry, що дозволяє легко додавати нові типи логів.
-     */
-    public class LoggerService : IActivityLogger
-    {
-        /** @brief Об'єкт для блокування потоків (забезпечує Thread-Safety). */
-        private readonly object _lock = new object();
-
-        /** @brief Collection of all logged actions (тепер зберігаємо готові рядки). */
-        private readonly List<string> _logs = new();
 
         /**
-         * @brief Adds a new log entry safely.
-         * @param entry ILogEntry instance created by our Factories.
+         * @brief Шаблонний метод (Template Method).
+         * @details Визначає жорсткий каркас повідомлення. Підкласи не можуть змінити 
+         * порядок виклику цих кроків, але можуть змінити самі кроки.
          */
-        public void AddLog(ILogEntry entry) // ЗМІНЕНО ПАРАМЕТР НА ILogEntry
+        public string GetMessage()
+        {
+            // Каркас алгоритму: [Час] Користувач @Ім'я [Дія]: [Деталі]
+            return $"[{GetTimestamp()}] Користувач @{_username.ToUpper()} {GetActionName()}: {GetActionDetails()}";
+        }
+
+        /** * @brief Хук (Hook). Має реалізацію за замовчуванням, але може бути змінений.
+         */
+        protected virtual string GetTimestamp() => DateTime.Now.ToString("HH:mm:ss");
+
+        /** @brief Абстрактний крок. Підкласи ОБОВ'ЯЗКОВО мають його реалізувати. */
+        protected abstract string GetActionName();
+
+        /** @brief Абстрактний крок. Підкласи ОБОВ'ЯЗКОВО мають його реалізувати. */
+        protected abstract string GetActionDetails();
+    }
+
+    // --- КОНКРЕТНІ РЕАЛІЗАЦІЇ (КРОКИ АЛГОРИТМУ) ---
+
+    public class PostLogger : BaseLogEntry
+    {
+        private readonly string _postTitle;
+
+        public PostLogger(string username, string postTitle) : base(username)
+            => _postTitle = postTitle;
+
+        protected override string GetActionName() => "створив новий пост";
+        protected override string GetActionDetails() => $"«{_postTitle}»";
+    }
+
+    public class CommentLogger : BaseLogEntry
+    {
+        private readonly string _commentText;
+
+        public CommentLogger(string username, string commentText) : base(username)
+            => _commentText = commentText;
+
+        protected override string GetActionName() => "залишив коментар";
+        protected override string GetActionDetails() => $"«{_commentText}»";
+    }
+
+    public class LikeLogger : BaseLogEntry
+    {
+        private readonly string _postTitle;
+
+        public LikeLogger(string username, string postTitle) : base(username)
+            => _postTitle = postTitle;
+
+        protected override string GetActionName() => "поставив лайк на пост";
+        protected override string GetActionDetails() => $"«{_postTitle}»";
+    }
+
+    // --- САМ СЕРВІС ЛОГУВАННЯ (Без змін, він і так працює ідеально) ---
+
+    public class LoggerService : IActivityLogger
+    {
+        private readonly object _lock = new object();
+        private readonly List<string> _logs = new();
+
+        public void AddLog(ILogEntry entry)
         {
             lock (_lock)
             {
-                // Отримуємо рядок з логера і додаємо на початок списку (щоб нові були зверху)
+                // Тут викликається наш Шаблонний метод GetMessage()
                 _logs.Insert(0, entry.GetMessage());
             }
         }
 
-        /**
-         * @brief Retrieves all logs safely.
-         */
         public List<string> GetLogs()
         {
             lock (_lock)
@@ -111,9 +99,6 @@ namespace MiniBlogApp.Services
             }
         }
 
-        /**
-         * @brief Clears all stored logs safely.
-         */
         public void ClearAll()
         {
             lock (_lock)
