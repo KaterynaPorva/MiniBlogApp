@@ -4,8 +4,8 @@ namespace MiniBlogApp.Services
 {
     public interface IActivityLogger
     {
-        void AddLog(ActionLogger log);
-        IEnumerable<ActionLogger> GetLogs();
+        void AddLog(ILogEntry entry);
+        List<string> GetLogs();
         void ClearAll();
     }
 }

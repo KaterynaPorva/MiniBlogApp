@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
-using MiniBlogApp.Models;
 using MiniBlogApp.Services;
 using NToastNotify;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace MiniBlogApp.Pages
 {
@@ -18,8 +19,8 @@ namespace MiniBlogApp.Pages
      */
     public class LogsModel : PageModel
     {
-        private readonly IToastNotification _toastNotification; 
-        private readonly IActivityLogger _activityLogger; // 1. Додаємо сервіс логування
+        private readonly IToastNotification _toastNotification;
+        private readonly IActivityLogger _activityLogger;
 
         /**
          * @brief Constructor for LogsModel.
@@ -29,14 +30,11 @@ namespace MiniBlogApp.Pages
         public LogsModel(IToastNotification toastNotification, IActivityLogger activityLogger)
         {
             _toastNotification = toastNotification;
-            _activityLogger = activityLogger; // 2. Ініціалізуємо
+            _activityLogger = activityLogger;
         }
 
-        /**
-         * @brief Collection of action log entries.
-         * @return List<ActionLogger> All recorded user actions.
-         */
-        public List<ActionLogger> Logs { get; set; } = new();
+        // ЗМІНИЛИ ТИП З List<ActionLogger> НА List<string>
+        public List<string> Logs { get; set; } = new();
 
         /**
          * @brief Handles GET requests to display the activity log.
@@ -58,9 +56,7 @@ namespace MiniBlogApp.Pages
         {
             // 4. Очищуємо через екземпляр сервісу
             _activityLogger.ClearAll();
-            
             _toastNotification.AddSuccessToastMessage("Журнал активності успішно очищено. 🧹");
-            
             return RedirectToPage();
         }
     }

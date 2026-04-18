@@ -1,11 +1,12 @@
-﻿using Microsoft.Extensions.Logging.Abstractions;
-using MiniBlogApp.Services;
+﻿using MiniBlogApp.Services; // Обов'язково для ILogEntry
 
 namespace MiniBlogApp.Factories
 {
+    /**
+     * @brief Абстрактна фабрика для створення логів.
+     */
     public abstract class LogFactory
     {
-        // Це Фабричний метод. 
         public abstract ILogEntry CreateLog(string user, string detail);
     }
 }

@@ -1,6 +1,6 @@
 ﻿using MiniBlogApp.Models;
 using MiniBlogApp.Strategies;
-using MiniBlogApp.Factories; // ПІДКЛЮЧАЄМО НАШІ ФАБРИКИ
+using MiniBlogApp.Factories; 
 using System.Collections.Generic;
 
 namespace MiniBlogApp.Services
