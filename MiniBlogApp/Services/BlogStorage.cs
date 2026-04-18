@@ -10,30 +10,12 @@ namespace MiniBlogApp.Services
      * @file BlogStorage.cs
      * @class BlogStorage
      * @brief In-memory storage for blog posts and related operations.
-     * @details
-     * This class provides thread-safe in-memory storage for all blog posts, 
-     * manages unique IDs for new posts, and handles creation, updating, 
-     * deletion, retrieval, adding likes, and comments. 
-     * It implements IBlogStorage for Dependency Injection.
      */
     public class BlogStorage : IBlogStorage
     {
-        /**
-         * @brief Об'єкт для блокування потоків (забезпечує Thread-Safety).
-         */
         private readonly object _lock = new object();
-
-        /**
-         * @brief Next ID to assign to a new post.
-         */
         private int _nextId = 1;
-
-        /**
-         * @brief List of all posts in the blog.
-         */
         public List<Post> Posts { get; } = new();
-
-
         private readonly IActivityLogger _logger;
 
         public BlogStorage(IActivityLogger logger)
@@ -42,32 +24,37 @@ namespace MiniBlogApp.Services
         }
 
         /**
-         * @brief Adds a new post to the storage safely.
+         * @brief Adds a new pre-built post to the storage safely.
+         * @details Оновлено для використання патерну Builder. Тепер метод приймає 
+         * готовий об'єкт Post замість окремих параметрів.
          */
-        public Post AddPost(string author, string title, string content)
+        public Post AddPost(Post post)
         {
-            lock (_lock) 
+            lock (_lock)
             {
-                var post = new Post
+                // Призначаємо унікальний ідентифікатор
+                post.Id = _nextId++;
+
+                // Якщо будівельник не встановив дату (на всякий випадок)
+                if (post.CreatedAt == default)
                 {
-                    Id = _nextId++,
-                    Author = author,
-                    Title = title,
-                    Content = content,
-                    CreatedAt = DateTime.Now
-                };
+                    post.CreatedAt = DateTime.Now;
+                }
+
                 Posts.Add(post);
 
-                // 3. ВИКОРИСТОВУЄМО ІНЖЕКТОВАНИЙ ЛОГЕР ЗАМІСТЬ СТАТИЧНОГО КЛАСУ
-                _logger.AddLog(new PostLogger(author, title));
+                // Отримуємо ім'я автора для логування (залежить від того, чи Author це string, чи об'єкт BlogUser)
+                // Якщо у твоїй моделі Author це string, залишаємо post.Author
+                // Якщо об'єкт - використовуємо post.Author.UserName
+                string authorName = post.Author?.ToString() ?? "Unknown";
+
+                // Логуємо створення поста
+                _logger.AddLog(new PostLogger(authorName, post.Title));
 
                 return post;
             }
         }
 
-        /**
-         * @brief Updates an existing post by ID.
-         */
         public Post? UpdatePost(int id, string title, string content)
         {
             lock (_lock)
@@ -83,9 +70,6 @@ namespace MiniBlogApp.Services
             }
         }
 
-        /**
-         * @brief Deletes a post by ID.
-         */
         public void DeletePost(int id)
         {
             lock (_lock)
@@ -96,35 +80,27 @@ namespace MiniBlogApp.Services
             }
         }
 
-        /**
-         * @brief Returns all posts sorted by creation date (newest first).
-         */
         public IEnumerable<Post> GetAllPosts()
         {
             lock (_lock)
             {
-                // Використовуємо .ToList(), щоб створити безпечну копію списку 
-                // і уникнути помилок, якщо інший користувач додасть пост під час читання
                 return Posts.OrderByDescending(p => p.CreatedAt).ToList();
             }
         }
 
-        /**
-         * @brief Returns all posts created by a specific user.
-         */
         public IEnumerable<Post> GetPostsByUser(string username)
         {
             lock (_lock)
             {
-                return Posts.Where(p => p.Author == username)
+                // Тут логіка теж може трохи змінитися, якщо Author тепер об'єкт
+                // Якщо Author це string: p.Author == username
+                // Якщо BlogUser: p.Author.UserName == username
+                return Posts.Where(p => p.Author?.ToString() == username)
                             .OrderByDescending(p => p.CreatedAt)
                             .ToList();
             }
         }
 
-        /**
-         * @brief Retrieves a post by its ID.
-         */
         public Post? GetPostById(int id)
         {
             lock (_lock)
@@ -133,9 +109,6 @@ namespace MiniBlogApp.Services
             }
         }
 
-        /**
-         * @brief Adds a like to a post.
-         */
         public void AddLike(int postId, string username)
         {
             lock (_lock)
@@ -146,15 +119,11 @@ namespace MiniBlogApp.Services
                 if (!post.Likes.Any(l => l.Username == username))
                 {
                     post.Likes.Add(new Like { Username = username });
-
                     _logger.AddLog(new LikeLogger(username, post.Title));
                 }
             }
         }
 
-        /**
-         * @brief Adds a comment to a post.
-         */
         public void AddComment(int postId, string author, string text)
         {
             lock (_lock)
@@ -163,29 +132,20 @@ namespace MiniBlogApp.Services
                 if (post == null) return;
 
                 post.Comments.Add(new Comment { Author = author, Text = text });
-
-
                 _logger.AddLog(new CommentLogger(author, text));
             }
         }
 
-        /**
-         * @brief Приватний метод для пошуку всередині класу без повторного блокування _lock
-         */
         private Post? GetPostByIdInternal(int id)
         {
             return Posts.FirstOrDefault(p => p.Id == id);
         }
-        /**
-         * @brief Returns all posts sorted using a specific strategy (Патерн Strategy).
-         */
+
         public IEnumerable<Post> GetAllPosts(IPostSortStrategy sortStrategy)
         {
             lock (_lock)
             {
-                // Спочатку робимо безпечну копію списку
                 var currentPosts = Posts.ToList();
-                // Делегуємо логіку сортування переданій стратегії
                 return sortStrategy.Sort(currentPosts).ToList();
             }
         }

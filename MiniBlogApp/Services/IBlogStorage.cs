@@ -12,7 +12,9 @@ namespace MiniBlogApp.Services
     {
         List<Post> Posts { get; }
 
-        Post AddPost(string author, string title, string content);
+        // Метод приймає готовий об'єкт Post (наслідок використання Builder)
+        Post AddPost(Post post);
+
         Post? UpdatePost(int id, string title, string content);
         void DeletePost(int id);
         IEnumerable<Post> GetAllPosts();

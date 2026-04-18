@@ -2,6 +2,7 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Http;
 using MiniBlogApp.Services;
+using MiniBlogApp.Builders; 
 using System;
 
 /**
@@ -12,9 +13,7 @@ using System;
  * UserService, BlogStorage, and LoggerService. Sets up session management 
  * and middleware, and starts the web application.
  */
-
 var builder = WebApplication.CreateBuilder(args);
-
 builder.Services.AddMvc().AddNToastNotifyToastr();
 
 /**
@@ -36,14 +35,18 @@ builder.Services.AddSession(options =>
 
 /**
  * @brief Реєстрація сервісів (Dependency Injection).
- * @details Усі сервіси додаються як Singleton, щоб дані зберігалися в пам'яті.
  */
+// Базові сервіси як Singleton, щоб дані зберігалися в пам'яті
 builder.Services.AddSingleton<UserService>();
 builder.Services.AddSingleton<IActivityLogger, LoggerService>();
 builder.Services.AddSingleton<IBlogStorage, BlogStorage>();
 
-//Реєстрація Адаптера для обробки Markdown (Патерн Adapter)
+// Реєстрація Адаптера для обробки Markdown (Патерн Adapter)
 builder.Services.AddSingleton<IMarkdownParser, MarkdigAdapter>();
+
+// 2. ДОДАНО: Реєстрація Будівельника постів (Патерн Builder)
+// Використовуємо AddTransient, щоб для кожного запиту створювався НОВИЙ чистий будівельник
+builder.Services.AddTransient<IPostBuilder, PostBuilder>();
 
 var app = builder.Build();
 
@@ -58,13 +61,12 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-app.UseRouting();
 
+app.UseRouting();
 app.UseSession();
 app.UseAuthorization();
 
 app.UseNToastNotify();
-
 app.MapRazorPages();
 
 app.Run();
