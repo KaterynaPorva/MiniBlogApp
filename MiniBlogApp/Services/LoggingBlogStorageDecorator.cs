@@ -1,5 +1,6 @@
 ﻿using MiniBlogApp.Models;
 using MiniBlogApp.Strategies;
+using MiniBlogApp.Factories; // ПІДКЛЮЧАЄМО НАШІ ФАБРИКИ
 using System.Collections.Generic;
 
 namespace MiniBlogApp.Services
@@ -7,14 +8,20 @@ namespace MiniBlogApp.Services
     /**
      * @file LoggingBlogStorageDecorator.cs
      * @brief Реалізація патерну Decorator для IBlogStorage.
-     * @details Додає функціонал логування до базового сховища без зміни його коду.
-     * Оновлено для підтримки вкладених коментарів (патерн Composite).
+     * @details Додає функціонал логування до базового сховища. 
+     * Для створення об'єктів логів використовується патерн Factory Method, 
+     * що дозволяє уникнути жорсткої залежності від конкретних класів логерів.
      */
     public class LoggingBlogStorageDecorator : IBlogStorage
     {
         private readonly IBlogStorage _innerStorage;
         private readonly IActivityLogger _logger;
 
+        /**
+         * @brief Конструктор декоратора.
+         * @param innerStorage Об'єкт сховища, який ми обгортаємо.
+         * @param logger Сервіс логування активності.
+         */
         public LoggingBlogStorageDecorator(IBlogStorage innerStorage, IActivityLogger logger)
         {
             _innerStorage = innerStorage;
@@ -25,26 +32,40 @@ namespace MiniBlogApp.Services
 
         // --- МЕТОДИ З ДОДАНИМ ЛОГУВАННЯМ ---
 
+        /**
+         * @brief Додає пост та створює запис у лог через PostLogFactory.
+         * @details Використання Factory Method дозволяє інкапсулювати логіку створення PostLogger.
+         */
         public Post AddPost(Post post)
         {
             var createdPost = _innerStorage.AddPost(post);
             string authorName = post.Author?.ToString() ?? "Unknown";
-            _logger.AddLog(new PostLogger(authorName, post.Title));
+
+            // ПАТЕРН FACTORY METHOD
+            LogFactory factory = new PostLogFactory();
+            _logger.AddLog(factory.CreateLog(authorName, post.Title));
+
             return createdPost;
         }
 
+        /**
+         * @brief Додає лайк та створює запис через LikeLogFactory.
+         */
         public void AddLike(int postId, string username)
         {
             _innerStorage.AddLike(postId, username);
             var post = _innerStorage.GetPostById(postId);
             if (post != null)
             {
-                _logger.AddLog(new LikeLogger(username, post.Title));
+                // ПАТЕРН FACTORY METHOD
+                LogFactory factory = new LikeLogFactory();
+                _logger.AddLog(factory.CreateLog(username, post.Title));
             }
         }
 
         /**
          * @brief ПАТЕРН DECORATOR + COMMAND: Логуємо видалення лайку (Undo).
+         * @details Для створення логу використовується та сама фабрика LikeLogFactory.
          */
         public void RemoveLike(int postId, string username)
         {
@@ -55,14 +76,22 @@ namespace MiniBlogApp.Services
             var post = _innerStorage.GetPostById(postId);
             if (post != null)
             {
-                _logger.AddLog(new LikeLogger(username, $"[UNDONE] {post.Title}"));
+                // ПАТЕРН FACTORY METHOD
+                LogFactory factory = new LikeLogFactory();
+                _logger.AddLog(factory.CreateLog(username, $"[UNDONE] {post.Title}"));
             }
         }
 
+        /**
+         * @brief Додає коментар та створює лог через CommentLogFactory.
+         */
         public void AddComment(int postId, string author, string text)
         {
             _innerStorage.AddComment(postId, author, text);
-            _logger.AddLog(new CommentLogger(author, text));
+
+            // ПАТЕРН FACTORY METHOD
+            LogFactory factory = new CommentLogFactory();
+            _logger.AddLog(factory.CreateLog(author, text));
         }
 
         /**
@@ -75,17 +104,29 @@ namespace MiniBlogApp.Services
             // Передаємо виклик основному сховищу
             _innerStorage.AddReply(postId, parentCommentId, author, text);
 
-            // Логуємо дію (вказуємо, що це відповідь)
-            _logger.AddLog(new CommentLogger(author, $"[Відповідь]: {text}"));
+            // Логуємо дію через фабрику коментарів
+            LogFactory factory = new CommentLogFactory();
+            _logger.AddLog(factory.CreateLog(author, $"[Відповідь]: {text}"));
         }
 
         // --- МЕТОДИ БЕЗ ЗМІН (ДЕЛЕГУЄМО ВИКЛИК) ---
 
+        /** @brief Делегування оновлення поста без додаткової логіки. */
         public Post? UpdatePost(int id, string title, string content) => _innerStorage.UpdatePost(id, title, content);
+
+        /** @brief Делегування видалення поста. */
         public void DeletePost(int id) => _innerStorage.DeletePost(id);
+
+        /** @brief Отримання списку всіх постів. */
         public IEnumerable<Post> GetAllPosts() => _innerStorage.GetAllPosts();
+
+        /** @brief Фільтрація постів за автором. */
         public IEnumerable<Post> GetPostsByUser(string username) => _innerStorage.GetPostsByUser(username);
+
+        /** @brief Пошук поста за ідентифікатором. */
         public Post? GetPostById(int id) => _innerStorage.GetPostById(id);
+
+        /** @brief Отримання відсортованих постів (Pattern Strategy). */
         public IEnumerable<Post> GetAllPosts(IPostSortStrategy sortStrategy) => _innerStorage.GetAllPosts(sortStrategy);
     }
 }
