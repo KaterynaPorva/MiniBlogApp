@@ -2,7 +2,8 @@ using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Http;
 using MiniBlogApp.Services;
-using MiniBlogApp.Builders; 
+using MiniBlogApp.Builders;
+using MiniBlogApp.Facades;
 using System;
 
 /**
@@ -60,7 +61,7 @@ builder.Services.AddSingleton<IMarkdownParser, MarkdigAdapter>();
 // 2. ДОДАНО: Реєстрація Будівельника постів (Патерн Builder)
 // Використовуємо AddTransient, щоб для кожного запиту створювався НОВИЙ чистий будівельник
 builder.Services.AddTransient<IPostBuilder, PostBuilder>();
-
+builder.Services.AddScoped<IBlogFacade, BlogFacade>();
 var app = builder.Build();
 
 /**
