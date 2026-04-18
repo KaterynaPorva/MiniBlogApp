@@ -1,31 +1,19 @@
-using Microsoft.AspNetCore.Builder;
+п»їusing Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.AspNetCore.Http;
 using MiniBlogApp.Services;
 using MiniBlogApp.Builders;
 using MiniBlogApp.Facades;
+using MiniBlogApp.Observers;
 using System;
 
-/**
- * @file Program.cs
- * @brief Main entry point for the MiniBlogApp application.
- * @details
- * Configures the web host, registers necessary services such as Razor Pages, 
- * UserService, BlogStorage, and LoggerService. Sets up session management 
- * and middleware, and starts the web application.
- */
 var builder = WebApplication.CreateBuilder(args);
-builder.Services.AddMvc().AddNToastNotifyToastr();
 
-/**
- * @brief Registers Razor Pages support.
- */
+// Razor Pages + Toast
+builder.Services.AddMvc().AddNToastNotifyToastr();
 builder.Services.AddRazorPages();
 
-/**
- * @brief Configures user session management.
- * @details Налаштування сесії: тайм-аут 30 хв, лише HTTP-куки, SameSite: Lax.
- */
+// Session
 builder.Services.AddSession(options =>
 {
     options.IdleTimeout = TimeSpan.FromMinutes(30);
@@ -34,39 +22,54 @@ builder.Services.AddSession(options =>
     options.Cookie.SameSite = SameSiteMode.Lax;
 });
 
-/**
- * @brief Реєстрація сервісів (Dependency Injection).
- */
-// Базові сервіси як Singleton, щоб дані зберігалися в пам'яті
+
+// =======================
+// рџ”№ DEPENDENCY INJECTION
+// =======================
+
+// Р‘Р°Р·РѕРІС– СЃРµСЂРІС–СЃРё
 builder.Services.AddSingleton<UserService>();
 builder.Services.AddSingleton<IActivityLogger, LoggerService>();
-// 1. Реєструємо базове сховище як конкретний клас
+
+// вњ… 1. Р РµС”СЃС‚СЂСѓС”РјРѕ Р±Р°Р·РѕРІРµ СЃС…РѕРІРёС‰Рµ
 builder.Services.AddSingleton<BlogStorage>();
 
-// 2. Реєструємо наш Декоратор під інтерфейсом IBlogStorage
+// вњ… 2. Р”РµРєРѕСЂР°С‚РѕСЂ (Decorator Pattern)
 builder.Services.AddSingleton<IBlogStorage>(provider =>
 {
-    // Дістаємо вже створене базове сховище
     var baseStorage = provider.GetRequiredService<BlogStorage>();
-    // Дістаємо логер
     var logger = provider.GetRequiredService<IActivityLogger>();
 
-    // Повертаємо обгорнутий об'єкт
     return new LoggingBlogStorageDecorator(baseStorage, logger);
 });
 
-// Реєстрація Адаптера для обробки Markdown (Патерн Adapter)
+// РђРґР°РїС‚РµСЂ (Adapter Pattern)
 builder.Services.AddSingleton<IMarkdownParser, MarkdigAdapter>();
 
-// 2. ДОДАНО: Реєстрація Будівельника постів (Патерн Builder)
-// Використовуємо AddTransient, щоб для кожного запиту створювався НОВИЙ чистий будівельник
+// Р‘СѓРґС–РІРµР»СЊРЅРёРє (Builder Pattern)
 builder.Services.AddTransient<IPostBuilder, PostBuilder>();
-builder.Services.AddScoped<IBlogFacade, BlogFacade>();
+
+// Р¤Р°СЃР°Рґ + Observer (Facade + Observer Pattern)
+builder.Services.AddScoped<IBlogFacade>(provider =>
+{
+    var storage = provider.GetRequiredService<IBlogStorage>();
+    var parser = provider.GetRequiredService<IMarkdownParser>();
+
+    var facade = new BlogFacade(storage, parser);
+
+    // РџС–РґРїРёСЃРєР° РЅР° РїРѕРґС–С—
+    facade.Subscribe(new CommentNotificationObserver());
+
+    return facade;
+});
+
+
+// =======================
+// рџ”№ BUILD APP
+// =======================
+
 var app = builder.Build();
 
-/**
- * @brief Configures error handling and middleware pipeline.
- */
 if (!app.Environment.IsDevelopment())
 {
     app.UseExceptionHandler("/Error");
@@ -77,10 +80,12 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
 app.UseSession();
 app.UseAuthorization();
 
 app.UseNToastNotify();
+
 app.MapRazorPages();
 
 app.Run();

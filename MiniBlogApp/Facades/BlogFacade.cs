@@ -1,18 +1,23 @@
 ﻿using MiniBlogApp.Models;
 using MiniBlogApp.Services;
+using MiniBlogApp.Observers; 
+using System.Collections.Generic;
 
 namespace MiniBlogApp.Facades
 {
     /**
      * @file BlogFacade.cs
-     * @brief Реалізація патерну Facade.
-     * @details Об'єднує роботу сховища постів та парсера Markdown. 
-     * Також координує рекурсивні операції патерну Composite для коментарів.
+     * @brief Реалізація патернів Facade та Observer.
+     * @details Крім спрощення інтерфейсу, клас тепер виступає як Subject (Суб'єкт) 
+     * у патерні Observer, дозволяючи іншим сервісам підписуватися на події блогу.
      */
     public class BlogFacade : IBlogFacade
     {
         private readonly IBlogStorage _blogStorage;
         private readonly IMarkdownParser _markdownParser;
+
+        // 2. ПАТЕРН OBSERVER: Список підписників
+        private readonly List<IBlogObserver> _observers = new();
 
         public BlogFacade(IBlogStorage blogStorage, IMarkdownParser markdownParser)
         {
@@ -21,15 +26,21 @@ namespace MiniBlogApp.Facades
         }
 
         /**
-         * @brief Отримує пост і готує його до відображення.
-         * @details Використовує рекурсію Composite для підрахунку всіх вкладених коментарів.
+         * @brief Метод для реєстрації спостерігачів.
          */
+        public void Subscribe(IBlogObserver observer)
+        {
+            if (!_observers.Contains(observer))
+            {
+                _observers.Add(observer);
+            }
+        }
+
         public Post? GetPostForView(int id)
         {
             var post = _blogStorage.GetPostById(id);
             if (post == null) return null;
 
-            // Створюємо об'єкт для View, щоб не змінювати оригінал у пам'яті
             var viewPost = new Post
             {
                 Id = post.Id,
@@ -38,11 +49,10 @@ namespace MiniBlogApp.Facades
                 CreatedAt = post.CreatedAt,
                 Likes = post.Likes,
                 Comments = post.Comments,
-                // Адаптер перетворює Markdown в HTML
                 Content = _markdownParser.Parse(post.Content)
             };
 
-            // ПАТЕРН COMPOSITE: Рекурсивно рахуємо загальну кількість (коментарі + відповіді)
+            // ПАТЕРН COMPOSITE: Рекурсивний підрахунок
             int total = 0;
             foreach (var comment in post.Comments)
             {
@@ -53,29 +63,30 @@ namespace MiniBlogApp.Facades
             return viewPost;
         }
 
-        /**
-         * @brief Делегує додавання лайку сховищу.
-         */
         public void AddLike(int postId, string username)
         {
             _blogStorage.AddLike(postId, username);
         }
 
         /**
-         * @brief Універсальний метод додавання коментарів.
-         * @param parentCommentId Якщо передано, додає коментар як відповідь (Composite Node).
+         * @brief Додає коментар та сповіщає всіх спостерігачів.
          */
         public void AddComment(int postId, string username, string text, int? parentCommentId = null)
         {
+            // Виконуємо дію в сховищі
             if (parentCommentId.HasValue)
             {
-                // Викликаємо рекурсивне додавання відповіді в сховищі
                 _blogStorage.AddReply(postId, parentCommentId.Value, username, text);
             }
             else
             {
-                // Додаємо звичайний коментар у корінь поста
                 _blogStorage.AddComment(postId, username, text);
+            }
+
+            // 3. ПАТЕРН OBSERVER: Сповіщаємо всіх підписників про нову подію
+            foreach (var observer in _observers)
+            {
+                observer.Update(username, text);
             }
         }
     }
