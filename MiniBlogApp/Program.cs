@@ -39,7 +39,20 @@ builder.Services.AddSession(options =>
 // Базові сервіси як Singleton, щоб дані зберігалися в пам'яті
 builder.Services.AddSingleton<UserService>();
 builder.Services.AddSingleton<IActivityLogger, LoggerService>();
-builder.Services.AddSingleton<IBlogStorage, BlogStorage>();
+// 1. Реєструємо базове сховище як конкретний клас
+builder.Services.AddSingleton<BlogStorage>();
+
+// 2. Реєструємо наш Декоратор під інтерфейсом IBlogStorage
+builder.Services.AddSingleton<IBlogStorage>(provider =>
+{
+    // Дістаємо вже створене базове сховище
+    var baseStorage = provider.GetRequiredService<BlogStorage>();
+    // Дістаємо логер
+    var logger = provider.GetRequiredService<IActivityLogger>();
+
+    // Повертаємо обгорнутий об'єкт
+    return new LoggingBlogStorageDecorator(baseStorage, logger);
+});
 
 // Реєстрація Адаптера для обробки Markdown (Патерн Adapter)
 builder.Services.AddSingleton<IMarkdownParser, MarkdigAdapter>();
