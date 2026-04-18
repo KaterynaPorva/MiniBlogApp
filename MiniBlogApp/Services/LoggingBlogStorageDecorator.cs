@@ -43,6 +43,22 @@ namespace MiniBlogApp.Services
             }
         }
 
+        /**
+         * @brief ПАТЕРН DECORATOR + COMMAND: Логуємо видалення лайку (Undo).
+         */
+        public void RemoveLike(int postId, string username)
+        {
+            // 1. Виконуємо дію в основному сховищі
+            _innerStorage.RemoveLike(postId, username);
+
+            // 2. Додаємо запис у лог про скасування лайку
+            var post = _innerStorage.GetPostById(postId);
+            if (post != null)
+            {
+                _logger.AddLog(new LikeLogger(username, $"[UNDONE] {post.Title}"));
+            }
+        }
+
         public void AddComment(int postId, string author, string text)
         {
             _innerStorage.AddComment(postId, author, text);

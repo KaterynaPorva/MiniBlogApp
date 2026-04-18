@@ -25,5 +25,6 @@ namespace MiniBlogApp.Services
         void AddComment(int postId, string author, string text);
         IEnumerable<Post> GetAllPosts(IPostSortStrategy sortStrategy);
         void AddReply(int postId, int parentCommentId, string author, string text);
+        void RemoveLike(int postId, string username);
     }
 }

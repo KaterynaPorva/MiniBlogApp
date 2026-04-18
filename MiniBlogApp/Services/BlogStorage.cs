@@ -175,5 +175,19 @@ namespace MiniBlogApp.Services
                 return sortStrategy.Sort(currentPosts).ToList();
             }
         }
+        public void RemoveLike(int postId, string username)
+        {
+            lock (_lock)
+            {
+                var post = GetPostByIdInternal(postId);
+                if (post == null) return;
+
+                var like = post.Likes.FirstOrDefault(l => l.Username == username);
+                if (like != null)
+                {
+                    post.Likes.Remove(like);
+                }
+            }
+        }
     }
 }
