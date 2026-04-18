@@ -6,10 +6,15 @@ using NToastNotify;
 
 namespace MiniBlogApp.Pages
 {
+    /**
+     * @file ViewPost.cshtml.cs
+     * @brief Модель сторінки для перегляду одного поста.
+     * @details Використовує IBlogFacade для доступу до даних та виконання дій (лайки, коментарі).
+     */
     public class ViewPostModel : PageModel
     {
         private readonly IToastNotification _toastNotification;
-        private readonly IBlogFacade _blogFacade; // Використовуємо Фасад
+        private readonly IBlogFacade _blogFacade;
 
         public ViewPostModel(IToastNotification toastNotification, IBlogFacade blogFacade)
         {
@@ -27,7 +32,7 @@ namespace MiniBlogApp.Pages
         {
             Username = HttpContext.Session.GetString("Username");
 
-            // Фасад сам дістає пост і конвертує текст
+            // Фасад сам дістає пост і конвертує Markdown в HTML
             Post = _blogFacade.GetPostForView(Id);
 
             if (Post == null)
@@ -50,20 +55,28 @@ namespace MiniBlogApp.Pages
             return RedirectToPage(new { id });
         }
 
-        public IActionResult OnPostComment(int id, string commentText)
+        /**
+         * @brief Обробка додавання коментаря або відповіді.
+         * @param id ID поста.
+         * @param commentText Текст коментаря.
+         * @param parentCommentId ID батьківського коментаря (для вкладеності).
+         */
+        public IActionResult OnPostComment(int id, string commentText, int? parentCommentId)
         {
             var username = HttpContext.Session.GetString("Username");
             if (string.IsNullOrEmpty(username)) return RedirectToPage("/Login");
 
             if (!string.IsNullOrWhiteSpace(commentText))
             {
-                // Коментуємо через Фасад
-                _blogFacade.AddComment(id, username, commentText);
-                _toastNotification.AddSuccessToastMessage("Коментар успішно додано! 💬");
+                // Передаємо ID батька у фасад. Якщо він null — це звичайний коментар.
+                _blogFacade.AddComment(id, username, commentText, parentCommentId);
+
+                string message = parentCommentId.HasValue ? "Відповідь додано! 💬" : "Коментар успішно додано! 💬";
+                _toastNotification.AddSuccessToastMessage(message);
             }
             else
             {
-                _toastNotification.AddErrorToastMessage("Коментар не може бути порожнім.");
+                _toastNotification.AddErrorToastMessage("Текст не може бути порожнім.");
             }
 
             return RedirectToPage(new { id });

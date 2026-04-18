@@ -1,13 +1,20 @@
-﻿namespace MiniBlogApp.Models
+﻿using MiniBlogApp.Composites;
+using System;
+using System.Collections.Generic;
+using System.Reflection.Metadata;
+using System.Xml.Linq;
+using static System.Net.Mime.MediaTypeNames;
+
+namespace MiniBlogApp.Models
 {
     /**
      * @file Post.cs
      * @brief Defines the Post model used in the MiniBlogApp.
      * 
      * @details This class represents a single blog post including its author, title,
-     *          content, creation date, and associated comments and likes. It is the core
-     *          entity used for displaying and managing posts in the blog application.
-     * 
+     * content, creation date, and associated comments and likes.It is the core
+     *entity used for displaying and managing posts in the blog application.
+     *
      * @example Post.cs
      * @details Example of creating a new Post instance and setting its properties.
      * @code
@@ -55,6 +62,12 @@
          * @details Automatically set to the current date and time when a post is created.
          */
         public DateTime CreatedAt { get; set; } = DateTime.Now;
+
+        /**
+         * @brief Загальна кількість коментарів (включаючи відповіді).
+         * @details Це значення розраховується рекурсивно за допомогою патерну Composite у Фасаді.
+         */
+        public int TotalCommentsCount { get; set; }
 
         /**
          * @brief List of comments associated with this post.

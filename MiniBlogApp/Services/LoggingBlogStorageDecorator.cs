@@ -8,13 +8,13 @@ namespace MiniBlogApp.Services
      * @file LoggingBlogStorageDecorator.cs
      * @brief Реалізація патерну Decorator для IBlogStorage.
      * @details Додає функціонал логування до базового сховища без зміни його коду.
+     * Оновлено для підтримки вкладених коментарів (патерн Composite).
      */
     public class LoggingBlogStorageDecorator : IBlogStorage
     {
         private readonly IBlogStorage _innerStorage;
         private readonly IActivityLogger _logger;
 
-        // Приймаємо базове сховище та логер через конструктор
         public LoggingBlogStorageDecorator(IBlogStorage innerStorage, IActivityLogger logger)
         {
             _innerStorage = innerStorage;
@@ -27,20 +27,15 @@ namespace MiniBlogApp.Services
 
         public Post AddPost(Post post)
         {
-            // 1. Спочатку викликаємо метод оригінального сховища
             var createdPost = _innerStorage.AddPost(post);
-
-            // 2. Додаємо поведінку декоратора (логування)
             string authorName = post.Author?.ToString() ?? "Unknown";
             _logger.AddLog(new PostLogger(authorName, post.Title));
-
             return createdPost;
         }
 
         public void AddLike(int postId, string username)
         {
             _innerStorage.AddLike(postId, username);
-
             var post = _innerStorage.GetPostById(postId);
             if (post != null)
             {
@@ -52,6 +47,20 @@ namespace MiniBlogApp.Services
         {
             _innerStorage.AddComment(postId, author, text);
             _logger.AddLog(new CommentLogger(author, text));
+        }
+
+        /**
+         * @brief ПАТЕРН DECORATOR: Додаємо логування для методу відповідей.
+         * @details Оскільки IBlogStorage отримав новий метод для Composite, 
+         * Декоратор обов'язково має його реалізувати.
+         */
+        public void AddReply(int postId, int parentCommentId, string author, string text)
+        {
+            // Передаємо виклик основному сховищу
+            _innerStorage.AddReply(postId, parentCommentId, author, text);
+
+            // Логуємо дію (вказуємо, що це відповідь)
+            _logger.AddLog(new CommentLogger(author, $"[Відповідь]: {text}"));
         }
 
         // --- МЕТОДИ БЕЗ ЗМІН (ДЕЛЕГУЄМО ВИКЛИК) ---

@@ -1,145 +1,210 @@
 ﻿@page
 @model MiniBlogApp.Pages.ViewPostModel
-@using Markdig  @{
+@{
     Layout = "_Layout";
     ViewData["Title"] = Model.Post?.Title ?? "Пост не знайдено";
 }
 
 <style>
-    body {
-        background-color: #5C4033;
-        font-family: Arial, sans-serif;
-        margin: 0;
-        padding: 0;
-        width: 100%;
+
+    /* ФОН СТОРІНКИ */
+    .page-bg {
+        background: linear-gradient(135deg, #5C4033, #3e2a20);
+        min-height: 100vh;
+        padding-top: 30px;
     }
 
+    /* КОНТЕЙНЕР */
     .posts-container {
         max-width: 800px;
-        margin: 100px auto;
+        margin: 40px auto;
         padding: 30px;
-        background-color: #ffffff;
+        background: #fff;
         border-radius: 20px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-        color: #333;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     }
 
-    h1, h2, h3 {
-        text-align: center;
+    /* СТРІЛКА */
+    .back-link {
         margin-bottom: 20px;
     }
 
-    .links {
-        text-align: center;
-        margin-bottom: 20px;
-    }
-
-        .links a {
-            color: #5C4033;
+        .back-link a {
+            color: #5C4033; /* ВАЖЛИВО */
             text-decoration: none;
             font-weight: bold;
-            margin: 0 10px;
         }
 
-            .links a:hover {
+            .back-link a:hover {
                 text-decoration: underline;
             }
 
+    /* ЗАГОЛОВОК */
+    h1 {
+        text-align: center;
+    }
+
+    .author {
+        text-align: center;
+        color: #777;
+        margin-bottom: 20px;
+    }
+
+    /* КОНТЕНТ */
+    .post-content {
+        line-height: 1.6;
+        margin-bottom: 25px;
+    }
+
+    /* КНОПКИ */
     .btn-action {
-        background-color: #f5f5dc;
-        color: #333;
+        background: linear-gradient(135deg, #f5f5dc, #e6e0c9);
         border: none;
         padding: 8px 16px;
-        border-radius: 25px;
-        font-weight: bold;
+        border-radius: 20px;
         cursor: pointer;
-        transition: background-color 0.3s;
-        margin-top: 10px;
+        font-weight: bold;
+        transition: 0.2s;
     }
 
         .btn-action:hover {
-            background-color: #e0dcb5;
+            transform: scale(1.05);
         }
 
+    /* КОМЕНТАР */
+    .comment-item {
+        background: #fafafa;
+        padding: 12px 15px;
+        border-radius: 12px;
+        margin-bottom: 10px;
+    }
+
+    .comment-author {
+        font-weight: bold;
+        color: #5C4033;
+    }
+
+    .comment-text {
+        margin-top: 5px;
+    }
+
+    /* ВІДПОВІДІ */
+    .replies-container {
+        margin-left: 25px;
+        border-left: 2px solid #ddd;
+        padding-left: 15px;
+        margin-top: 10px;
+    }
+
+    /* ВІДПОВІСТИ */
+    .reply-link {
+        font-size: 0.8em;
+        color: #8B6F47;
+        cursor: pointer;
+    }
+
+        .reply-link:hover {
+            text-decoration: underline;
+        }
+
+    /* ФОРМА */
     textarea {
         width: 100%;
         padding: 10px;
-        border-radius: 15px;
+        border-radius: 10px;
         border: 1px solid #ccc;
-        font-size: 16px;
-        margin-bottom: 10px;
-        box-sizing: border-box;
+        margin-top: 8px;
     }
 
-    ul {
-        padding-left: 20px;
-    }
-
-    li {
-        margin-bottom: 8px;
-    }
-
-    p.author {
-        font-style: italic;
-        margin-bottom: 20px;
-    }
-    
-    /* Додамо трохи стилів для відрендереного Markdown */
-    .post-content blockquote {
-        border-left: 4px solid #ccc;
-        margin-left: 0;
-        padding-left: 16px;
-        color: #666;
-    }
-    .post-content code {
-        background-color: #f4f4f4;
-        padding: 2px 4px;
-        border-radius: 4px;
-    }
 </style>
 
-<div class="posts-container">
-    <div class="links">
-        <a asp-page="/Index">⬅ Повернутися до всіх постів</a>
-    </div>
+<div class="page-bg">
+    <div class="posts-container">
 
-    @if (Model.Post == null)
-    {
-        <h2>Пост не знайдено 😢</h2>
-    }
-    else
-    {
-        <h1>@Model.Post.Title</h1>
-        <p class="author">Автор: @Model.Post.Author</p>
-        
-        <div class="post-content">
-            @Html.Raw(Markdown.ToHtml(Model.Post.Content ?? ""))
+        <!-- СТРІЛКА -->
+        <div class="back-link">
+            <a asp-page="/Index">⬅ Повернутися до всіх постів</a>
         </div>
 
-        <form method="post" asp-page-handler="Like">
-            <input type="hidden" name="id" value="@Model.Post.Id" />
-            <button type="submit" class="btn-action">❤️ Лайк (@Model.Post.Likes.Count)</button>
-        </form>
-
-        <h3>Коментарі (@Model.Post.Comments.Count)</h3>
-        <ul>
-            @foreach (var c in Model.Post.Comments)
-            {
-                <li><b>@c.Author:</b> @c.Text</li>
-            }
-        </ul>
-
-        @if (!string.IsNullOrEmpty(Model.Username))
+        @if (Model.Post == null)
         {
-            <form method="post" asp-page-handler="Comment">
-                <textarea name="commentText" rows="3" placeholder="Напишіть коментар..."></textarea>
-                <input type="hidden" name="id" value="@Model.Post.Id" />
-                <button type="submit" class="btn-action">Додати коментар</button>
-            </form>
+            <h2>Пост не знайдено 😢</h2>
         }
         else
         {
-            <p style="text-align:center;">Щоб залишити коментар, <a href="/Login">увійдіть</a>.</p>
+            <h1>@Model.Post.Title</h1>
+            <p class="author">Автор: @Model.Post.Author</p>
+
+            <div class="post-content">
+                @Html.Raw(Model.Post.Content)
+            </div>
+
+            <form method="post" asp-page-handler="Like">
+                <input type="hidden" name="id" value="@Model.Post.Id" />
+                <button class="btn-action">❤️ Лайк (@Model.Post.Likes.Count)</button>
+            </form>
+
+            <h3>Коментарі (@Model.Post.TotalCommentsCount)</h3>
+
+            @foreach (var c in Model.Post.Comments)
+            {
+                <div class="comment-item">
+                    <div class="comment-author">@c.Author</div>
+                    <div class="comment-text">@c.Text</div>
+
+                    @if (!string.IsNullOrEmpty(Model.Username))
+                    {
+                        <div class="reply-link" onclick="toggleReplyForm(@c.Id)">Відповісти</div>
+
+                        <div id="reply-form-@c.Id" style="display:none;">
+                            <form method="post" asp-page-handler="Comment">
+                                <input type="hidden" name="id" value="@Model.Post.Id" />
+                                <input type="hidden" name="parentCommentId" value="@c.Id" />
+                                <textarea name="commentText" rows="2"></textarea>
+                                <button class="btn-action">Відправити</button>
+                            </form>
+                        </div>
+                    }
+
+                    @if (c.Replies != null && c.Replies.Any())
+                    {
+                        <div class="replies-container">
+                            @foreach (var reply in c.Replies)
+                            {
+                                var r = reply as MiniBlogApp.Models.Comment;
+                                if (r != null)
+                                {
+                                    <div class="comment-item">
+                                        <div class="comment-author">@r.Author</div>
+                                        <div class="comment-text">@r.Text</div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                    }
+                </div>
+            }
+
+            @if (!string.IsNullOrEmpty(Model.Username))
+            {
+                <h4>Додати коментар</h4>
+                <form method="post" asp-page-handler="Comment">
+                    <textarea name="commentText" rows="3"></textarea>
+                    <input type="hidden" name="id" value="@Model.Post.Id" />
+                    <button class="btn-action">Додати</button>
+                </form>
+            }
+            else
+            {
+                <p>Щоб коментувати — <a href="/Login">увійдіть</a></p>
+            }
         }
-    }
+    </div>
 </div>
+
+<script>
+    function toggleReplyForm(id) {
+        var el = document.getElementById("reply-form-" + id);
+        el.style.display = el.style.display === "block" ? "none" : "block";
+    }
+</script>

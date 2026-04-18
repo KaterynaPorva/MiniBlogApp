@@ -3,9 +3,12 @@ using MiniBlogApp.Services;
 
 namespace MiniBlogApp.Facades
 {
-    /// <summary>
-    /// Реалізація Фасаду. Приховує складність взаємодії між сховищем та парсером.
-    /// </summary>
+    /**
+     * @file BlogFacade.cs
+     * @brief Реалізація патерну Facade.
+     * @details Об'єднує роботу сховища постів та парсера Markdown. 
+     * Також координує рекурсивні операції патерну Composite для коментарів.
+     */
     public class BlogFacade : IBlogFacade
     {
         private readonly IBlogStorage _blogStorage;
@@ -17,15 +20,17 @@ namespace MiniBlogApp.Facades
             _markdownParser = markdownParser;
         }
 
+        /**
+         * @brief Отримує пост і готує його до відображення.
+         * @details Використовує рекурсію Composite для підрахунку всіх вкладених коментарів.
+         */
         public Post? GetPostForView(int id)
         {
-            // 1. Звертаємося до бази
             var post = _blogStorage.GetPostById(id);
             if (post == null) return null;
 
-            // 2. Створюємо копію поста для сторінки, 
-            // одразу перетворюючи Markdown на HTML за допомогою парсера
-            return new Post
+            // Створюємо об'єкт для View, щоб не змінювати оригінал у пам'яті
+            var viewPost = new Post
             {
                 Id = post.Id,
                 Title = post.Title,
@@ -33,18 +38,45 @@ namespace MiniBlogApp.Facades
                 CreatedAt = post.CreatedAt,
                 Likes = post.Likes,
                 Comments = post.Comments,
+                // Адаптер перетворює Markdown в HTML
                 Content = _markdownParser.Parse(post.Content)
             };
+
+            // ПАТЕРН COMPOSITE: Рекурсивно рахуємо загальну кількість (коментарі + відповіді)
+            int total = 0;
+            foreach (var comment in post.Comments)
+            {
+                total += comment.GetTotalCount();
+            }
+            viewPost.TotalCommentsCount = total;
+
+            return viewPost;
         }
 
+        /**
+         * @brief Делегує додавання лайку сховищу.
+         */
         public void AddLike(int postId, string username)
         {
             _blogStorage.AddLike(postId, username);
         }
 
-        public void AddComment(int postId, string username, string text)
+        /**
+         * @brief Універсальний метод додавання коментарів.
+         * @param parentCommentId Якщо передано, додає коментар як відповідь (Composite Node).
+         */
+        public void AddComment(int postId, string username, string text, int? parentCommentId = null)
         {
-            _blogStorage.AddComment(postId, username, text);
+            if (parentCommentId.HasValue)
+            {
+                // Викликаємо рекурсивне додавання відповіді в сховищі
+                _blogStorage.AddReply(postId, parentCommentId.Value, username, text);
+            }
+            else
+            {
+                // Додаємо звичайний коментар у корінь поста
+                _blogStorage.AddComment(postId, username, text);
+            }
         }
     }
 }

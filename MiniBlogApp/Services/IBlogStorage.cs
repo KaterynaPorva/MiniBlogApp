@@ -4,6 +4,7 @@ using System.Collections.Generic;
 
 namespace MiniBlogApp.Services
 {
+
     /**
      * @brief Інтерфейс для роботи зі сховищем дописів.
      * @details Дозволяє використовувати Dependency Injection та писати Unit-тести.
@@ -23,5 +24,6 @@ namespace MiniBlogApp.Services
         void AddLike(int postId, string username);
         void AddComment(int postId, string author, string text);
         IEnumerable<Post> GetAllPosts(IPostSortStrategy sortStrategy);
+        void AddReply(int postId, int parentCommentId, string author, string text);
     }
 }

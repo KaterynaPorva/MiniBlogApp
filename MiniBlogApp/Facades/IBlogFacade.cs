@@ -2,13 +2,12 @@
 
 namespace MiniBlogApp.Facades
 {
-    /// <summary>
-    /// Інтерфейс Фасаду, що спрощує доступ до бізнес-логіки блогу.
-    /// </summary>
     public interface IBlogFacade
     {
-        Post? GetPostForView(int id); // ? означає, що може повернути null
+        Post? GetPostForView(int id);
         void AddLike(int postId, string username);
-        void AddComment(int postId, string username, string text);
+
+        // ДОДАЄМО parentCommentId ЯК НЕОБОВ'ЯЗКОВИЙ ПАРАМЕТР
+        void AddComment(int postId, string username, string text, int? parentCommentId = null);
     }
 }
