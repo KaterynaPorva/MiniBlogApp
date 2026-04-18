@@ -5,6 +5,7 @@ using MiniBlogApp.Services;
 using MiniBlogApp.Builders;
 using MiniBlogApp.Facades;
 using MiniBlogApp.Observers;
+using MiniBlogApp.Proxies; // 1. ДОДАЛИ: Підключення папки з нашим Proxy
 using System;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -22,7 +23,6 @@ builder.Services.AddSession(options =>
     options.Cookie.SameSite = SameSiteMode.Lax;
 });
 
-
 // =======================
 // 🔹 DEPENDENCY INJECTION
 // =======================
@@ -34,13 +34,18 @@ builder.Services.AddSingleton<IActivityLogger, LoggerService>();
 // ✅ 1. Реєструємо базове сховище
 builder.Services.AddSingleton<BlogStorage>();
 
-// ✅ 2. Декоратор (Decorator Pattern)
+// ✅ 2. Proxy + Decorator (Збираємо "матрьошку" патернів)
 builder.Services.AddSingleton<IBlogStorage>(provider =>
 {
+    // Крок 1: Отримуємо базове сховище
     var baseStorage = provider.GetRequiredService<BlogStorage>();
-    var logger = provider.GetRequiredService<IActivityLogger>();
 
-    return new LoggingBlogStorageDecorator(baseStorage, logger);
+    // Крок 2: Обгортаємо його в КЕШУЮЧИЙ PROXY (Замісник)
+    var cachedStorage = new CachedBlogStorageProxy(baseStorage);
+
+    // Крок 3: Обгортаємо Proxy у ДЕКОРАТОР для логування
+    var logger = provider.GetRequiredService<IActivityLogger>();
+    return new LoggingBlogStorageDecorator(cachedStorage, logger);
 });
 
 // Адаптер (Adapter Pattern)
@@ -63,7 +68,6 @@ builder.Services.AddScoped<IBlogFacade>(provider =>
     return facade;
 });
 
-
 // =======================
 // 🔹 BUILD APP
 // =======================
@@ -78,12 +82,9 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
-
 app.UseRouting();
-
 app.UseSession();
 app.UseAuthorization();
-
 app.UseNToastNotify();
 
 app.MapRazorPages();
