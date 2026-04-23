@@ -86,6 +86,29 @@
     }
 </style>
 
+<div class="search-container mb-5">
+    <form method="get">
+        <div class="input-group shadow-sm" style="border-radius: 30px; overflow: hidden;">
+            <input type="text"
+                   class="form-control border-0 px-4"
+                   name="SearchQuery"
+                   value="@Model.SearchQuery"
+                   placeholder="Що ви шукаєте? (заголовок, текст або автор)..."
+                   style="height: 50px;">
+            <button class="btn btn-primary px-4" type="submit">
+                🔍 Знайти
+            </button>
+        </div>
+        @if (!string.IsNullOrEmpty(Model.SearchQuery))
+        {
+            <div class="mt-2 text-muted small px-3">
+                Результати для: <strong>@Model.SearchQuery</strong>
+                <a href="/Index" class="text-decoration-none ms-2">✖ Очистити</a>
+            </div>
+        }
+    </form>
+</div>
+
 <div class="posts-container">
     <h2>@MiniBlogApp.Models.BlogSettings.Instance.BlogName - Усі пости</h2>
 
@@ -109,8 +132,8 @@
 
     <div style="text-align: right; margin-bottom: 20px;">
         <strong>Сортувати за: </strong>
-        <a href="/Index?SortBy=date" style="margin-right: 10px; color: #5C4033; font-weight: bold; text-decoration: none;">🕒 Найновішими</a> |
-        <a href="/Index?SortBy=popular" style="margin-left: 10px; color: #5C4033; font-weight: bold; text-decoration: none;">❤️ Популярністю</a>
+        <a href="/Index?SortBy=date&SearchQuery=@Model.SearchQuery" style="margin-right: 10px; color: #5C4033; font-weight: bold; text-decoration: none;">🕒 Найновішими</a> |
+        <a href="/Index?SortBy=popular&SearchQuery=@Model.SearchQuery" style="margin-left: 10px; color: #5C4033; font-weight: bold; text-decoration: none;">❤️ Популярністю</a>
     </div>
 
     @if (!Model.AllPosts.Any())
@@ -138,4 +161,36 @@
             </div>
         }
     }
+
+    @if (Model.TotalPages > 1)
+    {
+        <nav aria-label="Page navigation" class="mt-5">
+            <ul class="pagination justify-content-center">
+                <li class="page-item @(Model.CurrentPage == 1 ? "disabled" : "")">
+                    <a class="page-link"
+                           href="/Index?CurrentPage=@(Model.CurrentPage - 1)&SearchQuery=@Model.SearchQuery&SortBy=@Model.SortBy">
+                        Попередня
+                    </a>
+                </li>
+
+                @for (int i = 1; i <= Model.TotalPages; i++)
+                {
+                    <li class="page-item @(i == Model.CurrentPage ? "active" : "")">
+                        <a class="page-link"
+                               href="/Index?CurrentPage=@i&SearchQuery=@Model.SearchQuery&SortBy=@Model.SortBy">
+                            @i
+                        </a>
+                    </li>
+                }
+
+                <li class="page-item @(Model.CurrentPage == Model.TotalPages ? "disabled" : "")">
+                    <a class="page-link"
+                           href="/Index?CurrentPage=@(Model.CurrentPage + 1)&SearchQuery=@Model.SearchQuery&SortBy=@Model.SortBy">
+                        Наступна
+                    </a>
+                </li>
+            </ul>
+        </nav>
+    }
+
 </div>

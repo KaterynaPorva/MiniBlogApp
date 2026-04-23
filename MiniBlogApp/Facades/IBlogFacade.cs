@@ -1,5 +1,7 @@
 ﻿using MiniBlogApp.Models;
-using MiniBlogApp.Observers; 
+using MiniBlogApp.Observers;
+using MiniBlogApp.Strategies; 
+using System.Collections.Generic;
 
 namespace MiniBlogApp.Facades
 {
@@ -9,17 +11,13 @@ namespace MiniBlogApp.Facades
      */
     public interface IBlogFacade
     {
-        // Базовий функціонал (Facade + Adapter)
+        // Оновлений метод: приймає і стратегію сортування, і рядок пошуку
+        IEnumerable<Post> GetAllPosts(IPostSortStrategy strategy, string? searchQuery = null);
+
         Post? GetPostForView(int id);
-
-        // Робота з лайками (Command Pattern)
         void AddLike(int postId, string username);
-        void UndoLastAction(); // Метод для відкату лайка
-
-        // Робота з коментарями (Composite Pattern)
+        void UndoLastAction();
         void AddComment(int postId, string username, string text, int? parentCommentId = null);
-
-        // Керування подіями (Observer Pattern)
         void Subscribe(IBlogObserver observer);
     }
 }

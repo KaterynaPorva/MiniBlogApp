@@ -1,26 +1,18 @@
 ﻿using MiniBlogApp.Models;
 using MiniBlogApp.Services;
 using MiniBlogApp.Observers;
-using MiniBlogApp.Commands; // 1. ПІДКЛЮЧАЄМО КОМАНДИ
+using MiniBlogApp.Commands;
+using MiniBlogApp.Strategies; 
 using System.Collections.Generic;
+using System.Linq; 
 
 namespace MiniBlogApp.Facades
 {
-    /**
-     * @file BlogFacade.cs
-     * @brief Реалізація патернів Facade та Observer.
-     * @details Крім спрощення інтерфейсу, клас тепер виступає як Subject (Суб'єкт) 
-     * у патерні Observer, дозволяючи іншим сервісам підписуватися на події блогу.
-     */
     public class BlogFacade : IBlogFacade
     {
         private readonly IBlogStorage _blogStorage;
         private readonly IMarkdownParser _markdownParser;
-
-        // ПАТЕРН OBSERVER: Список підписників
         private readonly List<IBlogObserver> _observers = new();
-
-        // 2. ПАТЕРН COMMAND: Менеджер для керування історією команд
         private readonly CommandManager _commandManager = new();
 
         public BlogFacade(IBlogStorage blogStorage, IMarkdownParser markdownParser)
@@ -30,23 +22,36 @@ namespace MiniBlogApp.Facades
         }
 
         /**
-         * @brief Метод для реєстрації спостерігачів.
+         * @brief Отримання всіх постів з урахуванням сортування та пошуку.
+         * @param strategy Стратегія сортування (Date або Popularity).
+         * @param searchQuery Рядок для пошуку.
          */
-        public void Subscribe(IBlogObserver observer)
+        public IEnumerable<Post> GetAllPosts(IPostSortStrategy strategy, string? searchQuery = null)
         {
-            if (!_observers.Contains(observer))
+            // 1. Отримуємо відсортовані пости зі сховища (через Proxy та Decorator)
+            // Тут використовується патерн Strategy
+            var posts = _blogStorage.GetAllPosts(strategy);
+
+            // 2. Якщо користувач ввів запит — фільтруємо результат
+            if (!string.IsNullOrWhiteSpace(searchQuery))
             {
-                _observers.Add(observer);
+                var query = searchQuery.ToLower();
+                posts = posts.Where(p =>
+                    p.Title.ToLower().Contains(query) ||
+                    p.Content.ToLower().Contains(query) ||
+                    p.Author.ToLower().Contains(query)
+                );
             }
+
+            return posts.ToList();
         }
 
-        /**
-         * @brief ПАТЕРН COMMAND: Метод для скасування останньої дії користувача.
-         */
-        public void UndoLastAction()
+        public void Subscribe(IBlogObserver observer)
         {
-            _commandManager.UndoLastCommand();
+            if (!_observers.Contains(observer)) _observers.Add(observer);
         }
+
+        public void UndoLastAction() => _commandManager.UndoLastCommand();
 
         public Post? GetPostForView(int id)
         {
@@ -64,45 +69,27 @@ namespace MiniBlogApp.Facades
                 Content = _markdownParser.Parse(post.Content)
             };
 
-            // ПАТЕРН COMPOSITE: Рекурсивний підрахунок коментарів
             int total = 0;
-            foreach (var comment in post.Comments)
-            {
-                total += comment.GetTotalCount();
-            }
+            foreach (var comment in post.Comments) total += comment.GetTotalCount();
             viewPost.TotalCommentsCount = total;
 
             return viewPost;
         }
 
-        /**
-         * @brief ПАТЕРН COMMAND: Реалізація додавання лайку через команду.
-         */
         public void AddLike(int postId, string username)
         {
-            // Замість прямого виклику сховища, створюємо об'єкт команди
             var likeCommand = new LikeCommand(_blogStorage, postId, username);
-
-            // Виконуємо її через менеджер, щоб вона потрапила в історію (для Undo)
             _commandManager.ExecuteCommand(likeCommand);
         }
 
         public void AddComment(int postId, string username, string text, int? parentCommentId = null)
         {
             if (parentCommentId.HasValue)
-            {
                 _blogStorage.AddReply(postId, parentCommentId.Value, username, text);
-            }
             else
-            {
                 _blogStorage.AddComment(postId, username, text);
-            }
 
-            // ПАТЕРН OBSERVER: Сповіщення
-            foreach (var observer in _observers)
-            {
-                observer.Update(username, text);
-            }
+            foreach (var observer in _observers) observer.Update(username, text);
         }
     }
 }
