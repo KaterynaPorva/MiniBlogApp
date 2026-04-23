@@ -5,17 +5,19 @@
     ViewData["Title"] = "Створення поста";
 }
 
+<link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css">
+
 <style>
     body {
-        background-color: #5C4033; 
+        background-color: #5C4033;
         font-family: Arial, sans-serif;
         margin: 0;
         padding: 0;
     }
 
     .form-container {
-        max-width: 500px;
-        margin: 100px auto; 
+        max-width: 700px;
+        margin: 100px auto;
         background-color: #ffffff;
         padding: 30px;
         border-radius: 20px;
@@ -65,8 +67,19 @@
         resize: vertical;
     }
 
+    .editor-toolbar {
+        border-top-left-radius: 25px;
+        border-top-right-radius: 25px;
+        background-color: #f8f9fa;
+    }
+
+    .CodeMirror {
+        border-bottom-left-radius: 25px;
+        border-bottom-right-radius: 25px;
+    }
+
     .btn-submit {
-        background-color: #f5f5dc; 
+        background-color: #f5f5dc;
         color: #333;
         border: none;
         padding: 10px 20px;
@@ -79,7 +92,7 @@
     }
 
         .btn-submit:hover {
-            background-color: #e0dcb5; 
+            background-color: #e0dcb5;
         }
 
     .validation-message {
@@ -106,8 +119,8 @@
         </div>
 
         <div>
-            <label>Текст:</label>
-            <textarea asp-for="PostContent" rows="6"></textarea>
+            <label>Текст (можна використовувати Markdown):</label>
+            <textarea id="PostContent" asp-for="PostContent" rows="6"></textarea>
             <span asp-validation-for="PostContent" class="validation-message"></span>
         </div>
 
@@ -119,3 +132,22 @@
         <p class="validation-message">@ModelState.Values.SelectMany(v => v.Errors).FirstOrDefault()?.ErrorMessage</p>
     }
 </div>
+
+@section Scripts {
+    <script src="https://unpkg.com/easymde/dist/easymde.min.js"></script>
+    <script>
+        // Коли сторінка завантажиться, перетворюємо textarea на крутий редактор
+        document.addEventListener("DOMContentLoaded", function () {
+        const easyMDE = new EasyMDE({
+        element: document.getElementById('PostContent'),
+        spellChecker: false, // Відключаємо підкреслення слів (щоб не заважало)
+        placeholder: "Напишіть тут щось цікаве...",
+        autosave: {
+        enabled: true,
+        uniqueId: "CreatePostDraft", // Якщо закрити вкладку, текст не зникне
+        delay: 1000,
+        }
+        });
+        });
+    </script>
+}

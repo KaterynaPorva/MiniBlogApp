@@ -5,6 +5,8 @@
     ViewData["Title"] = "Редагувати пост";
 }
 
+<link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css">
+
 <style>
     body {
         background-color: #5C4033;
@@ -82,6 +84,16 @@
         .btn-submit:hover {
             background-color: #e0dcb5; 
         }
+
+    .EasyMDEContainer .CodeMirror {
+        border-radius: 15px;
+        border-color: #ccc;
+    }
+    .EasyMDEContainer .editor-toolbar {
+        border-radius: 15px 15px 0 0;
+        border-color: #ccc;
+        background-color: #f9f9f9;
+    }
 </style>
 
 <div class="posts-container">
@@ -93,9 +105,11 @@
     </div>
 
     <form method="post">
+        <input type="hidden" asp-for="Id" />
+
         <div>
             <label>Заголовок:</label>
-            <input asp-for="Title" />
+            <input type="text" asp-for="Title" />
         </div>
 
         <div>
@@ -106,3 +120,15 @@
         <button type="submit" class="btn-submit">Зберегти зміни</button>
     </form>
 </div>
+
+@section Scripts {
+    <script src="https://unpkg.com/easymde/dist/easymde.min.js"></script>
+    <script>
+        // Ініціалізуємо редактор, прив'язуючись до поля PostContent
+        const easyMDE = new EasyMDE({
+            element: document.getElementById('PostContent'),
+            spellChecker: false, // Вимикаємо англійський спелчекер
+            placeholder: "Внесіть зміни у ваш текст тут..."
+        });
+    </script>
+}
