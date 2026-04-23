@@ -1,5 +1,5 @@
 ﻿<!DOCTYPE html>
-<html lang="uk">
+<html lang="uk" data-bs-theme="light">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -10,60 +10,121 @@
     <link rel="stylesheet" href="~/MiniBlogApp.styles.css" asp-append-version="true" />
 
     <style>
-        body {
-            background-color: #5C4033; /* темно-коричневий фон */
-            color: #333;
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-
-        header {
-            background-color: #f5f5dc; /* молочний */
-            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
-            text-align: center;
-            padding: 15px 0;
-            font-size: 24px;
-            font-weight: bold;
-            color: #5C4033;
-        }
-
-        main {
-            flex: 1;
-            background-color: #ffffff;
-            border-radius: 16px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.15);
-            padding: 30px;
-            max-width: 900px;
-            margin: 40px auto;
-        }
-
-        footer {
-            background-color: #f5f5dc;
-            color: #5C4033;
-            text-align: center;
-            padding: 10px 0;
-            font-size: 14px;
-            border-top: 1px solid #ccc;
-        }
-
-            footer a {
-                color: #5C4033;
-                text-decoration: none;
+            /* === БАЗОВІ СТИЛІ (Світла тема) === */
+            body {
+                background-color: #5C4033; /* темно-коричневий фон */
+                color: #333;
+                font-family: Arial, sans-serif;
+                margin: 0;
+                padding: 0;
+                display: flex;
+                flex-direction: column;
+                min-height: 100vh;
+                transition: background-color 0.3s, color 0.3s; /* Плавна зміна кольорів */
             }
 
-                footer a:hover {
-                    text-decoration: underline;
+            header {
+                background-color: #f5f5dc; /* молочний */
+                box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+                text-align: center;
+                padding: 15px 0;
+                font-size: 24px;
+                font-weight: bold;
+                color: #5C4033;
+                position: relative; /* Для позиціонування кнопки теми */
+                transition: background-color 0.3s, color 0.3s;
+            }
+
+            main {
+                flex: 1;
+                background-color: #ffffff;
+                border-radius: 16px;
+                box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+                padding: 30px;
+                max-width: 900px;
+                margin: 40px auto;
+                width: 100%;
+                transition: background-color 0.3s, color 0.3s;
+            }
+
+            footer {
+                background-color: #f5f5dc;
+                color: #5C4033;
+                text-align: center;
+                padding: 10px 0;
+                font-size: 14px;
+                border-top: 1px solid #ccc;
+                transition: background-color 0.3s, color 0.3s;
+            }
+
+                footer a {
+                    color: #5C4033;
+                    text-decoration: none;
+                }
+
+                    footer a:hover {
+                        text-decoration: underline;
+                    }
+
+            /* Кнопка перемикання теми */
+            .theme-toggle-btn {
+                position: absolute;
+                right: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+                background: none;
+                border: 2px solid #5C4033;
+                color: #5C4033;
+                padding: 4px 10px;
+                border-radius: 20px;
+                cursor: pointer;
+                font-size: 16px;
+                transition: all 0.3s;
+            }
+
+                .theme-toggle-btn:hover {
+                    background-color: #5C4033;
+                    color: #f5f5dc;
+                }
+
+            /* === ТЕМНА ТЕМА === */
+            [data-bs-theme="dark"] body {
+                background-color: #1a1a1a; /* Темно-сірий фон сторінки */
+                color: #e0e0e0;
+            }
+
+            [data-bs-theme="dark"] header,
+            [data-bs-theme="dark"] footer {
+                background-color: #2d2d2d; /* Темніший хедер/футер */
+                color: #e0e0e0;
+                border-color: #444;
+            }
+
+            [data-bs-theme="dark"] main {
+                background-color: #2b2b2b; /* Темний блок для контенту */
+                box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+                color: #e0e0e0;
+            }
+
+            [data-bs-theme="dark"] footer a {
+                color: #90caf9; /* Блакитні посилання у футері */
+            }
+
+            [data-bs-theme="dark"] .theme-toggle-btn {
+                border-color: #e0e0e0;
+                color: #e0e0e0;
+            }
+
+                [data-bs-theme="dark"] .theme-toggle-btn:hover {
+                    background-color: #e0e0e0;
+                    color: #2d2d2d;
                 }
     </style>
 </head>
-
 <body>
     <header>
         @MiniBlogApp.Models.BlogSettings.Instance.BlogName
+        <button class="theme-toggle-btn" id="theme-toggle" title="Перемкнути тему">🌓 Тема</button>
     </header>
 
     <main role="main">
@@ -74,10 +135,57 @@
         @MiniBlogApp.Models.BlogSettings.Instance.FooterText - <a asp-page="/Privacy">Privacy</a>
     </footer>
 
+    <button id="btn-scroll-top" class="btn btn-secondary shadow"
+            style="display: none; position: fixed; bottom: 30px; right: 30px; border-radius: 50%; width: 50px; height: 50px; z-index: 1000; font-size: 20px; opacity: 0.8;">
+        ↑
+    </button>
+
     @await Component.InvokeAsync("NToastNotify")
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
+
+    <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // --- 1. ТЕМНА/СВІТЛА ТЕМА ---
+                const themeToggleBtn = document.getElementById('theme-toggle');
+                const htmlElement = document.documentElement;
+
+                // Читаємо збережену тему (або ставимо світлу за замовчуванням)
+                const savedTheme = localStorage.getItem('theme') || 'light';
+                htmlElement.setAttribute('data-bs-theme', savedTheme);
+
+                themeToggleBtn.addEventListener('click', () => {
+                    const currentTheme = htmlElement.getAttribute('data-bs-theme');
+                    const newTheme = currentTheme === 'dark' ? 'light' : 'dark';
+                
+                    // Змінюємо тему
+                    htmlElement.setAttribute('data-bs-theme', newTheme);
+                    // Зберігаємо вибір у браузері
+                    localStorage.setItem('theme', newTheme);
+                });
+
+                // --- 2. КНОПКА "ВГОРУ" ---
+                const btnScrollTop = document.getElementById("btn-scroll-top");
+
+                window.onscroll = function () {
+                    // Показуємо кнопку, якщо прокрутили більше 100px
+                    if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                        btnScrollTop.style.display = "block";
+                    } else {
+                        btnScrollTop.style.display = "none";
+                    }
+                };
+
+                btnScrollTop.addEventListener("click", function () {
+                    // Плавно прокручуємо нагору
+                    window.scrollTo({
+                        top: 0,
+                        behavior: "smooth"
+                    });
+                });
+            });
+    </script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
