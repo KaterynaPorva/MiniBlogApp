@@ -117,7 +117,7 @@
   Високорівневі модулі не залежать від низькорівневих.  
   Всі залежності впроваджуються через **Dependency Injection** у `Program.cs`
 
-### Посилання на звіт до 3 етапа
+## Посилання на звіт до 3 етапа
 **[Переглянути звіт (Google Drive)](https://drive.google.com/file/d/11ZotyG90wulSE8jztYSpM16vZs0CjZXW/view?usp=drive_link)**
 
 ## Документація та CI/CD
