@@ -9,7 +9,6 @@ on:
 jobs:
   build-deploy:
     runs-on: ubuntu-latest
-    # ЦЕЙ БЛОК ВАЖЛИВИЙ: дозволяємо боту записувати результати на сайт
     permissions:
       contents: write
 
@@ -23,16 +22,13 @@ jobs:
         run: sudo apt-get update && sudo apt-get install -y doxygen graphviz
 
       - name: Generate Doxygen documentation
-        # Переконайся, що Doxyfile лежить у корені проєкту поруч із .sln
         run: doxygen Doxyfile
 
       - name: List files
-        # Цей крок покаже нам у логах, де саме створилася папка (html чи docs/html)
         run: ls -R
 
       - name: Deploy to GitHub Pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          # Якщо в Doxyfile ти не міняла налаштування, папка називається html
-          publish_dir: ./html
+          publish_dir: ./docs/html
