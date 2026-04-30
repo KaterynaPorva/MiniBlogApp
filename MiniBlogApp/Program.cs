@@ -5,7 +5,7 @@ using MiniBlogApp.Services;
 using MiniBlogApp.Builders;
 using MiniBlogApp.Facades;
 using MiniBlogApp.Observers;
-using MiniBlogApp.Proxies; // 1. ДОДАЛИ: Підключення папки з нашим Proxy
+using MiniBlogApp.Proxies;
 using System;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -31,14 +31,14 @@ builder.Services.AddSession(options =>
 builder.Services.AddSingleton<UserService>();
 builder.Services.AddSingleton<IActivityLogger, LoggerService>();
 
-// ✅ 1. Реєструємо базове сховище
-builder.Services.AddSingleton<BlogStorage>();
+// ✅ 1. Реєструємо НОВЕ ПОТОКОБЕЗПЕЧНЕ базове сховище
+builder.Services.AddSingleton<ConcurrentBlogStorage>();
 
 // ✅ 2. Proxy + Decorator (Збираємо "матрьошку" патернів)
 builder.Services.AddSingleton<IBlogStorage>(provider =>
 {
-    // Крок 1: Отримуємо базове сховище
-    var baseStorage = provider.GetRequiredService<BlogStorage>();
+    // Крок 1: Отримуємо наше потокобезпечне сховище
+    var baseStorage = provider.GetRequiredService<ConcurrentBlogStorage>();
 
     // Крок 2: Обгортаємо його в КЕШУЮЧИЙ PROXY (Замісник)
     var cachedStorage = new CachedBlogStorageProxy(baseStorage);
@@ -71,7 +71,6 @@ builder.Services.AddScoped<IBlogFacade>(provider =>
 // =======================
 // 🔹 BUILD APP
 // =======================
-
 var app = builder.Build();
 
 if (!app.Environment.IsDevelopment())
@@ -86,7 +85,6 @@ app.UseRouting();
 app.UseSession();
 app.UseAuthorization();
 app.UseNToastNotify();
-
 app.MapRazorPages();
 
 app.Run();
