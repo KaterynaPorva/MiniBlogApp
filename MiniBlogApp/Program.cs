@@ -68,6 +68,9 @@ builder.Services.AddScoped<IBlogFacade>(provider =>
     return facade;
 });
 
+// ✅ 3. ДОДАНО: Фоновий симулятор активності (запускається в окремому потоці)
+builder.Services.AddHostedService<BotSimulationService>();
+
 // =======================
 // 🔹 BUILD APP
 // =======================
