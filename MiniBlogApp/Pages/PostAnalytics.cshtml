@@ -34,47 +34,84 @@
         margin-bottom: 20px;
     }
 
-        .links a {
-            color: #5C4033;
-            text-decoration: none;
-            font-weight: bold;
-            margin: 0 10px;
-        }
-
-            .links a:hover {
-                text-decoration: underline;
-            }
-
-    ul {
-        list-style-type: disc;
-        padding-left: 20px;
+    .links a {
+        color: #5C4033;
+        text-decoration: none;
+        font-weight: bold;
+        margin: 0 10px;
     }
 
-    li {
-        margin-bottom: 5px;
+    .links a:hover {
+        text-decoration: underline;
+    }
+
+    /* Анімація пульсації для бейджа "LIVE" */
+    .pulse-badge {
+        animation: pulse-animation 2s infinite;
+        vertical-align: middle;
+    }
+    @@keyframes pulse-animation {
+        0% { box-shadow: 0 0 0 0px rgba(220, 53, 69, 0.7); }
+        70% { box-shadow: 0 0 0 10px rgba(220, 53, 69, 0); }
+        100% { box-shadow: 0 0 0 0 rgba(220, 53, 69, 0); }
     }
 </style>
 
 <div class="posts-container">
-    <h2>Аналіз постів</h2>
+    <div class="d-flex justify-content-center align-items-center mb-3">
+        <h2 class="mb-0">Аналітика постів</h2>
+        <span class="badge bg-danger ms-3 pulse-badge">LIVE</span>
+    </div>
 
     <div class="links">
         <a href="/Index">⬅ На головну</a>
     </div>
 
-    <h3>Аналіз постів</h3>
-    <ul>
-        @foreach (var a in Model.AnalyzedPosts)
-        {
-            <li>@a</li>
-        }
-    </ul>
+    <p class="text-muted text-center mb-4">
+        Ця сторінка оновлюється в реальному часі. Ви можете спостерігати за активністю фонових потоків (ботів-симуляторів).
+    </p>
 
-    <h3>Сумарний аналіз постів</h3>
-    <ul>
-        @foreach (var s in Model.Summary)
-        {
-            <li>@s</li>
-        }
-    </ul>
+    <!-- Живі картки зі статистикою -->
+    <div class="row text-center">
+        <div class="col-md-4">
+            <div class="card text-white bg-primary mb-3 shadow" style="border-radius: 15px;">
+                <div class="card-body">
+                    <h5 class="card-title">Усього дописів</h5>
+                    <h1 class="card-text display-4 fw-bold" id="totalPosts">@Model.TotalPosts</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-white bg-success mb-3 shadow" style="border-radius: 15px;">
+                <div class="card-body">
+                    <h5 class="card-title">Усього лайків</h5>
+                    <h1 class="card-text display-4 fw-bold" id="totalLikes">@Model.TotalLikes</h1>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="card text-white bg-info mb-3 shadow" style="border-radius: 15px;">
+                <div class="card-body">
+                    <h5 class="card-title">Коментарів</h5>
+                    <h1 class="card-text display-4 fw-bold" id="totalComments">@Model.TotalComments</h1>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+@section Scripts {
+    <script>
+        // AJAX запит кожні 2 секунди для оновлення цифр
+        setInterval(function () {
+            fetch('?handler=LiveStats')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('totalPosts').innerText = data.totalPosts;
+                    document.getElementById('totalLikes').innerText = data.totalLikes;
+                    document.getElementById('totalComments').innerText = data.totalComments;
+                })
+                .catch(error => console.error('Помилка оновлення статистики:', error));
+        }, 2000);
+    </script>
+}
