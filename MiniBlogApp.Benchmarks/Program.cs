@@ -1,90 +1,72 @@
-﻿using Microsoft.AspNetCore.Builder;
-using Microsoft.Extensions.DependencyInjection;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using BenchmarkDotNet.Attributes;
+using BenchmarkDotNet.Running;
+using MiniBlogApp.Models;
+using MiniBlogApp.Strategies;
 
-/**
- * @file Program.cs
- * @brief Main entry point for the MiniBlogApp application.
- * @details
- * Configures the web host, registers necessary services such as Razor Pages and UserService,
- * sets up session management and middleware, and starts the web application.
- * The default route redirects to the login page.
- */
-
-var builder = WebApplication.CreateBuilder(args);
-
-builder.Services.AddMvc().AddNToastNotifyToastr();
-
-/**
- * @brief Registers Razor Pages support.
- * @details Enables handling of .cshtml page requests throughout the application.
- */
-builder.Services.AddRazorPages();
-
-/**
- * @brief Configures user session management.
- * @details
- * Session settings include:
- * - Idle timeout: 30 minutes
- * - Cookie is HTTP-only
- * - Cookie is essential
- * - SameSite policy: Lax
- * This allows tracking the current user across requests.
- */
-builder.Services.AddSession(options =>
+namespace MiniBlogApp.Benchmarks
 {
-    options.IdleTimeout = TimeSpan.FromMinutes(30);
-    options.Cookie.HttpOnly = true;
-    options.Cookie.IsEssential = true;
-    options.Cookie.SameSite = SameSiteMode.Lax;
-});
+    // Цей атрибут додасть до результатів колонку з витратами оперативної пам'яті
+    [MemoryDiagnoser]
+    public class PostAnalyticsBenchmarks
+    {
+        private List<Post> _posts;
+        private IPostAnalyticsStrategy _sequentialStrategy;
+        private IPostAnalyticsStrategy _parallelStrategy;
 
-/**
- * @brief Registers the UserService.
- * @details
- * UserService manages user-related operations, including authentication.
- * It is registered as a singleton to provide a single instance across the application.
- */
-builder.Services.AddSingleton<MiniBlogApp.Services.UserService>();
+        // Тестуємо алгоритми на двох обсягах даних: 10 тисяч та 100 тисяч постів
+        [Params(10000, 100000)]
+        public int PostCount { get; set; }
 
-var app = builder.Build();
+        [GlobalSetup]
+        public void Setup()
+        {
+            _sequentialStrategy = new SequentialPostAnalyticsStrategy();
+            _parallelStrategy = new ParallelPostAnalyticsStrategy();
 
-/**
- * @brief Configures error handling for production environment.
- * @details
- * Uses a general error page (/Error) instead of showing detailed exceptions.
- * Also enables HTTP Strict Transport Security (HSTS).
- */
-if (!app.Environment.IsDevelopment())
-{
-    app.UseExceptionHandler("/Error");
-    app.UseHsts();
+            var random = new Random(42); // Фіксований seed для повторюваності результатів
+
+            // Генеруємо масив фейкових постів для тестування
+            _posts = Enumerable.Range(1, PostCount).Select(i => new Post
+            {
+                Id = i,
+                Title = $"Post {i}",
+                Content = new string('A', random.Next(50, 500)),
+                Likes = Enumerable.Range(0, random.Next(0, 10)).Select(_ => new Like()).ToList(),
+                // Зверніть увагу: ми створюємо базові коментарі, щоб навантажити алгоритм
+                Comments = Enumerable.Range(0, random.Next(0, 5)).Select(_ => new Comment()).ToList()
+            }).ToList();
+        }
+
+        // Встановлюємо послідовний алгоритм як базовий (Baseline)
+        [Benchmark(Baseline = true)]
+        public int Sequential_Analytics()
+        {
+            int likes = _sequentialStrategy.CalculateTotalLikes(_posts);
+            int comments = _sequentialStrategy.CalculateTotalComments(_posts);
+            int length = _sequentialStrategy.CalculateTotalContentLength(_posts);
+            return likes + comments + length;
+        }
+
+        // Тестуємо паралельний алгоритм
+        [Benchmark]
+        public int Parallel_Analytics()
+        {
+            int likes = _parallelStrategy.CalculateTotalLikes(_posts);
+            int comments = _parallelStrategy.CalculateTotalComments(_posts);
+            int length = _parallelStrategy.CalculateTotalContentLength(_posts);
+            return likes + comments + length;
+        }
+    }
+
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Запуск процесу вимірювання
+            var summary = BenchmarkRunner.Run<PostAnalyticsBenchmarks>();
+        }
+    }
 }
-
-/** @brief Enforces HTTPS redirection. */
-app.UseHttpsRedirection();
-
-/** @brief Serves static files (CSS, JS, images, etc.). */
-app.UseStaticFiles();
-
-/** @brief Adds routing capabilities for handling requests. */
-app.UseRouting();
-
-/** @brief Enables user session support. */
-app.UseSession();
-
-/** @brief Enables authorization middleware. */
-app.UseAuthorization();
-
-app.UseNToastNotify();
-
-/** @brief Maps Razor Pages to the request pipeline. */
-app.MapRazorPages();
-
-/**
- * @brief Default route.
- * @details Redirects the root URL (/) to the login page.
- */
-app.MapGet("/", () => Results.Redirect("/Login"));
-
-/** @brief Starts the web application and begins listening for requests. */
-app.Run();
