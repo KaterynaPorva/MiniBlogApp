@@ -1,0 +1,9 @@
+<map id="MiniBlogApp.Tests.ServiceTests.BlogStorageAddLikeTests.AddLike_ShouldAddLike_WhenUserHasNotLikedBefore" name="MiniBlogApp.Tests.ServiceTests.BlogStorageAddLikeTests.AddLike_ShouldAddLike_WhenUserHasNotLikedBefore">
+<area shape="rect" id="Node000001" title="Verifies that a like is added when the user has not liked the post before." alt="" coords="5,23,303,92"/>
+<area shape="rect" id="Node000002" href="$classMiniBlogApp_1_1Services_1_1BlogStorage.html#a1b858ba0dd0de0e695ea806daaf09fd7" title=" " alt="" coords="351,5,547,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="303,38,337,35,337,40,303,44"/>
+<area shape="rect" id="Node000004" href="$classMiniBlogApp_1_1Services_1_1BlogStorage.html#a4cdac58bbe3cef687f389421ad64d784" title=" " alt="" coords="351,69,547,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="303,71,337,75,337,80,303,76"/>
+<area shape="rect" id="Node000003" href="$classMiniBlogApp_1_1Services_1_1BlogStorage.html#a170b5b0c311e8124d77dcc785672da16" title=" " alt="" coords="595,5,801,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="547,23,581,23,581,28,547,28"/>
+</map>

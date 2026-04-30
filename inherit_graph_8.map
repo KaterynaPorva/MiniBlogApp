@@ -1,0 +1,5 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" href="$interfaceMiniBlogApp_1_1Composites_1_1ICommentComponent.html" title="Загальний інтерфейс для патерну Composite." alt="" coords="5,5,263,45"/>
+<area shape="rect" id="Node000001" href="$classMiniBlogApp_1_1Models_1_1Comment.html" title="Клас коментаря, який реалізує патерн Composite." alt="" coords="311,13,533,38"/>
+<area shape="poly" id="edge4_Node000000_Node000001" title=" " alt="" coords="276,23,311,23,311,28,276,28"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="MiniBlogApp.Proxies.CachedBlogStorageProxy" name="MiniBlogApp.Proxies.CachedBlogStorageProxy">
+<area shape="rect" id="Node000001" title="ПАТЕРН PROXY (Замісник &#45; Кешуючий)." alt="" coords="42,108,250,148"/>
+<area shape="rect" id="Node000002" href="$interfaceMiniBlogApp_1_1Services_1_1IBlogStorage.html" title="Інтерфейс для роботи зі сховищем дописів." alt="" coords="5,13,111,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="79,47,131,106,127,110,75,50"/>
+<area shape="rect" id="Node000003" href="$interfaceMiniBlogApp_1_1Services_1_1IBlogStorage.html" title="Інтерфейс для роботи зі сховищем дописів." alt="" coords="134,5,334,45"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="210,58,164,110,160,106,206,54"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="MiniBlogApp.Pages.ViewPostModel" name="MiniBlogApp.Pages.ViewPostModel">
+<area shape="rect" id="Node000001" title=" " alt="" coords="31,108,241,148"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="5,13,99,38"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="72,47,122,106,118,110,68,50"/>
+<area shape="rect" id="Node000003" href="$interfaceMiniBlogApp_1_1Facades_1_1IBlogFacade.html" title="Контракт для Фасаду, що об&#39;єднує всі патерни." alt="" coords="123,5,320,45"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="198,58,154,110,150,106,194,54"/>
+</map>

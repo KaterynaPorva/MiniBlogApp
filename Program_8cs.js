@@ -1,0 +1,25 @@
+var Program_8cs =
+[
+    [ "AddHostedService< BotSimulationService >", "Program_8cs.html#aa748a9b6f409e271c68e5e7657233fee", null ],
+    [ "AddMvc", "Program_8cs.html#a437ffcc182dd0f6dac3303e4a662d65c", null ],
+    [ "AddRazorPages", "Program_8cs.html#a50ac3cc59e3f8d9e5c1a2734bd14b7f5", null ],
+    [ "AddScoped< IBlogFacade >", "Program_8cs.html#a3beec448c2cae1691d7099b7687e68f5", null ],
+    [ "AddSession", "Program_8cs.html#a1fa59e59766f4861db7ef1ba395fbb4f", null ],
+    [ "AddSingleton< ConcurrentBlogStorage >", "Program_8cs.html#af8e6f66c6d0efadbc2656eb99bd9a7f9", null ],
+    [ "AddSingleton< IActivityLogger, LoggerService >", "Program_8cs.html#a10ebb21825e3534db575293fe62ef581", null ],
+    [ "AddSingleton< IBlogStorage >", "Program_8cs.html#a0ee09eeab917785379e5cd931e1caa00", null ],
+    [ "AddSingleton< IMarkdownParser, MarkdigAdapter >", "Program_8cs.html#ae8590d20d97c311dc235a10aaa99ea53", null ],
+    [ "AddSingleton< UserService >", "Program_8cs.html#a288c9659a222bb61ba983e60e89d6873", null ],
+    [ "AddTransient< IPostBuilder, PostBuilder >", "Program_8cs.html#a610c71c7b48a19763fa777f8b4a76cba", null ],
+    [ "if", "Program_8cs.html#af2d0c02efe3fbc2d94e5b6e316777c4d", null ],
+    [ "MapRazorPages", "Program_8cs.html#aea1890390376604d4d91e0bdb76602a3", null ],
+    [ "Run", "Program_8cs.html#aaa3dbf02e269c3ef7e8546d290c6b3dd", null ],
+    [ "UseAuthorization", "Program_8cs.html#af6f72d752b2e73aa0292f74bd13237ab", null ],
+    [ "UseHttpsRedirection", "Program_8cs.html#aa4d447fc3129a3aa301d736b8bd04ae9", null ],
+    [ "UseNToastNotify", "Program_8cs.html#aa1e302398328fc4de047759deb8a4b7d", null ],
+    [ "UseRouting", "Program_8cs.html#a94c810d266751293a2d511a720a5625f", null ],
+    [ "UseSession", "Program_8cs.html#a5c33896bff93d8072abd01914b8370f8", null ],
+    [ "UseStaticFiles", "Program_8cs.html#a906a3ce545279a7a73941f1d7b64d7cf", null ],
+    [ "app", "Program_8cs.html#a7b225fcb720e4d5ed2bbf60e28a25e6d", null ],
+    [ "builder", "Program_8cs.html#a2f78352277081c620fd4cf92a5ce15e5", null ]
+];

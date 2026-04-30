@@ -1,0 +1,11 @@
+<map id="MiniBlogApp.Services.BlogStorage.GetPostById" name="MiniBlogApp.Services.BlogStorage.GetPostById">
+<area shape="rect" id="Node000001" title=" " alt="" coords="388,131,584,171"/>
+<area shape="rect" id="Node000002" href="$classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageAdvancedTests.html#a926a950518d2aefff07bfd0838ac5111" title="Tests adding a comment to a post." alt="" coords="5,5,340,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="442,126,393,99,339,74,306,63,308,58,341,69,396,94,444,122"/>
+<area shape="rect" id="Node000003" href="$classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageEdgeCaseTests.html#a77050fdef1a23f31b5a132396de535cd" title="Tests adding a comment with empty text." alt="" coords="34,84,311,139"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="374,140,311,132,312,126,374,134"/>
+<area shape="rect" id="Node000004" href="$classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageAdvancedTests.html#a8b4f3244ca995d5fbdf1147eba81690d" title="Tests deleting a post." alt="" coords="53,163,292,217"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="375,168,292,178,292,173,374,162"/>
+<area shape="rect" id="Node000005" href="$classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageAdvancedTests.html#abb350cdef01b43c174685877d4b88370" title="Tests updating the content of a post." alt="" coords="49,241,297,296"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="442,181,394,207,341,231,298,245,296,240,339,226,392,202,439,176"/>
+</map>

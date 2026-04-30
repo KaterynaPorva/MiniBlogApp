@@ -1,0 +1,6 @@
+<map id="MiniBlogApp.Models.BlogSettings" name="MiniBlogApp.Models.BlogSettings">
+<area shape="rect" id="Node000001" title="Реалізація патерну Singleton для керування глобальними налаштуваннями блогу." alt="" coords="5,93,247,119"/>
+<area shape="rect" id="Node000002" href="$classMiniBlogApp_1_1Models_1_1BlogSettings.html" title="Реалізація патерну Singleton для керування глобальними налаштуваннями блогу." alt="" coords="5,5,247,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="129,45,129,93,123,93,123,45"/>
+<area shape="poly" id="edge2_Node000002_Node000002" title=" " alt="" coords="261,10,273,18,265,25,247,28,246,22,263,20,268,18,259,15"/>
+</map>

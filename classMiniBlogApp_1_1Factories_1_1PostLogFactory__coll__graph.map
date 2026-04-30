@@ -1,0 +1,5 @@
+<map id="MiniBlogApp.Factories.PostLogFactory" name="MiniBlogApp.Factories.PostLogFactory">
+<area shape="rect" id="Node000001" title="Фабрика для створення логів нових постів." alt="" coords="5,79,204,119"/>
+<area shape="rect" id="Node000002" href="$classMiniBlogApp_1_1Factories_1_1LogFactory.html" title="Абстрактна фабрика для створення логів." alt="" coords="59,5,151,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="107,44,107,79,102,79,102,44"/>
+</map>

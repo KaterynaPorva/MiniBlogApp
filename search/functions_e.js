@@ -1,0 +1,16 @@
+var searchData=
+[
+  ['undo_0',['undo',['../classMiniBlogApp_1_1Commands_1_1LikeCommand.html#a2b88e5ac506c2208af3c05d54ce9e544',1,'MiniBlogApp.Commands.LikeCommand.Undo()'],['../interfaceMiniBlogApp_1_1Commands_1_1ICommand.html#a94c1677b9de110bf6bf76e4657547fdd',1,'MiniBlogApp.Commands.ICommand.Undo()']]],
+  ['undolastaction_1',['undolastaction',['../classMiniBlogApp_1_1Facades_1_1BlogFacade.html#a80dd664dcd6cacfe74f6cc166f933f2a',1,'MiniBlogApp.Facades.BlogFacade.UndoLastAction()'],['../interfaceMiniBlogApp_1_1Facades_1_1IBlogFacade.html#a5511d0fe911368311037385e346eaeb5',1,'MiniBlogApp.Facades.IBlogFacade.UndoLastAction()']]],
+  ['undolastcommand_2',['UndoLastCommand',['../classMiniBlogApp_1_1Commands_1_1CommandManager.html#a1ea926ac338be56fa06eaf91eac3ff00',1,'MiniBlogApp::Commands::CommandManager']]],
+  ['update_3',['update',['../classMiniBlogApp_1_1Observers_1_1CommentNotificationObserver.html#adf0b3681c053813575e6eb92984ae508',1,'MiniBlogApp.Observers.CommentNotificationObserver.Update()'],['../interfaceMiniBlogApp_1_1Observers_1_1IBlogObserver.html#a4bd5bb89eccae80fd5176e1711c30eac',1,'MiniBlogApp.Observers.IBlogObserver.Update()']]],
+  ['updatepost_4',['updatepost',['../interfaceMiniBlogApp_1_1Services_1_1IBlogStorage.html#a80277d0156d5773a5fa7e8071d5d6a6e',1,'MiniBlogApp.Services.IBlogStorage.UpdatePost()'],['../classMiniBlogApp_1_1Services_1_1LoggingBlogStorageDecorator.html#a03b3fab649597c9b396c1a6187a2d928',1,'MiniBlogApp.Services.LoggingBlogStorageDecorator.UpdatePost()'],['../classMiniBlogApp_1_1Services_1_1ConcurrentBlogStorage.html#a4371c45f195dcd3cb7db70eaee91531e',1,'MiniBlogApp.Services.ConcurrentBlogStorage.UpdatePost()'],['../classMiniBlogApp_1_1Services_1_1BlogStorage.html#a8382aab441976b6e4be64008f419c294',1,'MiniBlogApp.Services.BlogStorage.UpdatePost()'],['../classMiniBlogApp_1_1Proxies_1_1CachedBlogStorageProxy.html#a4b80aab00aec8e969b2ecc26ff5d3e74',1,'MiniBlogApp.Proxies.CachedBlogStorageProxy.UpdatePost()']]],
+  ['updatepost_5fshouldchangecontent_5',['UpdatePost_ShouldChangeContent',['../classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageAdvancedTests.html#abb350cdef01b43c174685877d4b88370',1,'MiniBlogApp::Tests::ServiceTests::BlogStorageAdvancedTests']]],
+  ['updatepost_5fshouldfailgracefully_5fwhenpostdoesnotexist_6',['UpdatePost_ShouldFailGracefully_WhenPostDoesNotExist',['../classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageEdgeCaseTests.html#a14b447df63ab31278a1db44729736b58',1,'MiniBlogApp::Tests::ServiceTests::BlogStorageEdgeCaseTests']]],
+  ['useauthorization_7',['UseAuthorization',['../Program_8cs.html#af6f72d752b2e73aa0292f74bd13237ab',1,'Program.cs']]],
+  ['usehttpsredirection_8',['UseHttpsRedirection',['../Program_8cs.html#aa4d447fc3129a3aa301d736b8bd04ae9',1,'Program.cs']]],
+  ['usentoastnotify_9',['UseNToastNotify',['../Program_8cs.html#aa1e302398328fc4de047759deb8a4b7d',1,'Program.cs']]],
+  ['userouting_10',['UseRouting',['../Program_8cs.html#a94c810d266751293a2d511a720a5625f',1,'Program.cs']]],
+  ['usesession_11',['UseSession',['../Program_8cs.html#a5c33896bff93d8072abd01914b8370f8',1,'Program.cs']]],
+  ['usestaticfiles_12',['UseStaticFiles',['../Program_8cs.html#a906a3ce545279a7a73941f1d7b64d7cf',1,'Program.cs']]]
+];

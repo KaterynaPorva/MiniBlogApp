@@ -1,0 +1,9 @@
+<map id="MiniBlogApp.Tests.ServiceTests.BlogStorageEdgeCaseTests.AddLike_ShouldBeCaseSensitive_Usernames" name="MiniBlogApp.Tests.ServiceTests.BlogStorageEdgeCaseTests.AddLike_ShouldBeCaseSensitive_Usernames">
+<area shape="rect" id="Node000001" title="Tests case sensitivity for usernames when adding likes." alt="" coords="5,23,244,92"/>
+<area shape="rect" id="Node000002" href="$classMiniBlogApp_1_1Services_1_1BlogStorage.html#a1b858ba0dd0de0e695ea806daaf09fd7" title=" " alt="" coords="292,5,488,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="244,40,278,36,279,41,245,46"/>
+<area shape="rect" id="Node000004" href="$classMiniBlogApp_1_1Services_1_1BlogStorage.html#a4cdac58bbe3cef687f389421ad64d784" title=" " alt="" coords="292,69,488,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="245,69,279,73,278,79,244,74"/>
+<area shape="rect" id="Node000003" href="$classMiniBlogApp_1_1Services_1_1BlogStorage.html#a170b5b0c311e8124d77dcc785672da16" title=" " alt="" coords="536,5,743,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="488,23,522,23,522,28,488,28"/>
+</map>

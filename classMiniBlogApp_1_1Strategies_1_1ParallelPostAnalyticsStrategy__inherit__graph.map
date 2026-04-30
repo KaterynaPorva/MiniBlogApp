@@ -1,0 +1,5 @@
+<map id="MiniBlogApp.Strategies.ParallelPostAnalyticsStrategy" name="MiniBlogApp.Strategies.ParallelPostAnalyticsStrategy">
+<area shape="rect" id="Node000001" title="Паралельна мультипоточна стратегія обчислення аналітики за допомогою PLINQ." alt="" coords="5,79,232,119"/>
+<area shape="rect" id="Node000002" href="$interfaceMiniBlogApp_1_1Strategies_1_1IPostAnalyticsStrategy.html" title="Інтерфейс стратегії для аналітики постів блогу." alt="" coords="34,5,203,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="121,44,121,79,116,79,116,44"/>
+</map>

@@ -1,0 +1,7 @@
+<map id="MiniBlogApp.Tests.ServiceTests.BlogStorageEdgeCaseTests.UpdatePost_ShouldFailGracefully_WhenPostDoesNotExist" name="MiniBlogApp.Tests.ServiceTests.BlogStorageEdgeCaseTests.UpdatePost_ShouldFailGracefully_WhenPostDoesNotExist">
+<area shape="rect" id="Node000001" title="Tests updating a post that does not exist." alt="" coords="5,5,244,75"/>
+<area shape="rect" id="Node000002" href="$classMiniBlogApp_1_1Services_1_1BlogStorage.html#a8382aab441976b6e4be64008f419c294" title=" " alt="" coords="292,20,488,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="244,37,278,37,278,43,244,43"/>
+<area shape="rect" id="Node000003" href="$classMiniBlogApp_1_1Services_1_1BlogStorage.html#a170b5b0c311e8124d77dcc785672da16" title=" " alt="" coords="536,20,743,60"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="488,37,522,37,522,43,488,43"/>
+</map>

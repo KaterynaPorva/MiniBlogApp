@@ -1,0 +1,5 @@
+<map id="MiniBlogApp.States.ModerationState" name="MiniBlogApp.States.ModerationState">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,79,232,119"/>
+<area shape="rect" id="Node000002" href="$interfaceMiniBlogApp_1_1States_1_1IPostState.html" title="Патерн State: Загальний інтерфейс для всіх станів поста." alt="" coords="75,5,163,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="121,44,121,79,116,79,116,44"/>
+</map>

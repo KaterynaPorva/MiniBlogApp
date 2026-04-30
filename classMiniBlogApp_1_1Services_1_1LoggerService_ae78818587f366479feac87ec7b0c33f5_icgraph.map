@@ -1,0 +1,11 @@
+<map id="MiniBlogApp.Services.LoggerService.GetLogs" name="MiniBlogApp.Services.LoggerService.GetLogs">
+<area shape="rect" id="Node000001" title=" " alt="" coords="400,131,611,171"/>
+<area shape="rect" id="Node000002" href="$classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageAdvancedTests.html#a926a950518d2aefff07bfd0838ac5111" title="Tests adding a comment to a post." alt="" coords="11,5,346,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="459,127,408,99,351,74,316,63,318,57,353,69,411,94,462,122"/>
+<area shape="rect" id="Node000003" href="$classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageAdvancedTests.html#ada5c45f0037e44547feb1500b704843d" title="Tests adding likes to a post." alt="" coords="19,84,338,139"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="386,139,338,134,339,128,387,134"/>
+<area shape="rect" id="Node000004" href="$classLoggerServiceAdvancedTests.html#a732dfd126f84d2c8c55e152ef542459f" title="Verifies that LoggerService stores messages for different types of user actions." alt="" coords="30,163,327,217"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="386,168,328,175,327,170,386,163"/>
+<area shape="rect" id="Node000005" href="$classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageAdvancedTests.html#ae0300ebf08f5bd96b83210576857689f" title="Tests adding multiple posts." alt="" coords="5,241,352,296"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="459,181,409,207,353,231,313,244,312,239,351,226,407,202,457,176"/>
+</map>

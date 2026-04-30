@@ -1,0 +1,7 @@
+<map id="LoggerServiceAdvancedTests.AddLog_ShouldStoreMessagesForDifferentActions" name="LoggerServiceAdvancedTests.AddLog_ShouldStoreMessagesForDifferentActions">
+<area shape="rect" id="Node000001" title="Verifies that LoggerService stores messages for different types of user actions." alt="" coords="5,30,303,85"/>
+<area shape="rect" id="Node000002" href="$classMiniBlogApp_1_1Services_1_1LoggerService.html#add864e8d9754449b461e58af4b51ac7f" title=" " alt="" coords="351,5,561,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="303,39,337,35,337,41,303,44"/>
+<area shape="rect" id="Node000003" href="$classMiniBlogApp_1_1Services_1_1LoggerService.html#ae78818587f366479feac87ec7b0c33f5" title=" " alt="" coords="351,69,561,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="303,70,337,74,337,79,303,76"/>
+</map>

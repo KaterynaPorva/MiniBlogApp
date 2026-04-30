@@ -1,0 +1,5 @@
+<map id="MiniBlogApp.Models.Comment" name="MiniBlogApp.Models.Comment">
+<area shape="rect" id="Node000001" title="Клас коментаря, який реалізує патерн Composite." alt="" coords="5,79,228,104"/>
+<area shape="rect" id="Node000002" href="$interfaceMiniBlogApp_1_1Composites_1_1ICommentComponent.html" title="Загальний інтерфейс для патерну Composite." alt="" coords="34,5,199,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="119,44,119,79,114,79,114,44"/>
+</map>

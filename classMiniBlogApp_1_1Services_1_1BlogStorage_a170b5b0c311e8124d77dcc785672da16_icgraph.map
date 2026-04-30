@@ -1,0 +1,41 @@
+<map id="MiniBlogApp.Services.BlogStorage.GetPostByIdInternal" name="MiniBlogApp.Services.BlogStorage.GetPostByIdInternal">
+<area shape="rect" id="Node000001" title=" " alt="" coords="632,326,839,366"/>
+<area shape="rect" id="Node000002" href="$classMiniBlogApp_1_1Services_1_1BlogStorage.html#aab4b12aa767418faa1604f0005fddec6" title=" " alt="" coords="388,91,584,131"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="713,315,659,239,623,198,582,160,539,134,541,129,586,156,627,194,663,236,717,312"/>
+<area shape="rect" id="Node000005" href="$classMiniBlogApp_1_1Services_1_1BlogStorage.html#a1b858ba0dd0de0e695ea806daaf09fd7" title=" " alt="" coords="388,475,584,515"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="690,376,522,478,519,473,688,371"/>
+<area shape="rect" id="Node000011" href="$classMiniBlogApp_1_1Services_1_1BlogStorage.html#af4a20aaddcf64ed90f707b385ea36ce9" title=" " alt="" coords="388,539,584,579"/>
+<area shape="poly" id="edge10_Node000001_Node000011" title=" " alt="" coords="718,379,665,454,628,495,586,530,563,542,561,537,582,525,624,491,660,451,714,376"/>
+<area shape="rect" id="Node000012" href="$classMiniBlogApp_1_1Services_1_1BlogStorage.html#ad6f8ac6276913167d0618544fcac3647" title=" " alt="" coords="388,253,584,293"/>
+<area shape="poly" id="edge11_Node000001_Node000012" title=" " alt="" coords="653,325,554,295,555,290,654,320"/>
+<area shape="rect" id="Node000014" href="$classMiniBlogApp_1_1Services_1_1BlogStorage.html#ab51db63cff22415b1638db17e6cfbe2e" title=" " alt="" coords="388,170,584,210"/>
+<area shape="poly" id="edge13_Node000001_Node000014" title=" " alt="" coords="695,320,583,243,527,212,530,208,585,238,698,316"/>
+<area shape="rect" id="Node000016" href="$classMiniBlogApp_1_1Services_1_1BlogStorage.html#adc4d633db45f90b3aa8503a3ade2f89a" title=" " alt="" coords="388,603,584,643"/>
+<area shape="poly" id="edge18_Node000001_Node000016" title=" " alt="" coords="725,380,705,427,675,485,635,543,612,570,586,593,566,606,563,601,582,589,608,566,631,540,671,482,700,425,720,378"/>
+<area shape="rect" id="Node000017" href="$classMiniBlogApp_1_1Services_1_1BlogStorage.html#a8382aab441976b6e4be64008f419c294" title=" " alt="" coords="388,326,584,366"/>
+<area shape="poly" id="edge19_Node000001_Node000017" title=" " alt="" coords="618,349,584,349,584,343,618,343"/>
+<area shape="rect" id="Node000003" href="$classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageAdvancedTests.html#a926a950518d2aefff07bfd0838ac5111" title="Tests adding a comment to a post." alt="" coords="5,5,340,60"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="401,90,339,74,294,63,295,57,341,69,402,85"/>
+<area shape="rect" id="Node000004" href="$classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageEdgeCaseTests.html#a77050fdef1a23f31b5a132396de535cd" title="Tests adding a comment with empty text." alt="" coords="34,84,311,139"/>
+<area shape="poly" id="edge3_Node000002_Node000004" title=" " alt="" coords="374,114,312,114,312,109,374,109"/>
+<area shape="rect" id="Node000006" href="$classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageAddLikeTests.html#a94481ba55790720f50e31095d7f5d30d" title="Verifies that a like is added when the user has not liked the post before." alt="" coords="24,414,321,483"/>
+<area shape="poly" id="edge5_Node000005_Node000006" title=" " alt="" coords="374,481,321,473,322,468,375,476"/>
+<area shape="rect" id="Node000007" href="$classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageEdgeCaseTests.html#aec8ec0acfe2096ca777d79eda97e521a" title="Tests case sensitivity for usernames when adding likes." alt="" coords="53,507,292,577"/>
+<area shape="poly" id="edge6_Node000005_Node000007" title=" " alt="" coords="375,515,293,527,292,522,374,509"/>
+<area shape="rect" id="Node000008" href="$classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageAddLikeTests.html#a71aa18a48357b1b3b7f2ee5f5375d572" title="Verifies behavior when attempting to add a like to a non&#45;existent post." alt="" coords="23,601,322,670"/>
+<area shape="poly" id="edge7_Node000005_Node000008" title=" " alt="" coords="398,524,390,529,375,544,367,560,358,575,342,591,321,603,318,598,338,587,354,572,362,557,370,541,386,525,395,519"/>
+<area shape="rect" id="Node000009" href="$classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageAdvancedTests.html#ada5c45f0037e44547feb1500b704843d" title="Tests adding likes to a post." alt="" coords="13,695,332,749"/>
+<area shape="poly" id="edge8_Node000005_Node000009" title=" " alt="" coords="394,526,390,529,376,548,369,567,367,606,365,645,357,665,342,684,325,697,322,692,338,680,353,662,360,644,362,605,364,566,371,545,386,526,390,522"/>
+<area shape="rect" id="Node000010" href="$classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageAddLikeTests.html#ac1474c69a66afa195cf84cd0e36d3d78" title="Ensures that duplicate likes from the same user are not added." alt="" coords="39,773,306,828"/>
+<area shape="poly" id="edge9_Node000005_Node000010" title=" " alt="" coords="393,526,390,529,371,558,364,587,364,616,368,646,372,675,372,705,363,734,342,764,326,777,308,788,305,783,323,773,338,760,358,732,366,704,367,675,363,646,359,617,358,587,366,556,386,526,389,522"/>
+<area shape="rect" id="Node000013" href="$classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageAdvancedTests.html#a8b4f3244ca995d5fbdf1147eba81690d" title="Tests deleting a post." alt="" coords="53,163,292,217"/>
+<area shape="poly" id="edge12_Node000012_Node000013" title=" " alt="" coords="408,251,339,231,291,219,293,214,341,226,410,246"/>
+<area shape="poly" id="edge14_Node000014_Node000003" title=" " alt="" coords="417,166,386,145,370,126,363,107,355,90,338,73,319,62,322,58,342,69,359,87,367,105,375,123,390,141,420,162"/>
+<area shape="poly" id="edge15_Node000014_Node000004" title=" " alt="" coords="401,169,339,153,294,141,295,136,341,147,402,164"/>
+<area shape="poly" id="edge16_Node000014_Node000013" title=" " alt="" coords="374,193,292,193,292,187,374,187"/>
+<area shape="rect" id="Node000015" href="$classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageAdvancedTests.html#abb350cdef01b43c174685877d4b88370" title="Tests updating the content of a post." alt="" coords="49,241,297,296"/>
+<area shape="poly" id="edge17_Node000014_Node000015" title=" " alt="" coords="399,216,341,231,290,244,289,239,339,226,397,211"/>
+<area shape="poly" id="edge20_Node000017_Node000015" title=" " alt="" coords="394,325,339,311,288,299,289,293,341,306,395,320"/>
+<area shape="rect" id="Node000018" href="$classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageEdgeCaseTests.html#a14b447df63ab31278a1db44729736b58" title="Tests updating a post that does not exist." alt="" coords="53,321,292,390"/>
+<area shape="poly" id="edge21_Node000017_Node000018" title=" " alt="" coords="374,352,292,354,292,349,374,347"/>
+</map>

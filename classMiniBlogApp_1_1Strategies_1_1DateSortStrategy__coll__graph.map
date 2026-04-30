@@ -1,0 +1,5 @@
+<map id="MiniBlogApp.Strategies.DateSortStrategy" name="MiniBlogApp.Strategies.DateSortStrategy">
+<area shape="rect" id="Node000001" title="Конкретна стратегія: сортування постів за датою створення (найновіші перші)." alt="" coords="5,79,215,119"/>
+<area shape="rect" id="Node000002" href="$interfaceMiniBlogApp_1_1Strategies_1_1IPostSortStrategy.html" title="Інтерфейс для патерну Strategy." alt="" coords="43,5,177,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="113,44,113,79,107,79,107,44"/>
+</map>

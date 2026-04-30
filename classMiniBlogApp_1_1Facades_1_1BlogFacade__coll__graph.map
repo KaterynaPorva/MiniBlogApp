@@ -1,0 +1,11 @@
+<map id="MiniBlogApp.Facades.BlogFacade" name="MiniBlogApp.Facades.BlogFacade">
+<area shape="rect" id="Node000001" title=" " alt="" coords="440,87,633,127"/>
+<area shape="rect" id="Node000002" href="$interfaceMiniBlogApp_1_1Facades_1_1IBlogFacade.html" title="Контракт для Фасаду, що об&#39;єднує всі патерни." alt="" coords="82,5,182,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="196,24,300,41,417,66,479,85,478,90,415,71,299,46,195,29"/>
+<area shape="rect" id="Node000003" href="$interfaceMiniBlogApp_1_1Services_1_1IBlogStorage.html" title="Інтерфейс для роботи зі сховищем дописів." alt="" coords="32,55,232,95"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="246,82,440,97,440,102,246,87"/>
+<area shape="rect" id="Node000004" href="$interfaceMiniBlogApp_1_1Services_1_1IMarkdownParser.html" title="Інтерфейс для патерну Adapter." alt="" coords="13,119,251,159"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="265,127,416,115,439,113,440,119,416,121,266,132"/>
+<area shape="rect" id="Node000005" href="$classMiniBlogApp_1_1Commands_1_1CommandManager.html" title=" " alt="" coords="5,183,259,223"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="270,178,415,146,482,125,483,130,417,151,271,183"/>
+</map>

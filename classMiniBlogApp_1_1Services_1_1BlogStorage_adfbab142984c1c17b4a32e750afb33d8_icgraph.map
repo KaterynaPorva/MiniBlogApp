@@ -1,0 +1,5 @@
+<map id="MiniBlogApp.Services.BlogStorage.GetAllPosts" name="MiniBlogApp.Services.BlogStorage.GetAllPosts">
+<area shape="rect" id="Node000001" title=" " alt="" coords="292,13,488,53"/>
+<area shape="rect" id="Node000002" href="$classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageAddPostTests.html#ae9c84756161500aefa09cfbd90bdb7d2" title="Verifies that a new post is correctly added to storage." alt="" coords="5,5,244,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="278,35,244,35,244,30,278,30"/>
+</map>

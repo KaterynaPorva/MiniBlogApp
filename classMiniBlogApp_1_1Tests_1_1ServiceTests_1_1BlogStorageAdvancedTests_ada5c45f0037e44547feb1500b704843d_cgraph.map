@@ -1,0 +1,11 @@
+<map id="MiniBlogApp.Tests.ServiceTests.BlogStorageAdvancedTests.AddLike_ShouldLogMessageOnlyOncePerUser" name="MiniBlogApp.Tests.ServiceTests.BlogStorageAdvancedTests.AddLike_ShouldLogMessageOnlyOncePerUser">
+<area shape="rect" id="Node000001" title="Tests adding likes to a post." alt="" coords="5,62,324,117"/>
+<area shape="rect" id="Node000002" href="$classMiniBlogApp_1_1Services_1_1BlogStorage.html#a1b858ba0dd0de0e695ea806daaf09fd7" title=" " alt="" coords="379,5,575,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="298,59,365,45,366,51,299,65"/>
+<area shape="rect" id="Node000004" href="$classMiniBlogApp_1_1Services_1_1BlogStorage.html#a4cdac58bbe3cef687f389421ad64d784" title=" " alt="" coords="379,69,575,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="324,87,366,87,366,92,324,92"/>
+<area shape="rect" id="Node000005" href="$classMiniBlogApp_1_1Services_1_1LoggerService.html#ae78818587f366479feac87ec7b0c33f5" title=" " alt="" coords="372,133,583,173"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="299,114,366,128,365,133,298,119"/>
+<area shape="rect" id="Node000003" href="$classMiniBlogApp_1_1Services_1_1BlogStorage.html#a170b5b0c311e8124d77dcc785672da16" title=" " alt="" coords="631,5,837,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="575,23,617,23,617,28,575,28"/>
+</map>

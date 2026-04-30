@@ -1,0 +1,5 @@
+<map id="MiniBlogApp.Services.BotSimulationService" name="MiniBlogApp.Services.BotSimulationService">
+<area shape="rect" id="Node000001" title="Фоновий сервіс, що імітує активність користувачів (ботів) у системі." alt="" coords="5,79,195,119"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="27,5,173,31"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="103,44,103,79,97,79,97,44"/>
+</map>

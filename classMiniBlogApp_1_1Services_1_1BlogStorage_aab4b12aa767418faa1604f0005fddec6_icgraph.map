@@ -1,0 +1,7 @@
+<map id="MiniBlogApp.Services.BlogStorage.AddComment" name="MiniBlogApp.Services.BlogStorage.AddComment">
+<area shape="rect" id="Node000001" title=" " alt="" coords="388,53,584,93"/>
+<area shape="rect" id="Node000002" href="$classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageAdvancedTests.html#a926a950518d2aefff07bfd0838ac5111" title="Tests adding a comment to a post." alt="" coords="5,5,340,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="374,61,340,57,341,51,375,56"/>
+<area shape="rect" id="Node000003" href="$classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageEdgeCaseTests.html#a77050fdef1a23f31b5a132396de535cd" title="Tests adding a comment with empty text." alt="" coords="34,84,311,139"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="374,89,312,97,311,92,374,84"/>
+</map>

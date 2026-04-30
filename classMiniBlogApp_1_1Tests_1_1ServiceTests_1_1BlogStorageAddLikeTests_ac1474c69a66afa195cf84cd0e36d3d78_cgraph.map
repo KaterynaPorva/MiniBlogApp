@@ -1,0 +1,9 @@
+<map id="MiniBlogApp.Tests.ServiceTests.BlogStorageAddLikeTests.AddLike_ShouldNotAddDuplicateLikes" name="MiniBlogApp.Tests.ServiceTests.BlogStorageAddLikeTests.AddLike_ShouldNotAddDuplicateLikes">
+<area shape="rect" id="Node000001" title="Ensures that duplicate likes from the same user are not added." alt="" coords="5,30,272,85"/>
+<area shape="rect" id="Node000002" href="$classMiniBlogApp_1_1Services_1_1BlogStorage.html#a1b858ba0dd0de0e695ea806daaf09fd7" title=" " alt="" coords="320,5,516,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="272,39,306,35,306,41,273,45"/>
+<area shape="rect" id="Node000004" href="$classMiniBlogApp_1_1Services_1_1BlogStorage.html#a4cdac58bbe3cef687f389421ad64d784" title=" " alt="" coords="320,69,516,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="273,70,306,74,306,79,272,75"/>
+<area shape="rect" id="Node000003" href="$classMiniBlogApp_1_1Services_1_1BlogStorage.html#a170b5b0c311e8124d77dcc785672da16" title=" " alt="" coords="564,5,771,45"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="516,23,550,23,550,28,516,28"/>
+</map>

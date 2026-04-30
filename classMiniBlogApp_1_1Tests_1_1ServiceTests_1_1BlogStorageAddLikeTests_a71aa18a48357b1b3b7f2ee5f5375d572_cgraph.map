@@ -1,0 +1,7 @@
+<map id="MiniBlogApp.Tests.ServiceTests.BlogStorageAddLikeTests.AddLike_ShouldDoNothing_WhenPostDoesNotExist" name="MiniBlogApp.Tests.ServiceTests.BlogStorageAddLikeTests.AddLike_ShouldDoNothing_WhenPostDoesNotExist">
+<area shape="rect" id="Node000001" title="Verifies behavior when attempting to add a like to a non&#45;existent post." alt="" coords="5,5,304,75"/>
+<area shape="rect" id="Node000002" href="$classMiniBlogApp_1_1Services_1_1BlogStorage.html#a1b858ba0dd0de0e695ea806daaf09fd7" title=" " alt="" coords="352,20,548,60"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="304,37,338,37,338,43,304,43"/>
+<area shape="rect" id="Node000003" href="$classMiniBlogApp_1_1Services_1_1BlogStorage.html#a170b5b0c311e8124d77dcc785672da16" title=" " alt="" coords="596,20,803,60"/>
+<area shape="poly" id="edge2_Node000002_Node000003" title=" " alt="" coords="548,37,582,37,582,43,548,43"/>
+</map>

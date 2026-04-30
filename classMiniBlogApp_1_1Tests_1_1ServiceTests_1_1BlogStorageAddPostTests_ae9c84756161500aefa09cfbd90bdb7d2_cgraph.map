@@ -1,0 +1,7 @@
+<map id="MiniBlogApp.Tests.ServiceTests.BlogStorageAddPostTests.AddPost_ShouldAddPostCorrectly" name="MiniBlogApp.Tests.ServiceTests.BlogStorageAddPostTests.AddPost_ShouldAddPostCorrectly">
+<area shape="rect" id="Node000001" title="Verifies that a new post is correctly added to storage." alt="" coords="5,30,244,85"/>
+<area shape="rect" id="Node000002" href="$classMiniBlogApp_1_1Services_1_1BlogStorage.html#a4cdac58bbe3cef687f389421ad64d784" title=" " alt="" coords="292,5,488,45"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="244,40,278,36,279,41,245,46"/>
+<area shape="rect" id="Node000003" href="$classMiniBlogApp_1_1Services_1_1BlogStorage.html#adfbab142984c1c17b4a32e750afb33d8" title=" " alt="" coords="292,69,488,109"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="245,69,279,73,278,79,244,74"/>
+</map>

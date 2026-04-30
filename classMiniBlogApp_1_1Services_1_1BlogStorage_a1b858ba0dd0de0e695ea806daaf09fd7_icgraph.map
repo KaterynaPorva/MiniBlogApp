@@ -1,0 +1,13 @@
+<map id="MiniBlogApp.Services.BlogStorage.AddLike" name="MiniBlogApp.Services.BlogStorage.AddLike">
+<area shape="rect" id="Node000001" title=" " alt="" coords="372,207,568,247"/>
+<area shape="rect" id="Node000002" href="$classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageAddLikeTests.html#a94481ba55790720f50e31095d7f5d30d" title="Verifies that a like is added when the user has not liked the post before." alt="" coords="16,5,313,75"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="443,198,391,142,358,113,323,89,299,77,302,72,325,84,362,109,395,138,447,194"/>
+<area shape="rect" id="Node000003" href="$classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageEdgeCaseTests.html#aec8ec0acfe2096ca777d79eda97e521a" title="Tests case sensitivity for usernames when adding likes." alt="" coords="45,99,284,168"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="394,205,323,183,284,170,285,165,325,177,395,200"/>
+<area shape="rect" id="Node000004" href="$classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageAddLikeTests.html#a71aa18a48357b1b3b7f2ee5f5375d572" title="Verifies behavior when attempting to add a like to a non&#45;existent post." alt="" coords="15,192,314,261"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="358,229,314,229,314,224,358,224"/>
+<area shape="rect" id="Node000005" href="$classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageAdvancedTests.html#ada5c45f0037e44547feb1500b704843d" title="Tests adding likes to a post." alt="" coords="5,286,324,341"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="397,254,325,276,279,288,277,283,323,271,395,248"/>
+<area shape="rect" id="Node000006" href="$classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageAddLikeTests.html#ac1474c69a66afa195cf84cd0e36d3d78" title="Ensures that duplicate likes from the same user are not added." alt="" coords="31,365,298,419"/>
+<area shape="poly" id="edge5_Node000001_Node000006" title=" " alt="" coords="444,259,392,308,360,333,325,354,297,367,294,362,323,350,357,329,389,304,440,255"/>
+</map>

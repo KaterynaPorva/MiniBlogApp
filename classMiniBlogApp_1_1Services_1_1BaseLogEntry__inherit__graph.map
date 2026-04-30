@@ -1,0 +1,11 @@
+<map id="MiniBlogApp.Services.BaseLogEntry" name="MiniBlogApp.Services.BaseLogEntry">
+<area shape="rect" id="Node000001" title="ПАТЕРН TEMPLATE METHOD (Шаблонний метод)." alt="" coords="136,69,335,109"/>
+<area shape="rect" id="Node000003" href="$classMiniBlogApp_1_1Services_1_1CommentLogger.html" title=" " alt="" coords="383,5,613,45"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="331,63,415,43,416,48,332,69"/>
+<area shape="rect" id="Node000004" href="$classMiniBlogApp_1_1Services_1_1LikeLogger.html" title=" " alt="" coords="401,69,595,109"/>
+<area shape="poly" id="edge3_Node000001_Node000004" title=" " alt="" coords="348,87,401,87,401,92,348,92"/>
+<area shape="rect" id="Node000005" href="$classMiniBlogApp_1_1Services_1_1PostLogger.html" title=" " alt="" coords="401,133,595,173"/>
+<area shape="poly" id="edge4_Node000001_Node000005" title=" " alt="" coords="332,110,416,131,415,136,331,115"/>
+<area shape="rect" id="Node000002" href="$interfaceMiniBlogApp_1_1Services_1_1ILogEntry.html" title="Інтерфейс для об&#39;єктів записів у лог." alt="" coords="5,77,88,102"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="102,87,136,87,136,92,102,92"/>
+</map>
