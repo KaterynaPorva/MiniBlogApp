@@ -9,6 +9,8 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <link rel="stylesheet" href="~/MiniBlogApp.styles.css" asp-append-version="true" />
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" crossorigin="anonymous">
+
     <style>
             /* === БАЗОВІ СТИЛІ (Світла тема) === */
             body {
@@ -185,6 +187,23 @@
                     });
                 });
             });
+    </script>
+
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js" crossorigin="anonymous"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js" crossorigin="anonymous"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+        renderMathInElement(document.body, {
+        delimiters: [
+        {left: '$$', right: '$$', display: true}, // Для великих формул по центру
+        {left: '$', right: '$', display: false},  // Для формул у тексті
+        {left: '\\(', right: '\\)', display: false},
+        {left: '\\[', right: '\\]', display: true}
+        ],
+        throwOnError : false // Щоб помилка в одній формулі не ламала всю сторінку
+        });
+        });
     </script>
 
     @await RenderSectionAsync("Scripts", required: false)
