@@ -1,0 +1,52 @@
+﻿@page
+@model MiniBlogApp.Pages.SettingsModel
+@{
+    Layout = "_Layout";
+    ViewData["Title"] = "Налаштування системи";
+}
+
+<div class="container mt-5">
+    
+    <div class="mb-4">
+        <a href="/Index" class="btn btn-outline-dark" style="background-color: #f5f5dc; color: #5C4033; font-weight: bold; border-radius: 10px;">
+            &larr; Повернутися на Головну
+        </a>
+    </div>
+
+    <h2 style="color: #f5f5dc;">⚙️ Налаштування системи (Бекапи)</h2>
+    <hr style="border-color: #f5f5dc;" />
+    
+    <div class="row mt-4">
+        <div class="col-md-6 mb-3">
+            <div class="card shadow-sm border-success" style="border-radius: 15px;">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-success fw-bold">Створити бекап</h5>
+                    <p class="card-text text-muted">
+                        Зберегти всі поточні пости, лайки та коментарі у JSON файл. Це безпечно зупинить інші процеси на частку секунди.
+                    </p>
+                    <form method="post" asp-page-handler="CreateBackup">
+                        <button type="submit" class="btn btn-success btn-lg" style="border-radius: 10px;">
+                            💾 Зберегти дані
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mb-3">
+            <div class="card shadow-sm border-primary" style="border-radius: 15px;">
+                <div class="card-body text-center">
+                    <h5 class="card-title text-primary fw-bold">Відновити дані (Merge)</h5>
+                    <p class="card-text text-muted">
+                        Завантажити дані з бекапу. Старі пости будуть відновлені, а нові лайки та коментарі від ботів — збережені.
+                    </p>
+                    <form method="post" asp-page-handler="RestoreBackup">
+                        <button type="submit" class="btn btn-primary btn-lg" style="border-radius: 10px;">
+                            📂 Завантажити бекап
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

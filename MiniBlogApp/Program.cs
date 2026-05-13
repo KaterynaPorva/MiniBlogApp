@@ -48,6 +48,9 @@ builder.Services.AddSingleton<IBlogStorage>(provider =>
     return new LoggingBlogStorageDecorator(cachedStorage, logger);
 });
 
+// ✅ НОВИЙ СЕРВІС: Експорт та імпорт даних (бекапи)
+builder.Services.AddTransient<BackupService>();
+
 // Адаптер (Adapter Pattern)
 builder.Services.AddSingleton<IMarkdownParser, MarkdigAdapter>();
 
@@ -88,6 +91,7 @@ app.UseRouting();
 app.UseSession();
 app.UseAuthorization();
 app.UseNToastNotify();
+
 app.MapRazorPages();
 
 app.Run();
