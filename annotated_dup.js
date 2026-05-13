@@ -44,12 +44,14 @@ var annotated_dup =
         [ "MyPostsModel", "classMiniBlogApp_1_1Pages_1_1MyPostsModel.html", "classMiniBlogApp_1_1Pages_1_1MyPostsModel" ],
         [ "PostAnalyticsModel", "classMiniBlogApp_1_1Pages_1_1PostAnalyticsModel.html", "classMiniBlogApp_1_1Pages_1_1PostAnalyticsModel" ],
         [ "PrivacyModel", "classMiniBlogApp_1_1Pages_1_1PrivacyModel.html", "classMiniBlogApp_1_1Pages_1_1PrivacyModel" ],
+        [ "SettingsModel", "classMiniBlogApp_1_1Pages_1_1SettingsModel.html", "classMiniBlogApp_1_1Pages_1_1SettingsModel" ],
         [ "ViewPostModel", "classMiniBlogApp_1_1Pages_1_1ViewPostModel.html", "classMiniBlogApp_1_1Pages_1_1ViewPostModel" ]
       ] ],
       [ "Proxies", "namespaceMiniBlogApp_1_1Proxies.html", [
         [ "CachedBlogStorageProxy", "classMiniBlogApp_1_1Proxies_1_1CachedBlogStorageProxy.html", "classMiniBlogApp_1_1Proxies_1_1CachedBlogStorageProxy" ]
       ] ],
       [ "Services", "namespaceMiniBlogApp_1_1Services.html", [
+        [ "BackupService", "classMiniBlogApp_1_1Services_1_1BackupService.html", "classMiniBlogApp_1_1Services_1_1BackupService" ],
         [ "BaseLogEntry", "classMiniBlogApp_1_1Services_1_1BaseLogEntry.html", "classMiniBlogApp_1_1Services_1_1BaseLogEntry" ],
         [ "BlogStorage", "classMiniBlogApp_1_1Services_1_1BlogStorage.html", "classMiniBlogApp_1_1Services_1_1BlogStorage" ],
         [ "BotSimulationService", "classMiniBlogApp_1_1Services_1_1BotSimulationService.html", "classMiniBlogApp_1_1Services_1_1BotSimulationService" ],

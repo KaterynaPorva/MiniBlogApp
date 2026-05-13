@@ -53,11 +53,11 @@ var NAVTREE =
 
 var NAVTREEINDEX =
 [
-"BlogFacade_8cs.html",
-"classMiniBlogApp_1_1Models_1_1BlogUser.html",
-"classMiniBlogApp_1_1Proxies_1_1CachedBlogStorageProxy.html#ab8a462509f1fc30906556f5ec59d17e5",
-"classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageAddPostTests.html",
-"interfaceMiniBlogApp_1_1Strategies_1_1IPostAnalyticsStrategy.html"
+"BackupService_8cs.html",
+"classMiniBlogApp_1_1Models_1_1BlogSettings.html#a94c2d3910f4a90d7e19d5ea34c4543d8",
+"classMiniBlogApp_1_1Proxies_1_1CachedBlogStorageProxy.html#a4b80aab00aec8e969b2ecc26ff5d3e74",
+"classMiniBlogApp_1_1States_1_1DraftState.html#ab27eb569738925d2c364e5c65c5da4bf",
+"interfaceMiniBlogApp_1_1Facades_1_1IBlogFacade.html#ab6778c12404bc865d8c46936fbe4b234"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

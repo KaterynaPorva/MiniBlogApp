@@ -59,7 +59,7 @@
 <!-- Node4 -->
 <g id="Node000004" class="node">
 <title>Node4</title>
-<g id="a_Node000004"><a xlink:href="classMiniBlogApp_1_1Services_1_1ConcurrentBlogStorage.html" target="_top" xlink:title="Потокобезпечне сховище дописів на основі ReaderWriterLockSlim.">
+<g id="a_Node000004"><a xlink:href="classMiniBlogApp_1_1Services_1_1ConcurrentBlogStorage.html" target="_top" xlink:title=" ">
 <polygon fill="white" stroke="#666666" points="365,-78 186,-78 186,-48 365,-48 365,-78"/>
 <text text-anchor="start" x="194" y="-66" font-family="Helvetica,sans-Serif" font-size="10.00">MiniBlogApp.Services.Concurrent</text>
 <text text-anchor="middle" x="275.5" y="-55" font-family="Helvetica,sans-Serif" font-size="10.00">BlogStorage</text>

@@ -3,6 +3,7 @@ var hierarchy =
     [ "BackgroundService", null, [
       [ "MiniBlogApp.Services.BotSimulationService", "classMiniBlogApp_1_1Services_1_1BotSimulationService.html", null ]
     ] ],
+    [ "MiniBlogApp.Services.BackupService", "classMiniBlogApp_1_1Services_1_1BackupService.html", null ],
     [ "MiniBlogApp.Models.BlogSettings", "classMiniBlogApp_1_1Models_1_1BlogSettings.html", null ],
     [ "MiniBlogApp.Tests.ServiceTests.BlogStorageAddLikeTests", "classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageAddLikeTests.html", null ],
     [ "MiniBlogApp.Tests.ServiceTests.BlogStorageAddPostTests", "classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageAddPostTests.html", null ],
@@ -11,6 +12,7 @@ var hierarchy =
     [ "MiniBlogApp.Tests.ServiceTests.BlogStorageTestsCollection", "classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageTestsCollection.html", null ],
     [ "MiniBlogApp.Models.BlogUser", "classMiniBlogApp_1_1Models_1_1BlogUser.html", null ],
     [ "MiniBlogApp.Commands.CommandManager", "classMiniBlogApp_1_1Commands_1_1CommandManager.html", null ],
+    [ "MiniBlogApp.Services.ConcurrentBlogStorage.CommentBackupDto", "classMiniBlogApp_1_1Services_1_1ConcurrentBlogStorage_1_1CommentBackupDto.html", null ],
     [ "MiniBlogApp.Tests.ServiceTests.ConcurrentBlogStorageTests", "classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1ConcurrentBlogStorageTests.html", null ],
     [ "ErrorModel", "classErrorModel.html", null ],
     [ "MiniBlogApp.Services.IActivityLogger", "interfaceMiniBlogApp_1_1Services_1_1IActivityLogger.html", [
@@ -79,6 +81,7 @@ var hierarchy =
       [ "MiniBlogApp.Pages.MyPostsModel", "classMiniBlogApp_1_1Pages_1_1MyPostsModel.html", null ],
       [ "MiniBlogApp.Pages.PostAnalyticsModel", "classMiniBlogApp_1_1Pages_1_1PostAnalyticsModel.html", null ],
       [ "MiniBlogApp.Pages.PrivacyModel", "classMiniBlogApp_1_1Pages_1_1PrivacyModel.html", null ],
+      [ "MiniBlogApp.Pages.SettingsModel", "classMiniBlogApp_1_1Pages_1_1SettingsModel.html", null ],
       [ "MiniBlogApp.Pages.ViewPostModel", "classMiniBlogApp_1_1Pages_1_1ViewPostModel.html", null ]
     ] ],
     [ "MiniBlogApp.Models.Post", "classMiniBlogApp_1_1Models_1_1Post.html", null ],
@@ -86,6 +89,7 @@ var hierarchy =
     [ "MiniBlogApp.Services.PostAnalyzer< T >", "classMiniBlogApp_1_1Services_1_1PostAnalyzer.html", null ],
     [ "PostAnalyzer< T >", "classPostAnalyzer.html", null ],
     [ "MiniBlogApp.Tests.UtilsTests.PostAnalyzerTests", "classMiniBlogApp_1_1Tests_1_1UtilsTests_1_1PostAnalyzerTests.html", null ],
+    [ "MiniBlogApp.Services.ConcurrentBlogStorage.PostBackupDto", "classMiniBlogApp_1_1Services_1_1ConcurrentBlogStorage_1_1PostBackupDto.html", null ],
     [ "MiniBlogApp.Tests.UtilsTests.PostStatsUtilsTests", "classMiniBlogApp_1_1Tests_1_1UtilsTests_1_1PostStatsUtilsTests.html", null ],
     [ "PrivacyModel", "classPrivacyModel.html", null ],
     [ "MiniBlogApp.Services.UserService", "classMiniBlogApp_1_1Services_1_1UserService.html", null ],

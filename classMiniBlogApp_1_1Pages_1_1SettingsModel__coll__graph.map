@@ -1,0 +1,11 @@
+<map id="MiniBlogApp.Pages.SettingsModel" name="MiniBlogApp.Pages.SettingsModel">
+<area shape="rect" id="Node000001" title=" " alt="" coords="5,285,208,325"/>
+<area shape="rect" id="Node000002" title=" " alt="" coords="39,190,132,215"/>
+<area shape="poly" id="edge1_Node000001_Node000002" title=" " alt="" coords="93,228,105,285,100,286,88,229"/>
+<area shape="rect" id="Node000003" href="$classMiniBlogApp_1_1Services_1_1BackupService.html" title=" " alt="" coords="157,183,371,223"/>
+<area shape="poly" id="edge2_Node000001_Node000003" title=" " alt="" coords="224,232,138,288,135,283,221,228"/>
+<area shape="rect" id="Node000004" href="$classMiniBlogApp_1_1Services_1_1ConcurrentBlogStorage.html" title=" " alt="" coords="145,80,383,120"/>
+<area shape="poly" id="edge3_Node000003_Node000004" title=" " alt="" coords="267,134,267,183,261,183,261,134"/>
+<area shape="rect" id="Node000005" href="$interfaceMiniBlogApp_1_1Services_1_1IBlogStorage.html" title="Інтерфейс для роботи зі сховищем дописів." alt="" coords="211,5,317,31"/>
+<area shape="poly" id="edge4_Node000004_Node000005" title=" " alt="" coords="267,44,267,80,261,80,261,44"/>
+</map>

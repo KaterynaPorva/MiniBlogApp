@@ -7,10 +7,11 @@ var searchData=
   ['postanalyticsstrategytests_4',['PostAnalyticsStrategyTests',['../classMiniBlogApp_1_1Tests_1_1StrategiesTests_1_1PostAnalyticsStrategyTests.html',1,'MiniBlogApp::Tests::StrategiesTests']]],
   ['postanalyzer_5',['postanalyzer',['../classMiniBlogApp_1_1Services_1_1PostAnalyzer.html',1,'MiniBlogApp.Services.PostAnalyzer&lt; T &gt;'],['../classPostAnalyzer.html',1,'PostAnalyzer&lt; T &gt;']]],
   ['postanalyzertests_6',['PostAnalyzerTests',['../classMiniBlogApp_1_1Tests_1_1UtilsTests_1_1PostAnalyzerTests.html',1,'MiniBlogApp::Tests::UtilsTests']]],
-  ['postbuilder_7',['PostBuilder',['../classMiniBlogApp_1_1Builders_1_1PostBuilder.html',1,'MiniBlogApp::Builders']]],
-  ['postlogfactory_8',['PostLogFactory',['../classMiniBlogApp_1_1Factories_1_1PostLogFactory.html',1,'MiniBlogApp::Factories']]],
-  ['postlogger_9',['PostLogger',['../classMiniBlogApp_1_1Services_1_1PostLogger.html',1,'MiniBlogApp::Services']]],
-  ['poststatsutilstests_10',['PostStatsUtilsTests',['../classMiniBlogApp_1_1Tests_1_1UtilsTests_1_1PostStatsUtilsTests.html',1,'MiniBlogApp::Tests::UtilsTests']]],
-  ['privacymodel_11',['privacymodel',['../classMiniBlogApp_1_1Pages_1_1PrivacyModel.html',1,'MiniBlogApp.Pages.PrivacyModel'],['../classPrivacyModel.html',1,'PrivacyModel']]],
-  ['publishedstate_12',['PublishedState',['../classMiniBlogApp_1_1States_1_1PublishedState.html',1,'MiniBlogApp::States']]]
+  ['postbackupdto_7',['PostBackupDto',['../classMiniBlogApp_1_1Services_1_1ConcurrentBlogStorage_1_1PostBackupDto.html',1,'MiniBlogApp::Services::ConcurrentBlogStorage']]],
+  ['postbuilder_8',['PostBuilder',['../classMiniBlogApp_1_1Builders_1_1PostBuilder.html',1,'MiniBlogApp::Builders']]],
+  ['postlogfactory_9',['PostLogFactory',['../classMiniBlogApp_1_1Factories_1_1PostLogFactory.html',1,'MiniBlogApp::Factories']]],
+  ['postlogger_10',['PostLogger',['../classMiniBlogApp_1_1Services_1_1PostLogger.html',1,'MiniBlogApp::Services']]],
+  ['poststatsutilstests_11',['PostStatsUtilsTests',['../classMiniBlogApp_1_1Tests_1_1UtilsTests_1_1PostStatsUtilsTests.html',1,'MiniBlogApp::Tests::UtilsTests']]],
+  ['privacymodel_12',['privacymodel',['../classMiniBlogApp_1_1Pages_1_1PrivacyModel.html',1,'MiniBlogApp.Pages.PrivacyModel'],['../classPrivacyModel.html',1,'PrivacyModel']]],
+  ['publishedstate_13',['PublishedState',['../classMiniBlogApp_1_1States_1_1PublishedState.html',1,'MiniBlogApp::States']]]
 ];

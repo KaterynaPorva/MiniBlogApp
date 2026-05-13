@@ -5,5 +5,6 @@ var searchData=
   ['replies_2',['Replies',['../classMiniBlogApp_1_1Models_1_1Comment.html#a0939888d2ac61a620bf5354eda0a35aa',1,'MiniBlogApp::Models::Comment']]],
   ['requestid_3',['RequestId',['../classMiniBlogApp_1_1Pages_1_1ErrorModel.html#a6f32a7068b61790a1eb0959af432ed9f',1,'MiniBlogApp::Pages::ErrorModel']]],
   ['reset_4',['Reset',['../classMiniBlogApp_1_1Builders_1_1PostBuilder.html#ae5af24ed7b32f9cdce247439a01c7f41',1,'MiniBlogApp::Builders::PostBuilder']]],
-  ['run_5',['Run',['../Program_8cs.html#aaa3dbf02e269c3ef7e8546d290c6b3dd',1,'Program.cs']]]
+  ['restorefrombackupasync_5',['RestoreFromBackupAsync',['../classMiniBlogApp_1_1Services_1_1BackupService.html#add1a9a915197f0a346249ad27851e65a',1,'MiniBlogApp::Services::BackupService']]],
+  ['run_6',['Run',['../Program_8cs.html#aaa3dbf02e269c3ef7e8546d290c6b3dd',1,'Program.cs']]]
 ];

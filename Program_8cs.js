@@ -10,6 +10,7 @@ var Program_8cs =
     [ "AddSingleton< IBlogStorage >", "Program_8cs.html#a0ee09eeab917785379e5cd931e1caa00", null ],
     [ "AddSingleton< IMarkdownParser, MarkdigAdapter >", "Program_8cs.html#ae8590d20d97c311dc235a10aaa99ea53", null ],
     [ "AddSingleton< UserService >", "Program_8cs.html#a288c9659a222bb61ba983e60e89d6873", null ],
+    [ "AddTransient< BackupService >", "Program_8cs.html#a181ca520499162fb7879464c51da0c80", null ],
     [ "AddTransient< IPostBuilder, PostBuilder >", "Program_8cs.html#a610c71c7b48a19763fa777f8b4a76cba", null ],
     [ "if", "Program_8cs.html#af2d0c02efe3fbc2d94e5b6e316777c4d", null ],
     [ "MapRazorPages", "Program_8cs.html#aea1890390376604d4d91e0bdb76602a3", null ],

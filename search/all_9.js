@@ -7,7 +7,7 @@ var searchData=
   ['likelogfactory_4',['LikeLogFactory',['../classMiniBlogApp_1_1Factories_1_1LikeLogFactory.html',1,'MiniBlogApp::Factories']]],
   ['likelogfactory_2ecs_5',['LikeLogFactory.cs',['../LikeLogFactory_8cs.html',1,'']]],
   ['likelogger_6',['LikeLogger',['../classMiniBlogApp_1_1Services_1_1LikeLogger.html',1,'MiniBlogApp::Services']]],
-  ['likes_7',['Likes',['../classMiniBlogApp_1_1Models_1_1Post.html#a34fd3c3a4ddb7c5e811d642d84fb3057',1,'MiniBlogApp::Models::Post']]],
+  ['likes_7',['likes',['../classMiniBlogApp_1_1Services_1_1ConcurrentBlogStorage_1_1PostBackupDto.html#a8faa9e0dab811ab4b4d3f029b961bd2c',1,'MiniBlogApp.Services.ConcurrentBlogStorage.PostBackupDto.Likes'],['../classMiniBlogApp_1_1Models_1_1Post.html#a34fd3c3a4ddb7c5e811d642d84fb3057',1,'MiniBlogApp.Models.Post.Likes']]],
   ['likessummary_8',['LikesSummary',['../classMiniBlogApp_1_1Tests_1_1ServiceTests_1_1BlogStorageEdgeCaseTests.html#abeb25ac46edf245e330b195c1df4e458',1,'MiniBlogApp::Tests::ServiceTests::BlogStorageEdgeCaseTests']]],
   ['logfactory_9',['LogFactory',['../classMiniBlogApp_1_1Factories_1_1LogFactory.html',1,'MiniBlogApp::Factories']]],
   ['logfactory_2ecs_10',['LogFactory.cs',['../LogFactory_8cs.html',1,'']]],

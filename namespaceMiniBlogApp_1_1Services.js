@@ -1,5 +1,6 @@
 var namespaceMiniBlogApp_1_1Services =
 [
+    [ "BackupService", "classMiniBlogApp_1_1Services_1_1BackupService.html", "classMiniBlogApp_1_1Services_1_1BackupService" ],
     [ "BaseLogEntry", "classMiniBlogApp_1_1Services_1_1BaseLogEntry.html", "classMiniBlogApp_1_1Services_1_1BaseLogEntry" ],
     [ "BlogStorage", "classMiniBlogApp_1_1Services_1_1BlogStorage.html", "classMiniBlogApp_1_1Services_1_1BlogStorage" ],
     [ "BotSimulationService", "classMiniBlogApp_1_1Services_1_1BotSimulationService.html", "classMiniBlogApp_1_1Services_1_1BotSimulationService" ],

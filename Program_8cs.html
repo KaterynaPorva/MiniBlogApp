@@ -117,6 +117,8 @@ Functions</h2></td></tr>
 <tr class="separator:af8e6f66c6d0efadbc2656eb99bd9a7f9"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a0ee09eeab917785379e5cd931e1caa00" id="r_a0ee09eeab917785379e5cd931e1caa00"><td class="memItemLeft" align="right" valign="top">builder.Services.&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Program_8cs.html#a0ee09eeab917785379e5cd931e1caa00">AddSingleton&lt; IBlogStorage &gt;</a> (<a class="el" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">provider</a>=&gt; { <a class="el" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">var</a> <a class="el" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">baseStorage</a>=provider.GetRequiredService&lt; <a class="el" href="classMiniBlogApp_1_1Services_1_1ConcurrentBlogStorage.html">ConcurrentBlogStorage</a> &gt;();<a class="el" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">var</a> <a class="el" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">cachedStorage</a>=<a class="el" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">new</a> <a class="el" href="classMiniBlogApp_1_1Proxies_1_1CachedBlogStorageProxy.html">CachedBlogStorageProxy</a>(<a class="el" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">baseStorage</a>);<a class="el" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">var</a> <a class="el" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">logger</a>=provider.GetRequiredService&lt; <a class="el" href="interfaceMiniBlogApp_1_1Services_1_1IActivityLogger.html">IActivityLogger</a> &gt;();<a class="el" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">return</a> <a class="el" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">new</a> <a class="el" href="classMiniBlogApp_1_1Services_1_1LoggingBlogStorageDecorator.html">LoggingBlogStorageDecorator</a>(<a class="el" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">cachedStorage</a>, <a class="el" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">logger</a>);})</td></tr>
 <tr class="separator:a0ee09eeab917785379e5cd931e1caa00"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a181ca520499162fb7879464c51da0c80" id="r_a181ca520499162fb7879464c51da0c80"><td class="memItemLeft" align="right" valign="top">builder.Services.&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Program_8cs.html#a181ca520499162fb7879464c51da0c80">AddTransient&lt; BackupService &gt;</a> ()</td></tr>
+<tr class="separator:a181ca520499162fb7879464c51da0c80"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ae8590d20d97c311dc235a10aaa99ea53" id="r_ae8590d20d97c311dc235a10aaa99ea53"><td class="memItemLeft" align="right" valign="top">builder.Services.&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Program_8cs.html#ae8590d20d97c311dc235a10aaa99ea53">AddSingleton&lt; IMarkdownParser, MarkdigAdapter &gt;</a> ()</td></tr>
 <tr class="separator:ae8590d20d97c311dc235a10aaa99ea53"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a610c71c7b48a19763fa777f8b4a76cba" id="r_a610c71c7b48a19763fa777f8b4a76cba"><td class="memItemLeft" align="right" valign="top">builder.Services.&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="Program_8cs.html#a610c71c7b48a19763fa777f8b4a76cba">AddTransient&lt; IPostBuilder, PostBuilder &gt;</a> ()</td></tr>
@@ -355,6 +357,23 @@ Variables</h2></td></tr>
 
 </div>
 </div>
+<a id="a181ca520499162fb7879464c51da0c80" name="a181ca520499162fb7879464c51da0c80"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a181ca520499162fb7879464c51da0c80">&#9670;&#160;</a></span>AddTransient&lt; BackupService &gt;()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">builder.Services. <a class="el" href="classMiniBlogApp_1_1Services_1_1PostAnalyzer.html">AddTransient</a>&lt; <a class="el" href="classMiniBlogApp_1_1Services_1_1BackupService.html">BackupService</a> &gt; </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+</div>
+</div>
 <a id="a610c71c7b48a19763fa777f8b4a76cba" name="a610c71c7b48a19763fa777f8b4a76cba"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a610c71c7b48a19763fa777f8b4a76cba">&#9670;&#160;</a></span>AddTransient&lt; IPostBuilder, PostBuilder &gt;()</h2>
 
@@ -388,12 +407,12 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Program_8cs_source.html#l00079">79</a> of file <a class="el" href="Program_8cs_source.html">Program.cs</a>.</p>
-<div class="fragment"><div class="line"><span class="lineno">   80</span>{</div>
-<div class="line"><span class="lineno">   81</span>    <a class="code hl_variable" href="Program_8cs.html#a7b225fcb720e4d5ed2bbf60e28a25e6d">app</a>.UseExceptionHandler(<span class="stringliteral">&quot;/Error&quot;</span>);</div>
-<div class="line"><span class="lineno">   82</span>    <a class="code hl_variable" href="Program_8cs.html#a7b225fcb720e4d5ed2bbf60e28a25e6d">app</a>.UseHsts();</div>
-<div class="line"><span class="lineno">   83</span>}</div>
-<div class="ttc" id="aProgram_8cs_html_a7b225fcb720e4d5ed2bbf60e28a25e6d"><div class="ttname"><a href="Program_8cs.html#a7b225fcb720e4d5ed2bbf60e28a25e6d">app</a></div><div class="ttdeci">var app</div><div class="ttdef"><b>Definition</b> <a href="Program_8cs_source.html#l00077">Program.cs:77</a></div></div>
+<p class="definition">Definition at line <a class="el" href="Program_8cs_source.html#l00082">82</a> of file <a class="el" href="Program_8cs_source.html">Program.cs</a>.</p>
+<div class="fragment"><div class="line"><span class="lineno">   83</span>{</div>
+<div class="line"><span class="lineno">   84</span>    <a class="code hl_variable" href="Program_8cs.html#a7b225fcb720e4d5ed2bbf60e28a25e6d">app</a>.UseExceptionHandler(<span class="stringliteral">&quot;/Error&quot;</span>);</div>
+<div class="line"><span class="lineno">   85</span>    <a class="code hl_variable" href="Program_8cs.html#a7b225fcb720e4d5ed2bbf60e28a25e6d">app</a>.UseHsts();</div>
+<div class="line"><span class="lineno">   86</span>}</div>
+<div class="ttc" id="aProgram_8cs_html_a7b225fcb720e4d5ed2bbf60e28a25e6d"><div class="ttname"><a href="Program_8cs.html#a7b225fcb720e4d5ed2bbf60e28a25e6d">app</a></div><div class="ttdeci">var app</div><div class="ttdef"><b>Definition</b> <a href="Program_8cs_source.html#l00080">Program.cs:80</a></div></div>
 </div><!-- fragment -->
 </div>
 </div>
@@ -546,9 +565,9 @@ Variables</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p class="definition">Definition at line <a class="el" href="Program_8cs_source.html#l00077">77</a> of file <a class="el" href="Program_8cs_source.html">Program.cs</a>.</p>
+<p class="definition">Definition at line <a class="el" href="Program_8cs_source.html#l00080">80</a> of file <a class="el" href="Program_8cs_source.html">Program.cs</a>.</p>
 
-<p class="reference">Referenced by <a class="el" href="Program_8cs_source.html#l00079">if()</a>.</p>
+<p class="reference">Referenced by <a class="el" href="Program_8cs_source.html#l00082">if()</a>.</p>
 
 </div>
 </div>

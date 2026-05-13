@@ -1,0 +1,25 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="Node000000" title=" " alt="" coords="5,282,99,307"/>
+<area shape="rect" id="Node000001" href="$classMiniBlogApp_1_1Pages_1_1CreatePostModel.html" title=" " alt="" coords="169,5,363,45"/>
+<area shape="poly" id="edge27_Node000000_Node000001" title=" " alt="" coords="53,268,61,222,78,165,104,106,123,79,145,55,168,40,171,45,148,59,127,82,109,109,83,167,67,223,59,269"/>
+<area shape="rect" id="Node000002" href="$classMiniBlogApp_1_1Pages_1_1EditPostModel.html" title=" " alt="" coords="165,69,367,109"/>
+<area shape="poly" id="edge28_Node000000_Node000002" title=" " alt="" coords="58,268,69,234,87,194,112,154,145,119,164,107,167,112,148,123,116,157,92,196,74,236,63,270"/>
+<area shape="rect" id="Node000003" href="$classMiniBlogApp_1_1Pages_1_1ErrorModel.html" title=" " alt="" coords="155,134,377,159"/>
+<area shape="poly" id="edge29_Node000000_Node000003" title=" " alt="" coords="63,268,95,217,118,190,145,168,169,157,171,162,148,173,122,194,99,220,67,271"/>
+<area shape="rect" id="Node000004" href="$classMiniBlogApp_1_1Pages_1_1IndexModel.html" title=" " alt="" coords="153,183,379,209"/>
+<area shape="poly" id="edge30_Node000000_Node000004" title=" " alt="" coords="73,270,106,242,146,218,177,206,178,211,148,222,109,247,77,274"/>
+<area shape="rect" id="Node000005" href="$classMiniBlogApp_1_1Pages_1_1LoginModel.html" title=" " alt="" coords="153,233,379,258"/>
+<area shape="poly" id="edge31_Node000000_Node000005" title=" " alt="" coords="110,276,146,267,198,255,199,261,147,272,111,281"/>
+<area shape="rect" id="Node000006" href="$classMiniBlogApp_1_1Pages_1_1LogsModel.html" title=" " alt="" coords="156,282,376,307"/>
+<area shape="poly" id="edge32_Node000000_Node000006" title=" " alt="" coords="112,292,156,292,156,297,112,297"/>
+<area shape="rect" id="Node000007" href="$classMiniBlogApp_1_1Pages_1_1MyPostsModel.html" title=" " alt="" coords="163,332,369,372"/>
+<area shape="poly" id="edge33_Node000000_Node000007" title=" " alt="" coords="112,308,191,329,190,335,111,313"/>
+<area shape="rect" id="Node000008" href="$classMiniBlogApp_1_1Pages_1_1PostAnalyticsModel.html" title=" " alt="" coords="147,396,385,436"/>
+<area shape="poly" id="edge34_Node000000_Node000008" title=" " alt="" coords="74,316,106,350,148,382,174,394,172,398,145,386,103,354,70,320"/>
+<area shape="rect" id="Node000009" href="$classMiniBlogApp_1_1Pages_1_1PrivacyModel.html" title=" " alt="" coords="167,460,365,500"/>
+<area shape="poly" id="edge35_Node000000_Node000009" title=" " alt="" coords="65,319,95,384,119,417,148,446,168,458,165,462,145,450,115,421,91,386,60,322"/>
+<area shape="rect" id="Node000010" href="$classMiniBlogApp_1_1Pages_1_1SettingsModel.html" title=" " alt="" coords="165,524,367,564"/>
+<area shape="poly" id="edge36_Node000000_Node000010" title=" " alt="" coords="60,321,69,363,85,414,111,466,128,489,148,510,166,522,163,526,145,514,124,493,107,469,81,416,64,364,55,322"/>
+<area shape="rect" id="Node000011" href="$classMiniBlogApp_1_1Pages_1_1ViewPostModel.html" title=" " alt="" coords="161,588,371,628"/>
+<area shape="poly" id="edge37_Node000000_Node000011" title=" " alt="" coords="57,321,62,374,77,443,88,478,104,513,124,546,148,574,164,586,161,590,145,578,119,549,99,516,83,480,71,444,57,375,52,321"/>
+</map>
